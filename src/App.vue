@@ -1,18 +1,19 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <hello></hello>
+
+    <my-map></my-map>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+import MyMap from './components/Map'
 import axios from 'axios';
 
 export default {
   name: 'app',
   components: {
-    Hello
+    MyMap
   },
   created: function() {
     axios.get('/api/farm').then(res => {
