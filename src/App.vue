@@ -7,11 +7,17 @@
 
 <script>
 import Hello from './components/Hello'
+import axios from 'axios';
 
 export default {
   name: 'app',
   components: {
     Hello
+  },
+  created: function() {
+    axios.get('/api/farm').then(res => {
+      console.log(res);
+    });
   }
 }
 </script>
