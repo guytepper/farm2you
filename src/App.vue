@@ -3,17 +3,31 @@
     <img src="./assets/logo.png">
 
     <my-map></my-map>
+
+    <div class="farm-cards">
+      <farm-card v-for="farm in farms" :farm="farm"></farm-card>
+    </div>
   </div>
 </template>
 
 <script>
 import MyMap from './components/Map'
+import FarmCard from './components/FarmCard'
 import axios from 'axios';
 
 export default {
   name: 'app',
   components: {
-    MyMap
+    MyMap, FarmCard
+  },
+  data: function() {
+    return {
+      farms: [{
+        name: 'משק בן יהודה'
+      }, {
+        name: 'הגינה הארגנית'
+      }]
+    }
   },
   created: function() {
     axios.get('/api/farm').then(res => {
