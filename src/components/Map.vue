@@ -4,18 +4,28 @@
 
 <script>
 import L from 'leaflet';
-let farm = {
-  type: 'Feature',
-  properties: {
-    "amenity": "Baseball Stadium",
-    "popupContent": "This is where the Rockies play!",
-    "name": 'My cool farm'
-  },
-  geometry: {
-    type: 'Point',
-    coordinates: [34.894993399999976, 32.3397543]}
-}
-
+let farms = [
+    {
+      type: 'Feature',
+      properties: {
+        "name": 'משק בן יהודה'
+      },
+      geometry: {
+        type: 'Point',
+        coordinates: [34.894993399999976, 32.3397543]
+      }
+    },
+    {
+      type: 'Feature',
+      properties: {
+        "name": 'הגינה האורגנית'
+      },
+      geometry: {
+        type: 'Point',
+        coordinates: [34.89038110000001, 32.3383156]
+      }
+    }
+  ];
 export default {
   name: 'mymap',
   mounted: function() {
@@ -26,10 +36,10 @@ export default {
       id: 'mapbox.streets',
       accessToken: 'pk.eyJ1IjoiZ3V5dGVwcGVyIiwiYSI6ImNpdmdwcHB3YjAwNmkyenA0NTd5Nng1N2IifQ.Zk6lVem6vQDq5_UKuk-zBg'
       }).addTo(mymap);
-    L.geoJSON(farm, {
+    L.geoJSON(farms, {
       onEachFeature: function(feature, layer) {
-        if (feature.properties && feature.properties.popupContent) {
-          layer.bindPopup(feature.properties.popupContent);
+        if (feature.properties && feature.properties.name) {
+          layer.bindPopup(feature.properties.name);
         }
       }
     }).addTo(mymap);
