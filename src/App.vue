@@ -22,16 +22,13 @@ export default {
   },
   data: function() {
     return {
-      farms: [{
-        name: 'משק בן יהודה'
-      }, {
-        name: 'הגינה הארגנית'
-      }]
+      farms: []
     }
   },
   created: function() {
+    // Get farms from DB
     axios.get('/api/farm').then(res => {
-      console.log(res);
+      this.$data.farms = res.data;
     });
   }
 }
