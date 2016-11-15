@@ -1,24 +1,26 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+      <my-map></my-map>
 
-    <my-map></my-map>
+      <div class="farm-cards">
+        <farm-list :farms="farms"></farm-list>
+      </div>
 
-    <div class="farm-cards">
-      <farm-card v-for="farm in farms" :farm="farm"></farm-card>
-    </div>
+    <router-view>
+    </router-view>
   </div>
 </template>
 
 <script>
 import MyMap from './components/Map'
-import FarmCard from './components/FarmCard'
+import FarmList from './components/FarmList'
 import axios from 'axios';
 
 export default {
   name: 'app',
   components: {
-    MyMap, FarmCard
+    MyMap, FarmList
   },
   data: function() {
     return {
@@ -29,6 +31,7 @@ export default {
     // Get farms from DB
     axios.get('/api/farm').then(res => {
       this.$data.farms = res.data;
+      console.log(this.$data.farms);
     });
   }
 }
