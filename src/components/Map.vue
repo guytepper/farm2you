@@ -49,6 +49,7 @@ export default {
 
 <style lang="css">
 #map {
+  display: none; /* Temp */
   height: 500px;
 }
 </style>
