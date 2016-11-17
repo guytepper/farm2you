@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-
+    <app-header></app-header>
     <my-map></my-map>
 
     <router-view></router-view>
@@ -8,24 +8,29 @@
 </template>
 
 <script>
+import AppHeader from './components/layout/AppHeader'
 import MyMap from './components/Map'
-import FarmList from './components/FarmList'
 import axios from 'axios';
 
 export default {
   name: 'app',
   components: {
-    MyMap
+    AppHeader, MyMap
   },
 }
 </script>
 
-<style>
+<style lang="scss">
+body {
+  margin: 0;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  margin-top: 60px;
+  margin: 0;
+}
+
+.container {
+    padding: 0 20px;
 }
 </style>
