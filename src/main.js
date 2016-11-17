@@ -6,10 +6,11 @@ Vue.use(VueRouter)
 
 const Foo = { template: '<div>foo</div>' }
 import FarmList from './components/FarmList';
+import FarmPage from './components/FarmPage';
 
 const routes = [
   { path: '/', component: FarmList },
-  { path: '/foo', component: Foo },
+  { path: '/farm', component: FarmPage },
 ]
 
 const router = new VueRouter({ routes })

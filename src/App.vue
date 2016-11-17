@@ -9,7 +9,6 @@
 
 <script>
 import MyMap from './components/Map'
-import FarmList from './components/FarmList'
 import axios from 'axios';
 
 export default {
