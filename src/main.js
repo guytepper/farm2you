@@ -12,7 +12,7 @@ Vue.use(Vuex)
 
 const routes = [
   { path: '/', component: FarmList },
-  { path: '/farm/:id', component: FarmPage },
+  { path: '/farm/:id', name: 'farm', component: FarmPage},
 ]
 
 const router = new VueRouter({ routes })
