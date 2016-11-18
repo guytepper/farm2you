@@ -4,7 +4,8 @@ import Vuex from 'Vuex'
 Vue.use(Vuex)
 
 // Temporary - dummy data
-const farms = {
+const farms = [{
+  "id": 1,
   "geometry": {
     "coordinates": [
       32.3397543,
@@ -16,7 +17,7 @@ const farms = {
     "name": "משק בן יהודה"
   },
   "type": "Feature"
-}
+}]
 
 export default new Vuex.Store({
   state: {
