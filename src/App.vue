@@ -21,6 +21,10 @@ export default {
 </script>
 
 <style lang="scss">
+html {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
 }
