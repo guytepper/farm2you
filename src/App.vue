@@ -30,7 +30,7 @@ body {
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Assistant', Helvetica, Arial, sans-serif;
   margin: 0;
 }
 
