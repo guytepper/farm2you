@@ -6,7 +6,6 @@
 
 <script>
 import FarmCard from './FarmCard'
-import axios from 'axios'
 
 export default {
   components: { FarmCard },
@@ -15,11 +14,8 @@ export default {
       farms: []
     }
   },
-  created: function() {
-    axios.get('/api/farm').then(res => {
-      this.$data.farms = res.data;
-      console.log(this.$data.farms);
-    });
+  created () {
+    this.farms = this.$store.state.farms
   }
 }
 </script>
