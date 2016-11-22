@@ -21,10 +21,6 @@ export default {
     height: 45px;
     align-items: center;
     background-color: $primary-color;
-
-    @include respond-at(768px) {
-      height: 85px;
-    };
   }
 
   .site-title a {
