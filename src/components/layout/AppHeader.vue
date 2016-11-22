@@ -1,6 +1,8 @@
 <template>
   <header class="header container">
-    <h1 class="site-title">ישר מהשדה</h1>
+    <h1 class="site-title">
+      <router-link to="/">ישר מהשדה</router-link>
+    </h1>
   </header>
 </template>
 
@@ -12,15 +14,20 @@ export default {
 
 <style lang="scss">
   @import '../../assets/scss/theme.scss';
+  @import '../../assets/scss/mixins.scss';
 
   .header {
-    width: 100%;
+    display: flex;
     height: 45px;
+    align-items: center;
     background-color: $primary-color;
   }
 
-  .site-title {
+  .site-title a {
     margin: 0;
+    font-size: 28px;
+    font-weight: 600;
     color: $primary-color-text;
+    text-decoration: none;
   }
 </style>

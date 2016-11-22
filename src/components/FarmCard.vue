@@ -4,7 +4,7 @@
         srcset="/static/images/farm-img-placeholder@2x.jpg 2x" />
     <div class="farm-card__info">
       <h2 class="farm-card__name">
-        <router-link to="/farm" :farm="farm">{{ farm.properties.name }}</router-link>
+        <router-link :to="{ name: 'farm', params: { id: farm.id }}">{{ farm.properties.name }}</router-link>
       </h2>
       <div class="farm-card__props">
         אורגני, משלוחים

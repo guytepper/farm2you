@@ -21,12 +21,16 @@ export default {
 </script>
 
 <style lang="scss">
+html {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Assistant', Helvetica, Arial, sans-serif;
   margin: 0;
 }
 
