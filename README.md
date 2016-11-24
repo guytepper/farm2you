@@ -4,10 +4,10 @@
 
 ## Installation
 1. Install dependencies using `npm install`
-2. Create a Firebase project using the [Firebase Console](https://firebase.google.com/console).
-3. In your project dashboard, click "Add Firebase to your web app".
-4. Copy the config object to `src/config/firebase.example.js`.
-5. Run `mv src/config/firebase.example.js src/config/firebase.js`
+2. Run `cp src/config/firebase.example.js src/config/firebase.js`
+3. Create a Firebase project using the [Firebase Console](https://firebase.google.com/console).
+4. In your project dashboard, click "Add Firebase to your web app".
+5. Copy the config object to `src/config/firebase.js`.
 
 ## Build Setup
 
