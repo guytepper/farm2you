@@ -1,26 +1,17 @@
 import Vue from 'vue'
 import Vuex from 'Vuex'
+import VuexFire from 'vuexfire'
+import Firebase from 'firebase'
 
 Vue.use(Vuex)
-
-// Temporary - dummy data
-const farms = [{
-  "id": 1,
-  "geometry": {
-    "coordinates": [
-      32.3397543,
-      34.89499339999998
-    ],
-    "type": "Point"
-  },
-  "properties": {
-    "name": "משק בן יהודה"
-  },
-  "type": "Feature"
-}]
+Vue.use(VuexFire)
 
 export default new Vuex.Store({
   state: {
-    farms
+    farms: null
   },
+  mutations: VuexFire.mutations,
+  getters: {
+    farms: state => state.farms,
+  }
 });

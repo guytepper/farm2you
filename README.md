@@ -2,12 +2,16 @@
 
 > The client logic for the direct farm webapp.
 
+## Installation
+1. Install dependencies using `npm install`
+2. Run `cp src/config/firebase.example.js src/config/firebase.js`
+3. Create a Firebase project using the [Firebase Console](https://firebase.google.com/console).
+4. In your project dashboard, click "Add Firebase to your web app".
+5. Copy the config object to `src/config/firebase.js`.
+
 ## Build Setup
 
 ``` bash
-# install dependencies
-npm install
-
 # serve with hot reload at localhost:8080
 npm run dev
 
