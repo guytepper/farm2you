@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'Vuex'
-import VuexFire = from 'vuexfire'
-import Firebase = from 'firebase'
+import VuexFire from 'vuexfire'
+import Firebase from 'firebase'
 
 Vue.use(Vuex)
 Vue.use(VuexFire)
