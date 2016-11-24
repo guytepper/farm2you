@@ -13,7 +13,8 @@
     "firebase": "^3.6.1",
     "leaflet": "^1.0.1",
     "vue": "^2.0.1",
-    "vue-router": "^2.0.2"
+    "vue-router": "^2.0.2",
+    "vuexfire": "^0.3.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
