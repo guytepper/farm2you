@@ -8,6 +8,7 @@ import VueMaterial from 'vue-material'
 import App from './App'
 import FarmList from './components/FarmList'
 import FarmPage from './components/FarmPage'
+import AddFarm from './components/AddFarm'
 
 Vue.use(VueRouter)
 Vue.use(VueMaterial)
@@ -23,6 +24,7 @@ const db = firebase.database()
 
 const routes = [
   { path: '/', component: FarmList },
+  { path: '/add-farm/', component: AddFarm },
   { path: '/farm/:id', name: 'farm', component: FarmPage},
 ]
 
