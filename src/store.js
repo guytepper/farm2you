@@ -15,14 +15,3 @@ export default new Vuex.Store({
     farms: state => state.farms,
   }
 });
-
-new Vue({
-  el: '#app',
-  store: store,
-  computed: Vuex.mapGetters([
-    'items'
-  ]),
-  firebase: {
-    items: db.ref('items')
-  }
-})
