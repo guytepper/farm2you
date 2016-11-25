@@ -28,7 +28,10 @@ const routes = [
   { path: '/farm/:id', name: 'farm', component: FarmPage},
 ]
 
-const router = new VueRouter({ routes })
+const router = new VueRouter({
+  mode: 'history',
+  routes 
+})
 
 new Vue({
   el: '#app',
