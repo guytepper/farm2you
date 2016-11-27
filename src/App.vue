@@ -1,21 +1,17 @@
 <template>
   <div id="app">
     <app-header></app-header>
-    <my-map></my-map>
-
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 import AppHeader from './components/layout/AppHeader'
-import MyMap from './components/Map'
-import axios from 'axios';
 
 export default {
   name: 'app',
   components: {
-    AppHeader, MyMap
+    AppHeader
   },
 }
 </script>
