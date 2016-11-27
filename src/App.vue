@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <app-header></app-header>
-    <router-view></router-view>
+    <div class="content container">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -32,5 +34,9 @@ body {
 
 .container {
     padding: 0 20px;
+}
+
+.content {
+  padding: 10px 20px;
 }
 </style>
