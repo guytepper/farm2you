@@ -4,5 +4,10 @@ export default {
   },
   getters: {
     farmAddress: state => state.farmAddress,
+  },
+  mutations: {
+    setAddress (state, payload) {
+      state.farmAddress = payload.place;
+    }
   }
 };

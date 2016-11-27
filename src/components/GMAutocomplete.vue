@@ -1,5 +1,5 @@
 <template>
-    <input type="text" id="address" :value="'fdf'">
+    <input type="text" id="address">
 </template>
 
 <script>
@@ -8,11 +8,6 @@ const myGoogleMaps = mapsapi('AIzaSyD93NWdLgraXWFj_82Wvzz5m58827p_vr0', ['places
 
 export default {
   name: 'gm-autocomplete',
-  data () {
-    return {
-      'place': null
-    }
-  },
   created () {
     const vm = this;
     myGoogleMaps().then(maps => {
@@ -20,18 +15,14 @@ export default {
       const autocomplete = new google.maps.places.Autocomplete(input);
       autocomplete.addListener('place_changed', function() {
         const place = autocomplete.getPlace();
-        vm.place = place;
-        vm.updatePlace(place)
-        // if (!vm.place.geometry) {
-        //   window.alert("No details available for input: '" + place.name + "'");
-        //   return;
-        // }
+        vm.updatePlace(place);
       })
     });
   },
   methods: {
     updatePlace(place) {
-      this.$emit('input', place)
+      console.log();
+      this.$store.commit('setAddress', { place })
     }
   }
 }
