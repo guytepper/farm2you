@@ -1,5 +1,5 @@
 <template>
-    <input type="text" id="address">
+    <input type="text" id="location">
 </template>
 
 <script>
@@ -11,7 +11,7 @@ export default {
   created () {
     const vm = this;
     myGoogleMaps().then(maps => {
-      const input = document.getElementById('address');
+      const input = document.getElementById('location');
       const autocomplete = new google.maps.places.Autocomplete(input);
       autocomplete.addListener('place_changed', function() {
         const place = autocomplete.getPlace();
@@ -22,7 +22,7 @@ export default {
   methods: {
     updatePlace(place) {
       console.log();
-      this.$store.commit('setAddress', { place })
+      this.$store.commit('setLocation', { place })
     }
   }
 }

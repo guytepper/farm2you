@@ -1,12 +1,12 @@
 export default {
   state: {
-    farmAddress: null
+    farmLocation: null
   },
   getters: {
-    farmAddress: state => state.farmAddress,
+    farmLocation: state => state.farmAddress,
   },
   mutations: {
-    setAddress (state, payload) {
+    setLocation (state, payload) {
       state.farmAddress = payload.place;
     }
   }
