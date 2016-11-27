@@ -1,5 +1,5 @@
 <template>
-    <input type="text" id="location">
+    <input type="text" id="location" placeholder="כתובת המשק">
 </template>
 
 <script>

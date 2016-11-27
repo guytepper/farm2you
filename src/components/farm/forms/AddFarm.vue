@@ -18,11 +18,32 @@
     </div>
 
     <div class="mui-textfield">
-      <input type="website" id="website" placeholder="טלפון המשק">
-      <label for="website">טלפון</label>
+      <input type="url" id="website" placeholder="אתר אינטרנט">
+      <label for="website">אתר אינטרנט</label>
     </div>
 
+    <div class="mui-checkbox">
+      <label>
+      <input type="checkbox" value="">
+      אורגני
+      </label>
+    </div>
+    <div class="mui-checkbox">
+      <label>
+      <input type="checkbox" value="">
+      משלוחים
+      </label>
+    </div>
+    <div class="mui-checkbox">
+      <label>
+      <input type="checkbox" value="">
+      מכירה ישירה במשק
+      </label>
+    </div>
 
+    <div class="form-submit">
+      <button type="submit" class="mui-btn mui-btn--raised mui-btn--primary">הוספת משק</button>
+    </div>
   </div>
 </template>
 
@@ -41,12 +62,18 @@ export default {
 }
 </script>
 
-<style style="scss">
+<style style="sass">
 @import '~muicss/dist/css/mui-rtl.css';
 
 .add-farm {
-  display: flex;
+  /*display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center;*/
 }
+
+.form-submit {
+  display: flex;
+  justify-content: flex-end;
+}
+
 </style>
