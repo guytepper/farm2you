@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import GMAutocomplete from './GMAutocomplete'
+import GMAutocomplete from './helpers/GMAutocomplete'
 
 export default {
   name: 'add-farm',

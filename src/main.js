@@ -6,9 +6,9 @@ import { firebaseInit } from './config/firebase'
 import VueMaterial from 'vue-material'
 
 import App from './App'
-import FarmList from './components/FarmList'
-import FarmPage from './components/FarmPage'
-import AddFarm from './components/AddFarm'
+import FarmList from './components/farm/FarmList'
+import FarmPage from './components/farm/FarmPage'
+import AddFarm from './components/farm/forms/AddFarm'
 
 Vue.use(VueRouter)
 Vue.use(VueMaterial)
