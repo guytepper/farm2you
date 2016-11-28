@@ -1,10 +1,9 @@
 <template>
   <div class="add-farm">
-
-
     <div class="mui-textfield">
-      <input type="text" id="farm-name" placeholder="שם המשק / חקלאי">
+      <input v-validate data-vv-rules="required" type="text" id="farm-name" name="farm-name" placeholder="שם המשק / חקלאי">
       <label for="farm-name">שם המשק</label>
+      <span v-show="errors.has('farm-name')" class="help is-danger">{{ errors.first('farm-name') }}</span>
     </div>
 
     <div class="mui-textfield">
@@ -53,7 +52,11 @@
 </template>
 
 <script>
-import GMAutocomplete from './helpers/GMAutocomplete'
+import Vue from 'vue';
+import VeeValidate from 'vee-validate';
+import GMAutocomplete from './helpers/GMAutocomplete';
+
+Vue.use(VeeValidate);
 
 export default {
   name: 'add-farm',
