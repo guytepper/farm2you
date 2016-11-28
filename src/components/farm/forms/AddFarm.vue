@@ -75,7 +75,7 @@ Vue.use(VeeValidate, {
   locale: 'he',
   dictionary: {
     he: {
-        messages: heMessages
+        messages: heMessages,
         attributes: heAttributes
     }
   }
