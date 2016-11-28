@@ -51,6 +51,12 @@
       מכירה ישירה במשק
       </label>
     </div>
+    <div class="mui-checkbox">
+      <label>
+      <input type="checkbox" value="">
+      רכישה באינטרנט
+      </label>
+    </div>
 
     <div class="form-submit">
       <button type="submit" class="mui-btn mui-btn--raised mui-btn--primary">הוספת משק</button>
