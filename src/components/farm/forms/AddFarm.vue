@@ -3,7 +3,7 @@
 
 
     <div class="mui-textfield">
-      <input type="text" id="farm-name" placeholder="שם המשק">
+      <input type="text" id="farm-name" placeholder="שם המשק / חקלאי">
       <label for="farm-name">שם המשק</label>
     </div>
 
@@ -20,6 +20,11 @@
     <div class="mui-textfield">
       <input type="url" id="website" placeholder="אתר אינטרנט">
       <label for="website">אתר אינטרנט</label>
+    </div>
+
+    <div class="mui-textfield">
+      <input type="url" id="facebook" placeholder="כתובת עמוד הפייסבוק">
+      <label for="facebook">עמוד פייסבוק</label>
     </div>
 
     <div class="mui-checkbox">
