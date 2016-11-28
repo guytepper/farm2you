@@ -1,19 +1,26 @@
 <template>
   <div class="add-farm">
-    <div class="mui-textfield">
+    <div class="mui-textfield" :class="{ 'error': errors.has('farm-name') }">
       <input v-validate data-vv-rules="required" type="text" id="farm-name" name="farm-name" placeholder="שם המשק / חקלאי">
       <label for="farm-name">שם המשק</label>
-      <span v-show="errors.has('farm-name')" class="help is-danger">{{ errors.first('farm-name') }}</span>
+      <span v-show="errors.has('farm-name')" class="error-help">{{ errors.first('farm-name') }}</span>
     </div>
 
     <div class="mui-textfield">
-      <gm-autocomplete v-model="place"></gm-autocomplete>
+      <gm-autocomplete></gm-autocomplete>
       <label for="location">מיקום</label>
     </div>
 
-    <div class="mui-textfield">
-      <input type="tel" id="phone" placeholder="טלפון המשק">
+    <div class="mui-textfield" :class="{ 'error': errors.has('phone') }">
+      <input type="tel" v-validate data-vv-rules="required|alpha_dash" id="phone" name="phone" placeholder="טלפון המשק">
       <label for="phone">טלפון</label>
+      <span v-show="errors.has('phone')" class="error-help">{{ errors.first('phone') }}</span>
+    </div>
+
+    <div class="mui-textfield" :class="{ 'error': errors.has('email') }">
+      <input type="email" v-validate data-vv-rules="email" id="email" name="email" placeholder="אימייל המשק">
+      <label for="email">אימייל</label>
+      <span v-show="errors.has('email')" class="error-help">{{ errors.first('email') }}</span>
     </div>
 
     <div class="mui-textfield">
@@ -55,22 +62,24 @@
 import Vue from 'vue';
 import VeeValidate from 'vee-validate';
 import GMAutocomplete from './helpers/GMAutocomplete';
+import heMessages from './helpers/heMessages.js';
 
-Vue.use(VeeValidate);
+Vue.use(VeeValidate, {
+  locale: 'he',
+  dictionary: {
+    he: {
+        messages: heMessages
+    }
+  }
+});
 
 export default {
   name: 'add-farm',
   components: { 'gm-autocomplete': GMAutocomplete },
-  data () {
-    return {
-      name: '',
-      location: null
-    }
-  }
 }
 </script>
 
-<style style="sass">
+<style lang="scss">
 @import '~muicss/dist/css/mui-rtl.css';
 
 .add-farm {
@@ -84,4 +93,14 @@ export default {
   justify-content: flex-end;
 }
 
+.error {
+  // Override muicss
+  input, input:focus {
+    border-bottom-color: red;
+
+    ~ label {
+      color: red;
+    }
+  }
+}
 </style>
