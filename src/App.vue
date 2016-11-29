@@ -35,11 +35,15 @@ body {
 }
 
 .container {
-    padding: 0 20px;
-}
+  padding: 0 20px;
 
   @include respond-at(1024px) {
     padding: 0 40px;
   };
+}
+
+.content {
+  max-width: 50%;
+  // margin: 0 auto;
 }
 </style>
