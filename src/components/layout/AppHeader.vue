@@ -18,14 +18,14 @@ export default {
 
   .header {
     display: flex;
-    height: 45px;
+    height: 55px;
     align-items: center;
     background-color: $primary-color;
   }
 
   .site-title a {
     margin: 0;
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 600;
     color: $primary-color-text;
     text-decoration: none;
