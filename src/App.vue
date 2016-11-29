@@ -19,6 +19,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import './assets/scss/mixins.scss';
+
 html {
   box-sizing: border-box;
 }
@@ -36,7 +38,8 @@ body {
     padding: 0 20px;
 }
 
-.content {
-  padding: 10px 20px;
+  @include respond-at(1024px) {
+    padding: 0 40px;
+  };
 }
 </style>

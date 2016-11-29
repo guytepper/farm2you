@@ -19,6 +19,7 @@ export default {
   .header {
     display: flex;
     height: 55px;
+    margin-bottom: 15px;
     align-items: center;
     background-color: $primary-color;
 
