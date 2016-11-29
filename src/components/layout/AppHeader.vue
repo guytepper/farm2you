@@ -21,6 +21,10 @@ export default {
     height: 55px;
     align-items: center;
     background-color: $primary-color;
+
+    @include respond-at(1024px) {
+      height: 65px;
+    };
   }
 
   .site-title {
@@ -32,6 +36,10 @@ export default {
       font-weight: 600;
       color: $primary-color-text;
       text-decoration: none;
+
+      @include respond-at(1024px) {
+        font-size: 34px;
+      };
     }
   }
 </style>
