@@ -1,5 +1,5 @@
 <template>
-  <div class="add-farm">
+  <form class="add-farm">
     <div class="mui-textfield" :class="{ 'error': errors.has('farm-name') }">
       <input v-validate data-vv-rules="required" type="text" id="farm-name" name="farm-name" placeholder="שם המשק / חקלאי">
       <label for="farm-name">שם המשק</label>
@@ -61,7 +61,7 @@
     <div class="form-submit">
       <button type="submit" class="mui-btn mui-btn--raised mui-btn--primary">הוספת משק</button>
     </div>
-  </div>
+  </form>
 </template>
 
 <script>
@@ -89,12 +89,6 @@ export default {
 
 <style lang="scss">
 @import '~muicss/dist/css/mui-rtl.css';
-
-.add-farm {
-  /*display: flex;
-  flex-direction: column;
-  justify-content: center;*/
-}
 
 .form-submit {
   display: flex;
