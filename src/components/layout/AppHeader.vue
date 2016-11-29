@@ -23,11 +23,15 @@ export default {
     background-color: $primary-color;
   }
 
-  .site-title a {
-    margin: 0;
-    font-size: 26px;
-    font-weight: 600;
-    color: $primary-color-text;
-    text-decoration: none;
+  .site-title {
+    margin: 0; // Override muicss
+
+    a {
+      margin: 0;
+      font-size: 26px;
+      font-weight: 600;
+      color: $primary-color-text;
+      text-decoration: none;
+    }
   }
 </style>
