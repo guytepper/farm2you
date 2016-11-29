@@ -1,0 +1,17 @@
+@import '~muicss/dist/css/mui-rtl.css';
+
+.form-submit {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.error {
+  // Override muicss
+  input, input:focus {
+    border-bottom-color: red;
+
+    ~ label {
+      color: red;
+    }
+  }
+}

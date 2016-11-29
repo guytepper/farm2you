@@ -7,7 +7,7 @@ import { firebaseInit } from './config/firebase'
 import App from './App'
 import FarmList from './components/farm/FarmList'
 import FarmPage from './components/farm/FarmPage'
-import AddFarm from './components/farm/forms/AddFarm'
+import AddFarm from './components/forms/AddFarm'
 
 Vue.use(VueRouter)
 
