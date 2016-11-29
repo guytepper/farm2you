@@ -1,21 +1,19 @@
 <template>
   <div id="app">
     <app-header></app-header>
-    <my-map></my-map>
-
-    <router-view></router-view>
+    <div class="content container">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
 import AppHeader from './components/layout/AppHeader'
-import MyMap from './components/Map'
-import axios from 'axios';
 
 export default {
   name: 'app',
   components: {
-    AppHeader, MyMap
+    AppHeader
   },
 }
 </script>
@@ -36,5 +34,9 @@ body {
 
 .container {
     padding: 0 20px;
+}
+
+.content {
+  padding: 10px 20px;
 }
 </style>

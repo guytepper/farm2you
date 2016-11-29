@@ -5,8 +5,9 @@ import store from './store'
 import { firebaseInit } from './config/firebase'
 
 import App from './App'
-import FarmList from './components/FarmList'
-import FarmPage from './components/FarmPage'
+import FarmList from './components/farm/FarmList'
+import FarmPage from './components/farm/FarmPage'
+import AddFarm from './components/farm/forms/AddFarm'
 
 Vue.use(VueRouter)
 
@@ -15,10 +16,14 @@ const db = firebase.database()
 
 const routes = [
   { path: '/', component: FarmList },
+  { path: '/add-farm/', component: AddFarm },
   { path: '/farm/:id', name: 'farm', component: FarmPage},
 ]
 
-const router = new VueRouter({ routes })
+const router = new VueRouter({
+  mode: 'history',
+  routes
+})
 
 new Vue({
   el: '#app',
