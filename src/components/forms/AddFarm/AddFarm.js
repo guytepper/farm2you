@@ -18,5 +18,14 @@ export default {
   name: 'add-farm',
   created () {
     initGMAutoComplete(this)
+  },
+  methods: {
+    validateBeforeSubmit(e) {
+      this.$validator.validateAll();
+
+      if (this.errors.any()) {
+          e.preventDefault();
+      }
+    },
   }
 }
