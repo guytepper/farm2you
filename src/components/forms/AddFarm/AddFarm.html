@@ -5,9 +5,10 @@
     <span v-show="errors.has('farm-name')" class="error-help">{{ errors.first('farm-name') }}</span>
   </div>
 
-  <div class="mui-textfield">
-    <gm-autocomplete v-validate data-vv-rules="required" v-on:update-location='updateLocation'></gm-autocomplete>
+  <div class="mui-textfield" :class="{ 'error': errors.has('location') }">
+    <input type="text" v-validate data-vv-rules="required" id="location" name="location" placeholder="כתובת המשק">
     <label for="location">מיקום</label>
+    <span v-show="errors.has('location')" class="error-help">{{ errors.first('location') }}</span>
   </div>
 
   <div class="mui-textfield" :class="{ 'error': errors.has('phone') }">
@@ -17,7 +18,7 @@
   </div>
 
   <div class="mui-textfield" :class="{ 'error': errors.has('email') }">
-    <input type="email" v-validate data-vv-rules="email" id="email" name="email" placeholder="אימייל המשק">
+    <input type="email" v-validate data-vv-rules="email" data-vv-delay="500" id="email" name="email" placeholder="אימייל המשק">
     <label for="email">
       אימייל
       <span class="label-optional">(אופציונאלי)</span>
@@ -25,20 +26,22 @@
     <span v-show="errors.has('email')" class="error-help">{{ errors.first('email') }}</span>
   </div>
 
-  <div class="mui-textfield">
-    <input type="url" id="website" placeholder="אתר אינטרנט">
+  <div class="mui-textfield" :class="{ 'error': errors.has('website') }">
+    <input type="url" v-validate data-vv-rules="url" id="website" name="website" placeholder="אתר אינטרנט">
     <label for="website">
       אתר אינטרנט
       <span class="label-optional">(אופציונאלי)</span>
     </label>
+    <span v-show="errors.has('website')" class="error-help">{{ errors.first('website') }}</span>
   </div>
 
-  <div class="mui-textfield">
-    <input type="url" id="facebook" placeholder="כתובת עמוד הפייסבוק">
+  <div class="mui-textfield" :class="{ 'error': errors.has('facebook') }">
+    <input type="url" v-validate data-vv-rules="url" id="facebook" name="facebook" placeholder="כתובת עמוד הפייסבוק">
     <label for="facebook">
       עמוד פייסבוק
       <span class="label-optional">(אופציונאלי)</span>
     </label>
+    <span v-show="errors.has('facebook')" class="error-help">{{ errors.first('facebook') }}</span>
   </div>
 
   <div class="mui-checkbox">
@@ -67,6 +70,6 @@
   </div>
 
   <div class="form-submit">
-    <button type="submit" class="mui-btn mui-btn--raised mui-btn--primary">הוספת משק</button>
+    <button type="submit" :disabled="errors.any()" class="mui-btn mui-btn--raised mui-btn--primary">הוספת משק</button>
   </div>
 </form>

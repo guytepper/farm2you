@@ -2,7 +2,7 @@
 
 export default {
     'farm-name': 'שם המשק',
-    'email': 'מיקום',
+    'location': 'מיקום המשק',
     'phone': 'טלפון המשק',
     'email': 'אימייל',
     'website': 'אתר אינטרנט',
