@@ -5,9 +5,10 @@
     <span v-show="errors.has('farm-name')" class="error-help">{{ errors.first('farm-name') }}</span>
   </div>
 
-  <div class="mui-textfield">
-    <gm-autocomplete></gm-autocomplete>
+  <div class="mui-textfield" :class="{ 'error': errors.has('farm-name') }">
+    <input type="text" v-validate data-vv-rules="required" id="location" name="location" placeholder="כתובת המשק">
     <label for="location">מיקום</label>
+    <span v-show="errors.has('location')" class="error-help">{{ errors.first('location') }}</span>
   </div>
 
   <div class="mui-textfield" :class="{ 'error': errors.has('phone') }">

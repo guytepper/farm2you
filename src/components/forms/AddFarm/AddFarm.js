@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VeeValidate from 'vee-validate';
-import GMAutocomplete from '../helpers/GMAutocomplete';
+import initGMAutoComplete from '../helpers/GMAutocomplete.js';
 import heMessages from '../strings/heMessages.js';
 import heAttributes from '../strings/heAttributes.js';
 
@@ -16,5 +16,7 @@ Vue.use(VeeValidate, {
 
 export default {
   name: 'add-farm',
-  components: { 'gm-autocomplete': GMAutocomplete },
+  created () {
+    initGMAutoComplete(this)
+  }
 }
