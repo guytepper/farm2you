@@ -17,4 +17,14 @@ Vue.use(VeeValidate, {
 export default {
   name: 'add-farm',
   components: { 'gm-autocomplete': GMAutocomplete },
+  data () {
+    return {
+      location: null
+    }
+  },
+  methods: {
+    updateLocation (location) {
+      this.location = location;
+    }
+  }
 }

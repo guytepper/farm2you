@@ -1,12 +1,12 @@
 <form class="add-farm">
   <div class="mui-textfield" :class="{ 'error': errors.has('farm-name') }">
-    <input v-validate data-vv-rules="required" type="text" id="farm-name" name="farm-name" placeholder="שם המשק / חקלאי">
+    <input type="text" id="farm-name" name="farm-name" placeholder="שם המשק / חקלאי">
     <label for="farm-name">שם המשק</label>
     <span v-show="errors.has('farm-name')" class="error-help">{{ errors.first('farm-name') }}</span>
   </div>
 
   <div class="mui-textfield">
-    <gm-autocomplete></gm-autocomplete>
+    <gm-autocomplete v-validate data-vv-rules="required" v-on:update-location='updateLocation'></gm-autocomplete>
     <label for="location">מיקום</label>
   </div>
 

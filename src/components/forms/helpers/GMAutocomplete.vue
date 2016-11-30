@@ -14,16 +14,10 @@ export default {
       const input = document.getElementById('location');
       const autocomplete = new google.maps.places.Autocomplete(input);
       autocomplete.addListener('place_changed', function() {
-        const place = autocomplete.getPlace();
-        vm.updatePlace(place);
+        const location = autocomplete.getPlace();
+        vm.$emit('update-location', location)
       })
     });
-  },
-  methods: {
-    updatePlace(place) {
-      console.log();
-      this.$store.commit('setLocation', { place })
-    }
   }
 }
 </script>
