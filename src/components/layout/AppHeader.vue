@@ -7,7 +7,7 @@
     </div>
 
     <div class="header__left-section">
-      <router-link to="/" class="header__link">הוספת משק</router-link>
+      <router-link to="/add-farm/" class="header__link">הוספת משק</router-link>
     </div>
   </header>
 </template>
