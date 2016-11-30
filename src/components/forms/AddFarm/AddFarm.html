@@ -18,18 +18,27 @@
 
   <div class="mui-textfield" :class="{ 'error': errors.has('email') }">
     <input type="email" v-validate data-vv-rules="email" id="email" name="email" placeholder="אימייל המשק">
-    <label for="email">אימייל</label>
+    <label for="email">
+      אימייל
+      <span class="label-optional">(אופציונאלי)</span>
+    </label>
     <span v-show="errors.has('email')" class="error-help">{{ errors.first('email') }}</span>
   </div>
 
   <div class="mui-textfield">
     <input type="url" id="website" placeholder="אתר אינטרנט">
-    <label for="website">אתר אינטרנט</label>
+    <label for="website">
+      אתר אינטרנט
+      <span class="label-optional">(אופציונאלי)</span>
+    </label>
   </div>
 
   <div class="mui-textfield">
     <input type="url" id="facebook" placeholder="כתובת עמוד הפייסבוק">
-    <label for="facebook">עמוד פייסבוק</label>
+    <label for="facebook">
+      עמוד פייסבוק
+      <span class="label-optional">(אופציונאלי)</span>
+    </label>
   </div>
 
   <div class="mui-checkbox">
