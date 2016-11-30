@@ -4,12 +4,43 @@
 @import "../../../assets/scss/mixins";
 
 .add-farm {
+  background-color: #fff;
+  padding: 15px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.16),0 0 2px 0 rgba(0,0,0,.12);
+  -webkit-tap-highlight-color: transparent;
 
+  @include respond-at(600px) {
+    max-width: 600px;
+    margin: 0 auto;
+  };
+
+  @include respond-at(768px) {
+    .mui-textfield {
+      label {
+        font-size: 14px;
+      }
+
+      input {
+        margin-top: 2px;
+        font-size: 19px;
+      }
+    }
+
+    .mui-checkbox {
+      font-size: 17px;
+    }
+  };
 }
 
 .form-submit {
   display: flex;
   justify-content: flex-end;
+
+  .mui-btn {
+
+    @include respond-at(768px);
+    font-size: 16.5px;
+  }
 }
 
 .error {
