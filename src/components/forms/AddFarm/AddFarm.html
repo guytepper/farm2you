@@ -17,7 +17,7 @@
   </div>
 
   <div class="mui-textfield" :class="{ 'error': errors.has('email') }">
-    <input type="email" v-validate data-vv-rules="email" id="email" name="email" placeholder="אימייל המשק">
+    <input type="email" v-validate data-vv-rules="email" data-vv-delay="500" id="email" name="email" placeholder="אימייל המשק">
     <label for="email">
       אימייל
       <span class="label-optional">(אופציונאלי)</span>
