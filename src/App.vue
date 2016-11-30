@@ -28,6 +28,7 @@ html {
 
 body {
   margin: 0;
+  background-color: #ECEBEB;
 }
 
 #app {
@@ -41,10 +42,5 @@ body {
   @include respond-at(1024px) {
     padding: 0 40px;
   };
-}
-
-.content {
-  max-width: 50%;
-  // margin: 0 auto;
 }
 </style>
