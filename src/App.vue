@@ -19,12 +19,16 @@ export default {
 </script>
 
 <style lang="scss">
+@import './assets/scss/mixins.scss';
+@import './assets/scss/resets.scss';
+
 html {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
+  background-color: #ECEBEB;
 }
 
 #app {
@@ -33,10 +37,10 @@ body {
 }
 
 .container {
-    padding: 0 20px;
-}
+  padding: 0 20px;
 
-.content {
-  padding: 10px 20px;
+  @include respond-at(1024px) {
+    padding: 0 40px;
+  };
 }
 </style>
