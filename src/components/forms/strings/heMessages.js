@@ -15,7 +15,7 @@ export default {
     decimal: (field, [decimals] = ['*']) => `The ${field} must be numeric and may contain ${decimals === '*' ? '' : decimals} decimal points.`,
     digits: (field, [length]) => `The ${field} must be numeric and exactly contain ${length} digits.`,
     dimensions: (field, [width, height]) => `The ${field} must be ${width} pixels by ${height} pixels.`,
-    email: (field) => `The ${field} must be a valid email.`,
+    email: (field) => `הערך ${field} חייב להכיל כתובת אימייל תקינה.`,
     ext: (field) => `The ${field} must be a valid file.`,
     image: (field) => `The ${field} must be an image.`,
     in: (field) => `The ${field} must be a valid value.`,
@@ -28,7 +28,7 @@ export default {
     not_in: (field) => `The ${field} must be a valid value.`,
     numeric: (field) => `The ${field} may only contain numeric characters.`,
     regex: (field) => `The ${field} format is invalid.`,
-    required: (field) => `חובה למלא את ${field}.`,
-    size: (field, [size]) => `The ${field} must be less than ${size} KB.`,
-    url: (field) => `The ${field} is not a valid URL.`
+    required: (field) => `חובה למלא את השדה ${field}.`,
+    size: (field, [size]) => `השדה ${field} חייב לשקול פחות מ ${size} KB`,
+    url: (field) => `${field} אינו מכיל כתובת אינטרנט תקינה.`
 };
