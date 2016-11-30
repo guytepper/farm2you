@@ -1,8 +1,14 @@
 <template>
   <header class="header container">
-    <h1 class="site-title">
-      <router-link to="/">ישר מהשדה</router-link>
-    </h1>
+    <div class="header__right-section">
+      <h1 class="site-title">
+        <router-link to="/">ישר מהשדה</router-link>
+      </h1>
+    </div>
+
+    <div class="header__left-section">
+      <router-link to="/" class="header__link">הוספת משק</router-link>
+    </div>
   </header>
 </template>
 
@@ -20,6 +26,7 @@ export default {
     display: flex;
     height: 55px;
     margin-bottom: 15px;
+    justify-content: space-between;
     align-items: center;
     background-color: $primary-color;
 
@@ -42,5 +49,10 @@ export default {
         font-size: 34px;
       };
     }
+  }
+
+  .header__link {
+    color: #fff;
+    text-decoration: none;
   }
 </style>
