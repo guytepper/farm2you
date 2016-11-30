@@ -23,7 +23,8 @@ export default {
     return {
       'name': '',
       'location': '',
-      'phone': ''
+      'phone': '',
+      'email': ''
     }
   },
   methods: {
