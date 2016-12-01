@@ -32,6 +32,7 @@ new Vue({
   router,
   store,
   firebase: {
-    farms: db.ref('farms')
+    farms: db.ref('farms'),
+    locations: db.ref('locations')
   }
 })
