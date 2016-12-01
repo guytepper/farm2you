@@ -24,7 +24,14 @@ export default {
       'name': '',
       'location': '',
       'phone': '',
-      'email': ''
+      'email': '',
+      'props': {
+        'organic': false,
+        'direct_sell': false,
+        'online_sell': false,
+        'shipping': false,
+        'kosher': false
+      }
     }
   },
   methods: {
