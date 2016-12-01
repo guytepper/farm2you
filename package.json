@@ -13,8 +13,7 @@
     "geofire": "^4.1.2",
     "google-maps-api": "^2.0.1",
     "leaflet": "^1.0.1",
-    "muicss": "^0.9.5",
-    "vee-validate": "^2.0.0-beta.15",
+    "vee-validate": "^2.0.0-beta.17",
     "vue": "^2.0.1",
     "vue-router": "^2.0.2",
     "vuexfire": "^0.3.0"
