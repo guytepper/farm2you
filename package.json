@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "firebase": "^3.6.1",
+    "geofire": "^4.1.2",
     "google-maps-api": "^2.0.1",
     "leaflet": "^1.0.1",
     "muicss": "^0.9.5",
