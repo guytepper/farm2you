@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VeeValidate from 'vee-validate';
+import GeoFire from 'geofire';
 import initGMAutoComplete from '../helpers/GMAutocomplete.js';
 import heMessages from '../strings/heMessages.js';
 import heAttributes from '../strings/heAttributes.js';
@@ -39,11 +40,11 @@ export default {
       }
     },
     addFarm () {
-      this.$root.$firebaseRefs.farms.push({
+      const farm = this.$root.$firebaseRefs.farms.push({
         name: this.name,
-        phone: this.phone
+        phone: this.phone,
+        address: this.location.name + ', ' + this.location.vicinity
       });
-      console.log('Added.');
     }
   }
 }
