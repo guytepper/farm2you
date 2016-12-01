@@ -45,6 +45,14 @@ export default {
         phone: this.phone,
         address: this.location.name + ', ' + this.location.vicinity
       });
+
+      const coords = this.location.geometry.location;
+      this.addLocation(farm.key, coords)
+    },
+    // Add the farm's location coordinates to the GeoFire database
+    addLocation (key, coords) {
+      const geofire = new GeoFire(this.$root.$firebaseRefs.locations);
+      geofire.set(key, [coords.lat(), coords.lng()]);
     }
   }
 }
