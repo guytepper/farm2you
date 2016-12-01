@@ -1,24 +1,24 @@
-<form class="add-farm">
+<form class="add-farm" @submit.prevent="validateBeforeSubmit">
   <div class="mui-textfield" :class="{ 'error': errors.has('farm-name') }">
-    <input v-validate data-vv-rules="required" type="text" id="farm-name" name="farm-name" placeholder="שם המשק / חקלאי">
+    <input v-model="name" id="farm-name" name="farm-name" v-validate data-vv-rules="required" type="text" placeholder="שם המשק / חקלאי">
     <label for="farm-name">שם המשק</label>
     <span v-show="errors.has('farm-name')" class="error-help">{{ errors.first('farm-name') }}</span>
   </div>
 
   <div class="mui-textfield" :class="{ 'error': errors.has('location') }">
-    <input type="text" v-validate data-vv-rules="required" id="location" name="location" placeholder="כתובת המשק">
+    <input id="location" name="location" v-validate data-vv-rules="required" type="text" placeholder="כתובת המשק">
     <label for="location">מיקום</label>
     <span v-show="errors.has('location')" class="error-help">{{ errors.first('location') }}</span>
   </div>
 
   <div class="mui-textfield" :class="{ 'error': errors.has('phone') }">
-    <input type="tel" v-validate data-vv-rules="required|alpha_dash" id="phone" name="phone" placeholder="טלפון המשק">
+    <input v-model="phone" id="phone" name="phone" v-validate data-vv-rules="required|alpha_dash" type="tel" placeholder="טלפון המשק">
     <label for="phone">טלפון</label>
     <span v-show="errors.has('phone')" class="error-help">{{ errors.first('phone') }}</span>
   </div>
 
   <div class="mui-textfield" :class="{ 'error': errors.has('email') }">
-    <input type="email" v-validate data-vv-rules="email" data-vv-delay="500" id="email" name="email" placeholder="אימייל המשק">
+    <input v-model="email" id="email" name="email"  v-validate data-vv-rules="email" data-vv-delay="500" type="email" placeholder="אימייל המשק">
     <label for="email">
       אימייל
       <span class="label-optional">(אופציונאלי)</span>
