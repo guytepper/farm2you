@@ -44,10 +44,14 @@ export default {
         name: this.name,
         phone: this.phone,
         address: this.location.name + ', ' + this.location.vicinity
+      }, err => {
+        if (err) {
+          console.log(err); // TODO: Display message to user
+          return;
+        }
+          const coords = this.location.geometry.location;
+          this.addLocation(farm.key, coords)
       });
-
-      const coords = this.location.geometry.location;
-      this.addLocation(farm.key, coords)
     },
     // Add the farm's location coordinates to the GeoFire database
     addLocation (key, coords) {
