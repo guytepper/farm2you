@@ -18,5 +18,32 @@ export default {
   name: 'add-farm',
   created () {
     initGMAutoComplete(this)
+  },
+  data () {
+    return {
+      'name': '',
+      'location': '',
+      'phone': '',
+      'email': ''
+    }
+  },
+  methods: {
+    validateBeforeSubmit (e) {
+      this.$validator.validateAll();
+
+      if (this.errors.any()) {
+          e.preventDefault();
+      }
+      else {
+        this.addFarm();
+      }
+    },
+    addFarm () {
+      this.$root.$firebaseRefs.farms.push({
+        name: this.name,
+        phone: this.phone
+      });
+      console.log('Added.');
+    }
   }
 }
