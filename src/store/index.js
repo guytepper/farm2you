@@ -9,6 +9,8 @@ Vue.use(VuexFire)
 export default new Vuex.Store({
   state: {
     farms: null,
+    pending_farms: null,
+    locations: null
   },
   mutations: VuexFire.mutations,
   getters: {

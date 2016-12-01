@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VeeValidate from 'vee-validate';
+import GeoFire from 'geofire';
 import initGMAutoComplete from '../helpers/GMAutocomplete.js';
 import heMessages from '../strings/heMessages.js';
 import heAttributes from '../strings/heAttributes.js';
@@ -46,11 +47,23 @@ export default {
       }
     },
     addFarm () {
-      this.$root.$firebaseRefs.farms.push({
+      const farm = this.$root.$firebaseRefs.pending_farms.push({
         name: this.name,
-        phone: this.phone
+        phone: this.phone,
+        address: this.location.name + ', ' + this.location.vicinity
+      }, err => {
+        if (err) {
+          console.log(err); // TODO: Display message to user
+          return;
+        }
+          const coords = this.location.geometry.location;
+          this.addLocation(farm.key, coords)
       });
-      console.log('Added.');
+    },
+    // Add the farm's location coordinates to the GeoFire database
+    addLocation (key, coords) {
+      const geofire = new GeoFire(this.$root.$firebaseRefs.locations);
+      geofire.set(key, [coords.lat(), coords.lng()]);
     }
   }
 }
