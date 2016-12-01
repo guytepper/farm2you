@@ -48,9 +48,16 @@ export default {
     },
     addFarm () {
       const farm = this.$root.$firebaseRefs.pending_farms.push({
-        name: this.name,
-        phone: this.phone,
-        address: this.location.name + ', ' + this.location.vicinity
+        'name': this.name,
+        'phone': this.phone,
+        'address': this.location.name + ', ' + this.location.vicinity,
+        'props': {
+          'organic': this.props.organic,
+          'direct_sell': this.props.direct_sell,
+          'online_sell': this.props.online_sell,
+          'shipping': this.props.shipping,
+          'kosher': this.props.kosher
+        }
       }, err => {
         if (err) {
           console.log(err); // TODO: Display message to user
