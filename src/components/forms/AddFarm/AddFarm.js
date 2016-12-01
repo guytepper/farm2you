@@ -40,7 +40,7 @@ export default {
       }
     },
     addFarm () {
-      const farm = this.$root.$firebaseRefs.farms.push({
+      const farm = this.$root.$firebaseRefs.pending_farms.push({
         name: this.name,
         phone: this.phone,
         address: this.location.name + ', ' + this.location.vicinity

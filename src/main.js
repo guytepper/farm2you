@@ -33,6 +33,7 @@ new Vue({
   store,
   firebase: {
     farms: db.ref('farms'),
+    pending_farms: db.ref('pending_farms'),
     locations: db.ref('locations')
   }
 })
