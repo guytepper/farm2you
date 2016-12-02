@@ -26,6 +26,8 @@ export default {
       'location': '',
       'phone': '',
       'email': '',
+      'website': '',
+      'facebook': '',
       'props': {
         'organic': false,
         'direct_sell': false,
@@ -51,6 +53,8 @@ export default {
         'name': this.name,
         'phone': this.phone,
         'address': this.location.name + ', ' + this.location.vicinity,
+        'website': this.website,
+        'facebook': this.facebook,
         'props': {
           'organic': this.props.organic,
           'direct_sell': this.props.direct_sell,

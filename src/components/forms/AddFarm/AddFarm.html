@@ -27,7 +27,7 @@
   </div>
 
   <div class="mui-textfield" :class="{ 'error': errors.has('website') }">
-    <input type="url" v-validate data-vv-rules="url" id="website" name="website" placeholder="אתר אינטרנט">
+    <input v-model="website" v-validate data-vv-rules="url" id="website" name="website" type="url" placeholder="אתר אינטרנט">
     <label for="website">
       אתר אינטרנט
       <span class="label-optional">(אופציונאלי)</span>
@@ -36,7 +36,7 @@
   </div>
 
   <div class="mui-textfield" :class="{ 'error': errors.has('facebook') }">
-    <input type="url" v-validate data-vv-rules="url" id="facebook" name="facebook" placeholder="כתובת עמוד הפייסבוק">
+    <input v-model="facebook" v-validate data-vv-rules="url" id="facebook" name="facebook" type="url" placeholder="כתובת עמוד הפייסבוק">
     <label for="facebook">
       עמוד פייסבוק
       <span class="label-optional">(אופציונאלי)</span>
