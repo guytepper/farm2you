@@ -6,8 +6,10 @@
 .add-farm {
   -webkit-tap-highlight-color: transparent;
 
-  label {
-    font-weight: bold;
+  .mui-textfield {
+    label {
+      font-weight: bold;
+    }
   }
 
   .label-optional {
