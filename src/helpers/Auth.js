@@ -12,5 +12,8 @@ export default {
   },
   signOut() {
     auth.signOut();
+  },
+  authStateListener(cb) {
+    auth.onAuthStateChanged(cb)
   }
 }
