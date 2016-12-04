@@ -1,5 +1,6 @@
 /**
  * MUI Buttons
+ * Customized to use app theme (green)
  */
 .mui-btn {
   font-weight: 500;
@@ -17,74 +18,59 @@
   border: none;
   border-radius: 2px;
   cursor: pointer;
-  -ms-touch-action: manipulation;
   touch-action: manipulation;
   background-image: none;
   text-align: center;
   line-height: 36px;
   vertical-align: middle;
   white-space: nowrap;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   font-size: 14px;
   letter-spacing: 0.03em;
   position: relative;
   overflow: hidden;
 }
-
 .mui-btn:hover, .mui-btn:focus, .mui-btn:active {
   color: rgba(0, 0, 0, 0.87);
   background-color: white;
 }
-
 .mui-btn[disabled]:hover, .mui-btn[disabled]:focus, .mui-btn[disabled]:active {
   color: rgba(0, 0, 0, 0.87);
   background-color: #FFF;
 }
-
 .mui-btn.mui-btn--flat {
   color: rgba(0, 0, 0, 0.87);
   background-color: transparent;
 }
-
 .mui-btn.mui-btn--flat:hover, .mui-btn.mui-btn--flat:focus, .mui-btn.mui-btn--flat:active {
   color: rgba(0, 0, 0, 0.87);
   background-color: #f2f2f2;
 }
-
 .mui-btn.mui-btn--flat[disabled]:hover, .mui-btn.mui-btn--flat[disabled]:focus, .mui-btn.mui-btn--flat[disabled]:active {
   color: rgba(0, 0, 0, 0.87);
   background-color: transparent;
 }
-
 .mui-btn:hover, .mui-btn:focus, .mui-btn:active {
   outline: 0;
   text-decoration: none;
   color: rgba(0, 0, 0, 0.87);
 }
-
 .mui-btn:hover, .mui-btn:focus {
   box-shadow: 0 0px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2);
 }
-
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .mui-btn:hover, .mui-btn:focus {
-    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.12), 1px 0px 2px rgba(0, 0, 0, 0.12), 0 0px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.12), -1px 0px 2px rgba(0, 0, 0, 0.12), 0 0px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2);
   }
 }
-
 .mui-btn:active:hover {
-  box-shadow: 0 0px 4px rgba(0, 0, 0, 0.12), -1px 3px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0px 4px rgba(0, 0, 0, 0.12), 1px 3px 4px rgba(0, 0, 0, 0.2);
 }
-
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .mui-btn:active:hover {
-    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.12), 1px 0px 2px rgba(0, 0, 0, 0.12), 0 0px 4px rgba(0, 0, 0, 0.12), -1px 3px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.12), -1px 0px 2px rgba(0, 0, 0, 0.12), 0 0px 4px rgba(0, 0, 0, 0.12), 1px 3px 4px rgba(0, 0, 0, 0.2);
   }
 }
-
 .mui-btn:disabled, .mui-btn.mui--is-disabled {
   cursor: not-allowed;
   pointer-events: none;
@@ -93,13 +79,12 @@
 }
 
 .mui-btn + .mui-btn {
-  margin-right: 8px;
+  margin-left: 8px;
 }
 
 .mui-btn--flat {
   background-color: transparent;
 }
-
 .mui-btn--flat:hover, .mui-btn--flat:focus, .mui-btn--flat:active, .mui-btn--flat:active:hover {
   box-shadow: none;
   background-color: #f2f2f2;
@@ -108,20 +93,17 @@
 .mui-btn--raised, .mui-btn--fab {
   box-shadow: 0 0px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2);
 }
-
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .mui-btn--raised, .mui-btn--fab {
-    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.12), 1px 0px 2px rgba(0, 0, 0, 0.12), 0 0px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.12), -1px 0px 2px rgba(0, 0, 0, 0.12), 0 0px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2);
   }
 }
-
 .mui-btn--raised:active, .mui-btn--fab:active {
-  box-shadow: 0 0px 4px rgba(0, 0, 0, 0.12), -1px 3px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0px 4px rgba(0, 0, 0, 0.12), 1px 3px 4px rgba(0, 0, 0, 0.2);
 }
-
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .mui-btn--raised:active, .mui-btn--fab:active {
-    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.12), 1px 0px 2px rgba(0, 0, 0, 0.12), 0 0px 4px rgba(0, 0, 0, 0.12), -1px 3px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.12), -1px 0px 2px rgba(0, 0, 0, 0.12), 0 0px 4px rgba(0, 0, 0, 0.12), 1px 3px 4px rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -137,31 +119,26 @@
 
 .mui-btn--primary {
   color: #FFF;
-  background-color: #2196F3;
+  background-color: #4CAF50;
 }
-
 .mui-btn--primary:hover, .mui-btn--primary:focus, .mui-btn--primary:active {
   color: #FFF;
-  background-color: #39a1f4;
+  background-color: #5cb860;
 }
-
 .mui-btn--primary[disabled]:hover, .mui-btn--primary[disabled]:focus, .mui-btn--primary[disabled]:active {
   color: #FFF;
-  background-color: #2196F3;
+  background-color: #4CAF50;
 }
-
 .mui-btn--primary.mui-btn--flat {
-  color: #2196F3;
+  color: #4CAF50;
   background-color: transparent;
 }
-
 .mui-btn--primary.mui-btn--flat:hover, .mui-btn--primary.mui-btn--flat:focus, .mui-btn--primary.mui-btn--flat:active {
-  color: #2196F3;
+  color: #4CAF50;
   background-color: #f2f2f2;
 }
-
 .mui-btn--primary.mui-btn--flat[disabled]:hover, .mui-btn--primary.mui-btn--flat[disabled]:focus, .mui-btn--primary.mui-btn--flat[disabled]:active {
-  color: #2196F3;
+  color: #4CAF50;
   background-color: transparent;
 }
 
@@ -169,27 +146,22 @@
   color: #FFF;
   background-color: #424242;
 }
-
 .mui-btn--dark:hover, .mui-btn--dark:focus, .mui-btn--dark:active {
   color: #FFF;
   background-color: #4f4f4f;
 }
-
 .mui-btn--dark[disabled]:hover, .mui-btn--dark[disabled]:focus, .mui-btn--dark[disabled]:active {
   color: #FFF;
   background-color: #424242;
 }
-
 .mui-btn--dark.mui-btn--flat {
   color: #424242;
   background-color: transparent;
 }
-
 .mui-btn--dark.mui-btn--flat:hover, .mui-btn--dark.mui-btn--flat:focus, .mui-btn--dark.mui-btn--flat:active {
   color: #424242;
   background-color: #f2f2f2;
 }
-
 .mui-btn--dark.mui-btn--flat[disabled]:hover, .mui-btn--dark.mui-btn--flat[disabled]:focus, .mui-btn--dark.mui-btn--flat[disabled]:active {
   color: #424242;
   background-color: transparent;
@@ -199,27 +171,22 @@
   color: #FFF;
   background-color: #F44336;
 }
-
 .mui-btn--danger:hover, .mui-btn--danger:focus, .mui-btn--danger:active {
   color: #FFF;
   background-color: #f55a4e;
 }
-
 .mui-btn--danger[disabled]:hover, .mui-btn--danger[disabled]:focus, .mui-btn--danger[disabled]:active {
   color: #FFF;
   background-color: #F44336;
 }
-
 .mui-btn--danger.mui-btn--flat {
   color: #F44336;
   background-color: transparent;
 }
-
 .mui-btn--danger.mui-btn--flat:hover, .mui-btn--danger.mui-btn--flat:focus, .mui-btn--danger.mui-btn--flat:active {
   color: #F44336;
   background-color: #f2f2f2;
 }
-
 .mui-btn--danger.mui-btn--flat[disabled]:hover, .mui-btn--danger.mui-btn--flat[disabled]:focus, .mui-btn--danger.mui-btn--flat[disabled]:active {
   color: #F44336;
   background-color: transparent;
@@ -227,31 +194,26 @@
 
 .mui-btn--accent {
   color: #FFF;
-  background-color: #FF4081;
+  background-color: #8BC34A;
 }
-
 .mui-btn--accent:hover, .mui-btn--accent:focus, .mui-btn--accent:active {
   color: #FFF;
-  background-color: #ff5a92;
+  background-color: #97c95d;
 }
-
 .mui-btn--accent[disabled]:hover, .mui-btn--accent[disabled]:focus, .mui-btn--accent[disabled]:active {
   color: #FFF;
-  background-color: #FF4081;
+  background-color: #8BC34A;
 }
-
 .mui-btn--accent.mui-btn--flat {
-  color: #FF4081;
+  color: #8BC34A;
   background-color: transparent;
 }
-
 .mui-btn--accent.mui-btn--flat:hover, .mui-btn--accent.mui-btn--flat:focus, .mui-btn--accent.mui-btn--flat:active {
-  color: #FF4081;
+  color: #8BC34A;
   background-color: #f2f2f2;
 }
-
 .mui-btn--accent.mui-btn--flat[disabled]:hover, .mui-btn--accent.mui-btn--flat[disabled]:focus, .mui-btn--accent.mui-btn--flat[disabled]:active {
-  color: #FF4081;
+  color: #8BC34A;
   background-color: transparent;
 }
 

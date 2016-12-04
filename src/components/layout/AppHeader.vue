@@ -8,13 +8,21 @@
 
     <div class="header__left-section">
       <router-link to="/add-farm/" class="header__link">הוספת משק</router-link>
+      <a href="#" v-if="this.$store.state.user" @click="signOut" class="header__link">התנתקות</a>
     </div>
   </header>
 </template>
 
 <script>
+import Auth from '../../helpers/Auth'
+
 export default {
-  name: 'app-header'
+  name: 'app-header',
+  methods: {
+    signOut () {
+      Auth.signOut();
+    }
+  }
 }
 </script>
 

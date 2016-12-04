@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import store from './store'
 import router from './routes'
-import { firebaseInit } from './config/firebase'
+import firebase from './config/firebase'
+import Auth from './helpers/Auth'
 
 import App from './App'
 import FarmList from './components/farm/FarmList'
 import FarmPage from './components/farm/FarmPage'
 import AddFarm from './components/forms/AddFarm'
 
-const firebase = firebaseInit()
 const db = firebase.database()
 
 new Vue({
@@ -21,5 +21,10 @@ new Vue({
     farms: db.ref('farms'),
     pending_farms: db.ref('pending_farms'),
     locations: db.ref('locations')
+  },
+  created () {
+    Auth.authStateListener(user => {
+      this.$store.commit('updateUser', user)
+    })
   }
 })

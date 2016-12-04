@@ -5,6 +5,7 @@ import VueRouter from 'vue-router'
 import FarmList from './components/farm/FarmList'
 import FarmPage from './components/farm/FarmPage'
 import AddFarm from './components/forms/AddFarm'
+import LoginPage from './components/forms/Auth/LoginPage'
 
 // Register VueRouter with Vue
 Vue.use(VueRouter)
@@ -14,6 +15,7 @@ const routes = [
   { path: '/', component: FarmList },
   { path: '/add-farm/', component: AddFarm },
   { path: '/farm/:id', name: 'farm', component: FarmPage},
+  { path: '/login/', component: LoginPage},
 ]
 
 // Export the VueRouter instance

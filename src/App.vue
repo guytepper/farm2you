@@ -43,4 +43,16 @@ body {
     padding: 0 40px;
   };
 }
+
+.panel {
+  margin-bottom: 15px;
+  padding: 15px;
+  background-color: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.16),0 0 2px 0 rgba(0,0,0,.12);
+
+  @include respond-at(600px) {
+    max-width: 600px;
+    margin: 0 auto 15px;
+  };
+}
 </style>
