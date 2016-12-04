@@ -1,0 +1,9 @@
+.ltr {
+  &:focus {
+    direction: ltr;
+  }
+
+  &::-webkit-input-placeholder {
+    direction: rtl;
+  }
+}
