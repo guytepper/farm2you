@@ -1,4 +1,4 @@
-import firebase from '../../../config/firebase';
+import firebase from '../config/firebase';
 
 const auth = firebase.auth();
 
@@ -10,4 +10,7 @@ export default {
       console.log(`${errorCode}: ${errorMessage}`);
     })
   },
+  signOut() {
+    auth.signOut();
+  }
 }
