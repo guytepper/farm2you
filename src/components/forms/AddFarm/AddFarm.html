@@ -18,7 +18,7 @@
   </div>
 
   <div class="mui-textfield" :class="{ 'error': errors.has('email') }">
-    <input v-model="email" id="email" name="email"  v-validate data-vv-rules="email" data-vv-delay="500" type="email" placeholder="אימייל המשק">
+    <input v-model="email" id="email" name="email" v-validate data-vv-rules="email" data-vv-delay="500" type="email" placeholder="אימייל המשק">
     <label for="email">
       אימייל
       <span class="label-optional">(אופציונאלי)</span>
@@ -27,7 +27,7 @@
   </div>
 
   <div class="mui-textfield" :class="{ 'error': errors.has('website') }">
-    <input v-model="website" v-validate data-vv-rules="url" id="website" name="website" type="url" placeholder="אתר אינטרנט">
+    <input v-model="website" v-validate data-vv-rules="url" data-vv-delay="500" id="website" name="website" type="url" placeholder="אתר אינטרנט">
     <label for="website">
       אתר אינטרנט
       <span class="label-optional">(אופציונאלי)</span>
