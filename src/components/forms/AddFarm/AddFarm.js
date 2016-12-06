@@ -53,6 +53,7 @@ export default {
         'name': this.name,
         'phone': this.phone,
         'address': this.location.name + ', ' + this.location.vicinity,
+        'email': this.email,
         'website': this.website,
         'facebook': this.facebook,
         'props': {
