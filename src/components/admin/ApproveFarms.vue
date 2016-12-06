@@ -1,24 +1,31 @@
 <template>
-  <div class="panel">
-    <h1>משק בן יהודה</h1>
-    <div class="divider"></div>
-    <div class="">
-      <span>כתובת:</span>
-      <span>הרימונים 6, בית יצחק</span>
-    </div>
-    <div class="">
-      <span>טלפון:</span>
-      <span>052-8656710</span>
-    </div>
-    <div class="">
-      <span>אימייל:</span>
-      <span>guytepper@gmail.com</span>
+  <div class="pending_farms">
+    <div v-for="farm in farms" class="panel">
+      <h1>{{ farm.name }}</h1>
+      <div class="divider"></div>
+      <div class="">
+        <span>כתובת:</span>
+        <span>{{ farm.address }}</span>
+      </div>
+      <div class="">
+        <span>טלפון:</span>
+        <span>{{ farm.phone }}</span>
+      </div>
+      <div class="">
+        <span>אימייל:</span>
+        <span>{{ farm.email }}</span>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  data () {
+    return {
+      farms: this.$store.state.pending_farms
+    }
+  }
 }
 </script>
 
