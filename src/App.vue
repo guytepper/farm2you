@@ -21,6 +21,7 @@ export default {
 <style lang="scss">
 @import './assets/scss/mixins.scss';
 @import './assets/scss/resets.scss';
+@import './assets/scss/helpers.scss';
 
 html {
   box-sizing: border-box;
