@@ -23,12 +23,7 @@ export default {
 @import './assets/scss/resets.scss';
 @import './assets/scss/helpers.scss';
 
-html {
-  box-sizing: border-box;
-}
-
 body {
-  margin: 0;
   background-color: #ECEBEB;
 }
 
