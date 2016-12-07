@@ -6,7 +6,7 @@ import FarmList from './components/farm/FarmList'
 import FarmPage from './components/farm/FarmPage'
 import AddFarm from './components/forms/AddFarm'
 import LoginPage from './components/forms/Auth/LoginPage'
-import ApproveFarms from './components/admin/ApproveFarms'
+import PendingFarms from './components/admin/PendingFarms'
 
 // Register VueRouter with Vue
 Vue.use(VueRouter)
@@ -17,7 +17,7 @@ const routes = [
   { path: '/add-farm/', component: AddFarm },
   { path: '/farm/:id', name: 'farm', component: FarmPage },
   { path: '/login/', component: LoginPage },
-  { path: '/admin/approve-farms', component: ApproveFarms },
+  { path: '/admin/pending-farms', component: PendingFarms },
 ]
 
 // Export the VueRouter instance
