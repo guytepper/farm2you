@@ -65,6 +65,14 @@ export default {
     return {
       farms: this.$store.state.pending_farms
     }
+  },
+  methods: {
+    // Add the pending farm to the farms database, using it's key
+    approveFarm (farmKey) {
+      // Get the approved farm object from the pending farms database
+      const farm = this.$root.$firebaseRefs.pending_farms.child(farmKey);
+      farm.set(null);
+    }
   }
 }
 </script>
