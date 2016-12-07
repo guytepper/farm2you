@@ -78,4 +78,11 @@
   <div class="form-submit">
     <button type="submit" :disabled="errors.any()" class="mui-btn mui-btn--raised mui-btn--primary" formnovalidate>הוספת משק</button>
   </div>
+
+  <button @click="showModal = true"></button>
+  <modal v-if="showModal" @close="showModal = false">
+    <h3 slot="header">הידד</h3>
+    <div slot="body">שלומות</div>
+  </modal>
+
 </form>

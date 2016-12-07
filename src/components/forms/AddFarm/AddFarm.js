@@ -1,7 +1,10 @@
 import Vue from 'vue';
-import VeeValidate from 'vee-validate';
 import GeoFire from 'geofire';
+
 import initGMAutoComplete from '../helpers/GMAutocomplete.js';
+import Modal from '../../layout/Modal';
+
+import VeeValidate from 'vee-validate';
 import heMessages from '../strings/heMessages.js';
 import heAttributes from '../strings/heAttributes.js';
 
@@ -17,11 +20,15 @@ Vue.use(VeeValidate, {
 
 export default {
   name: 'add-farm',
+  components: {
+    Modal
+  },
   created () {
     initGMAutoComplete(this)
   },
   data () {
     return {
+      'showModal': false,
       'name': '',
       'location': '',
       'phone': '',
