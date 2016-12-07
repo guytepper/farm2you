@@ -22,10 +22,11 @@ const routes = [
   { path: '/admin/pending-farms',
     component: PendingFarms,
     beforeEnter: (to, from, next) => {
-      Auth.isAdmin().then(admin => {
-        if (admin) next();
-        else next('/');
-      });
+      Auth.isAdmin()
+        .then(admin => {
+          if (admin) next();
+          else next('/');
+        });
     }
   },
 ]

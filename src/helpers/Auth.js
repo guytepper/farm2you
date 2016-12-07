@@ -20,12 +20,14 @@ export default {
   isAdmin() {
     return new Promise((resolve, reject) => {
       this.authStateListener(auth => {
-        const isAdminRef = firebase.database().ref(`users/${auth.uid}/isAdmin`);
-        isAdminRef.once('value')
-          .then(snap => resolve(snap.val()))
-          .catch(err => reject(err));
-      })
+        if (auth && auth.uid) {
+          const isAdminRef = firebase.database().ref(`users/${auth.uid}/isAdmin`);
+          isAdminRef.once('value')
+            .then(snap => resolve(snap.val()))
+            .catch(err => reject(err));
+          }
+        return resolve(false);
+      });
     })
-
   }
 }
