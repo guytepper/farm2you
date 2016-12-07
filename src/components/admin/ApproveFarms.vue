@@ -61,9 +61,9 @@
 
 <script>
 export default {
-  data () {
-    return {
-      farms: this.$store.state.pending_farms
+  computed: {
+    farms () {
+      return this.$store.state.pending_farms
     }
   },
   methods: {
