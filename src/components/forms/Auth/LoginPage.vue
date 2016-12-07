@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     signIn () {
-      auth.signIn(this.username, this.password);
+      auth.signIn(this.email, this.password);
     }
   }
 }
