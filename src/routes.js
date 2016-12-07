@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+import Auth from './helpers/Auth'
+
 // Import app components
 import FarmList from './components/farm/FarmList'
 import FarmPage from './components/farm/FarmPage'
@@ -17,11 +19,19 @@ const routes = [
   { path: '/add-farm/', component: AddFarm },
   { path: '/farm/:id', name: 'farm', component: FarmPage },
   { path: '/login/', component: LoginPage },
-  { path: '/admin/pending-farms', component: PendingFarms },
+  { path: '/admin/pending-farms',
+    component: PendingFarms,
+    beforeEnter: (to, from, next) => {
+      Auth.isAdmin().then(admin => {
+        if (admin) next();
+        else next('/');
+      });
+    }
+  },
 ]
 
 // Export the VueRouter instance
 export default new VueRouter({
   mode: 'history',
-  routes
+  routes,
 })

@@ -15,5 +15,17 @@ export default {
   },
   authStateListener(cb) {
     auth.onAuthStateChanged(cb)
+  },
+  // Returns a promise with the value of the current user admin rule (true/false)
+  isAdmin() {
+    return new Promise((resolve, reject) => {
+      this.authStateListener(auth => {
+        const isAdminRef = firebase.database().ref(`users/${auth.uid}/isAdmin`);
+        isAdminRef.once('value')
+          .then(snap => resolve(snap.val()))
+          .catch(err => reject(err));
+      })
+    })
+
   }
 }
