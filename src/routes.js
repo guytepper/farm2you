@@ -19,20 +19,24 @@ const routes = [
   { path: '/add-farm/', component: AddFarm },
   { path: '/farm/:id', name: 'farm', component: FarmPage },
   { path: '/login/', component: LoginPage },
-  { path: '/admin/pending-farms',
-    component: PendingFarms,
-    beforeEnter: (to, from, next) => {
-      Auth.isAdmin()
-        .then(admin => {
-          if (admin) next();
-          else next('/');
-        });
-    }
-  },
+  { path: '/admin/pending-farms', component: PendingFarms, meta: { onlyAdmin: true } },
 ]
 
-// Export the VueRouter instance
-export default new VueRouter({
+const router = new VueRouter({
   mode: 'history',
-  routes,
+  routes
+});
+
+router.beforeEach((to, from, next) => {
+  // Check if the route requires the user to be an admin
+  if (to.matched.some(record => record.meta.onlyAdmin)) {
+    Auth.isAdmin().then(admin => {
+      if (admin) next();
+      else next('/login');
+    });
+  }
+  else next();
 })
+
+// Export the VueRouter instance
+export default router;

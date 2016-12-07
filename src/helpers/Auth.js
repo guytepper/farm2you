@@ -25,8 +25,8 @@ export default {
           isAdminRef.once('value')
             .then(snap => resolve(snap.val()))
             .catch(err => reject(err));
-          }
-        return resolve(false);
+        }
+        else return resolve(false);
       });
     })
   }
