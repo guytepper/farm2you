@@ -21,13 +21,9 @@ export default {
 <style lang="scss">
 @import './assets/scss/mixins.scss';
 @import './assets/scss/resets.scss';
-
-html {
-  box-sizing: border-box;
-}
+@import './assets/scss/helpers.scss';
 
 body {
-  margin: 0;
   background-color: #ECEBEB;
 }
 
