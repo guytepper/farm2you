@@ -1,4 +1,4 @@
-<form class="add-farm panel" @submit.prevent="validateBeforeSubmit">
+<form class="add-farm panel" @submit.prevent="validateBeforeSubmit" @keydown.enter.prevent>
   <div class="mui-textfield" :class="{ 'error': errors.has('farm-name') }">
     <input v-model="name" id="farm-name" name="farm-name" v-validate data-vv-rules="required" type="text" placeholder="שם המשק / חקלאי">
     <label for="farm-name">שם המשק</label>
