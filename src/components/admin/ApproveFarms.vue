@@ -69,9 +69,16 @@ export default {
   methods: {
     // Add the pending farm to the farms database, using it's key
     approveFarm (farmKey) {
-      // Get the approved farm object from the pending farms database
-      const farm = this.$root.$firebaseRefs.pending_farms.child(farmKey);
-      farm.set(null);
+      // Get the pending farm object value from the pending farms database
+      const pendingFarmRef = this.$root.$firebaseRefs.pending_farms.child(farmKey);
+      let pendingFarmObj = null;
+      pendingFarmRef.once('value', snapshot => pendingFarmObj = snapshot.val());
+
+      // Add the pending farm to the approved farms database
+      this.$root.$firebaseRefs.farms.push(pendingFarmObj);
+      // Remove pending farm from the pending farms database
+      pendingFarmRef.set(null);
+
     }
   }
 }
