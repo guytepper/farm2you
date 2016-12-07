@@ -52,6 +52,9 @@
           </label>
         </div>
       </div>
+      <div class="form-submit">
+        <button @click="approveFarm(farm['.key'])" class="mui-btn mui-btn--raised mui-btn--primary">אישור משק</button>
+      </div>
     </div>
   </div>
 </template>
