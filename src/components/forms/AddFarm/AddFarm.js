@@ -75,8 +75,10 @@ export default {
           console.log(err); // TODO: Display message to user
           return;
         }
-          const coords = this.location.geometry.location;
-          this.addLocation(farm.key, coords)
+        // Farm was submitted sucessfuly
+        const coords = this.location.geometry.location;
+        this.addLocation(farm.key, coords);
+        this.showModal = true // Display sucess message to user
       });
     },
     // Add the farm's location coordinates to the GeoFire database
