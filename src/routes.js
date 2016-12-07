@@ -13,13 +13,16 @@ import PendingFarms from './components/admin/PendingFarms'
 // Register VueRouter with Vue
 Vue.use(VueRouter)
 
+const baseTitle = ' - ישר מהשדה'
+
 // App routes
 const routes = [
   { path: '/', component: FarmList },
-  { path: '/add-farm/', component: AddFarm },
+  { path: '/add-farm/', component: AddFarm, meta: { title: 'הוספת משק' + baseTitle } },
   { path: '/farm/:id', name: 'farm', component: FarmPage },
-  { path: '/login/', component: LoginPage },
-  { path: '/admin/pending-farms', component: PendingFarms, meta: { onlyAdmin: true } },
+  { path: '/login/', component: LoginPage, meta: { title: 'התחברות' + baseTitle } },
+  { path: '/admin/pending-farms', component: PendingFarms, 
+    meta: { onlyAdmin: true, title: 'אישור משקים' + baseTitle } },
 ]
 
 const router = new VueRouter({
@@ -36,6 +39,10 @@ router.beforeEach((to, from, next) => {
     });
   }
   else next();
+  
+  // Set the page title
+  if (to.meta.title) document.title = to.meta.title; 
+  else document.title = 'ישר מהשדה' 
 })
 
 // Export the VueRouter instance
