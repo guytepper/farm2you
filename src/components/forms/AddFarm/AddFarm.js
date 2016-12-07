@@ -85,6 +85,19 @@ export default {
     addLocation (key, coords) {
       const geofire = new GeoFire(this.$root.$firebaseRefs.locations);
       geofire.set(key, [coords.lat(), coords.lng()]);
+    },
+    resetForm () {
+      this.name = '';
+      document.getElementById('location').value = '';
+      this.phone = '';
+      this.email = '';
+      this.website = '';
+      this.facebook = '';
+      this.props.organic = false;
+      this.props.direct_sell = false;
+      this.props.online_sell = false;
+      this.props.shipping = false;
+      this.props.kosher = false;
     }
   }
 }
