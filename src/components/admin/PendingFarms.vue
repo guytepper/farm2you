@@ -1,6 +1,6 @@
 <template>
   <div class="pending-farms">
-    <h1>אישור חוות</h1>
+    <h1>אישור משקים</h1>
     <div v-for="farm in farms" class="panel pending-farm">
       <h1 class="pending-farm__name">{{ farm.name }}</h1>
       <div class="divider"></div>
