@@ -1,6 +1,6 @@
-# direct-farm-client
+# Farm 2 You
 
-> The client logic for the direct farm webapp.
+Cutting the bridge between farmers & customers 👯
 
 ## Installation
 1. Install dependencies using `npm install`
