@@ -1,4 +1,4 @@
-<form class="add-farm panel" @submit.prevent="validateBeforeSubmit">
+<form class="add-farm panel" @submit.prevent="validateBeforeSubmit" @keydown.enter.prevent>
   <div class="mui-textfield" :class="{ 'error': errors.has('farm-name') }">
     <input v-model="name" id="farm-name" name="farm-name" v-validate data-vv-rules="required" type="text" placeholder="שם המשק / חקלאי">
     <label for="farm-name">שם המשק</label>
@@ -78,4 +78,12 @@
   <div class="form-submit">
     <button type="submit" :disabled="errors.any()" class="mui-btn mui-btn--raised mui-btn--primary" formnovalidate>הוספת משק</button>
   </div>
+
+  <modal v-if="showModal" @close="showModal = false; resetForm()">
+    <div slot="body" style="text-align: center">
+      <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
+      המשק נשלח לבדיקה ויתווסף לאחר אימות הנתונים. תודה על שיתוף הפעולה!
+    </div>
+  </modal>
+
 </form>
