@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import Auth from './helpers/Auth'
 
 // Import app components
+import Homepage from './components/Homepage'
 import FarmList from './components/farm/FarmList'
 import FarmPage from './components/farm/FarmPage'
 import AddFarm from './components/forms/AddFarm'
@@ -17,7 +18,7 @@ const baseTitle = ' - ישר מהשדה'
 
 // App routes
 const routes = [
-  { path: '/', component: FarmList },
+  { path: '/', component: Homepage },
   { path: '/add-farm/', component: AddFarm, meta: { title: 'הוספת משק' + baseTitle } },
   { path: '/farm/:id', name: 'farm', component: FarmPage },
   { path: '/login/', component: LoginPage, meta: { title: 'התחברות' + baseTitle } },
