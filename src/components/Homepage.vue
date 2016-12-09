@@ -13,12 +13,24 @@
   .homepage {
     margin: -15px -20px 0; // Reset container margins
     height: calc(100vh - 55px);
-    background: url('/static/images/hero-image-2.jpg') no-repeat center center;
+    background: url('/static/images/homepage/hero-image-768px@2x.jpg') no-repeat center center;
     background-size: cover;
 
     @include respond-at(1000px) {
       margin: -15px -40px 0;
     };
+
+    @supports (background-image: -webkit-image-set(url('') 1x)) {
+      @include respond-at(1280px) {
+        background-image: -webkit-image-set(url('/static/images/homepage/hero-image-1440px@1x.jpg') 1x,
+            url('/static/images/homepage/hero-image-1440px@2x.jpg') 2x);
+      };
+
+      @include respond-at(1920px) {
+        background-image: -webkit-image-set(url('/static/images/homepage/hero-image-1920px@1x.jpg') 1x,
+            url('/static/images/homepage/hero-image-1920px@2x.jpg') 2x);
+      };
+    }
   }
 
   .homepage__content {
