@@ -8,6 +8,8 @@
 </template>
 
 <style lang="scss">
+@import "../assets/scss/mixins";
+
   .homepage {
     margin: -15px -20px 0; // Reset container margins
     height: calc(100vh - 55px);
@@ -20,13 +22,15 @@
     height: 100%;
     max-width: 550px;
     margin: 0 auto;
-    padding: 50px 0;
+    padding: 25px 20px;
     flex-direction: column;
     align-items: center;
-    // justify-content: center;
-    font-size: 40px;
+    font-size: 5vw;
     font-weight: bold;
     text-align: center;
-    // color: white
+
+    @include respond-at(600px) {
+      font-size: 28px;
+    };
   }
 </style>
