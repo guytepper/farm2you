@@ -15,6 +15,10 @@
     height: calc(100vh - 55px);
     background: url('/static/images/hero-image-2.jpg') no-repeat center center;
     background-size: cover;
+
+    @include respond-at(1000px) {
+      margin: -15px -40px 0;
+    };
   }
 
   .homepage__content {
