@@ -1,5 +1,5 @@
 import mapsapi from 'google-maps-api';
-const myGoogleMaps = mapsapi('AIzaSyD93NWdLgraXWFj_82Wvzz5m58827p_vr0', ['places']);
+const myGoogleMaps = mapsapi('AIzaSyCjLbSt5OeggLKN_Wy24ZKUxs9aMYwf6AE', ['places']);
 
 // Inits the Google Maps Autocomplete plugin.
 // Takes the vm instance as parameter.
@@ -10,6 +10,6 @@ export default function googleMapsInit(vm) {
     autocomplete.addListener('place_changed', function() {
       const location = autocomplete.getPlace();
       vm.location = location;
-    });
+    })
   });
 }
