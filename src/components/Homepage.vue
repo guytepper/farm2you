@@ -13,7 +13,7 @@
   .homepage {
     margin: -15px -20px 0; // Reset container margins
     height: calc(100vh - 55px);
-    background: url('/static/images/hero-image-2.jpg') no-repeat center center fixed;
+    background: url('/static/images/hero-image-2.jpg') no-repeat center center;
     background-size: cover;
   }
 
