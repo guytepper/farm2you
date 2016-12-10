@@ -12,11 +12,11 @@
           </div>
           <div class="subscribe-form-group">
             <label for="mce-FNAME">שם פרטי</label>
-            <input type="text" value="" name="FNAME" class="subscribe-input" id="mce-FNAME">
+            <input type="text" value="" name="FNAME" class="subscribe-input" id="mce-FNAME" placeholder="שם פרטי">
           </div>
           <div class="subscribe-form-group">
             <label for="mce-LNAME">שם משפחה</label>
-            <input type="text" value="" name="LNAME" class="subscribe-input" id="mce-LNAME">
+            <input type="text" value="" name="LNAME" class="subscribe-input" id="mce-LNAME" placeholder="שם משפחה">
           </div>
         </div>
         <div class="clear"><input type="submit" value="הרשמה" name="subscribe" id="mc-embedded-subscribe" class="subscribe-button"></div>
