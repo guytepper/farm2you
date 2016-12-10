@@ -5,17 +5,19 @@
       <p>הפרוייקט נמצא בשלב איסוף הנתונים - אתם מוזמנים <router-link to="/add-farm">להוסיף משקים</router-link>, לעקוב בעמוד הפייסבוק, או להרשם לעדכונים במייל:</p>
       <form action="//farm2you.us14.list-manage.com/subscribe/post?u=3569206df0c1612c954a1c699&amp;id=52d172b033" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate subscribe-form" target="_blank" novalidate>
         <div style="display: none;" aria-hidden="true"><input type="text" name="b_3569206df0c1612c954a1c699_52d172b033" tabindex="-1" value=""></div>
-        <div class="subscribe-form-group">
-          <label for="mce-EMAIL">אימייל</label>
-          <input type="email" value="" name="EMAIL" class="subscribe-input subscribe-email" id="mce-EMAIL" placeholder="כתובת אימייל" required>
-        </div>
-        <div class="subscribe-form-group">
-        	<label for="mce-FNAME">שם פרטי</label>
-        	<input type="text" value="" name="FNAME" class="subscribe-input" id="mce-FNAME">
-        </div>
-        <div class="subscribe-form-group">
-        	<label for="mce-LNAME">שם משפחה</label>
-        	<input type="text" value="" name="LNAME" class="subscribe-input" id="mce-LNAME">
+        <div class="subscribe-form-groups">
+          <div class="subscribe-form-group">
+            <label for="mce-EMAIL">אימייל</label>
+            <input type="email" value="" name="EMAIL" class="subscribe-input" id="mce-EMAIL" placeholder="כתובת אימייל" required>
+          </div>
+          <div class="subscribe-form-group">
+            <label for="mce-FNAME">שם פרטי</label>
+            <input type="text" value="" name="FNAME" class="subscribe-input" id="mce-FNAME">
+          </div>
+          <div class="subscribe-form-group">
+            <label for="mce-LNAME">שם משפחה</label>
+            <input type="text" value="" name="LNAME" class="subscribe-input" id="mce-LNAME">
+          </div>
         </div>
         <div class="clear"><input type="submit" value="הרשמה" name="subscribe" id="mc-embedded-subscribe" class="subscribe-button"></div>
       </form>
@@ -65,8 +67,48 @@
       font-size: 28px;
     };
   }
+
+  .subscribe-form {
+    width: 70%;
+
+    @include respond-at(768px) {
+      width: 60%;
+    };
+  }
+
+  .subscribe-form-groups {
+    padding: 5px 0;
+    background-color: rgba(255,255,255,0.9);
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    border-radius: 5px;
+
+    @supports (-webkit-backdrop-filter: blur(5px)) {
+      background-color: rgba(255, 247, 237, 0.23);
+      -webkit-backdrop-filter: blur(5px);
+    };
+
+    @include respond-at(768px) {
+      padding-bottom: 10px;
+    };
+  }
+
+  .subscribe-form-group {
+    margin-bottom: 5px;
+  }
+
+  .subscribe-input {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .subscribe-button {
+    appearance: none;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
     color: #fff;
-    background-color: #aaa;
+    background-color: #e67e22;
     box-sizing: border-box;
     height: 40px;
     line-height: 32px;
@@ -76,7 +118,7 @@
     width: 100%;
 
     &:hover {
-      background-color: #777;
+      background-color: #d35400;
       cursor: pointer;
     }
   }
