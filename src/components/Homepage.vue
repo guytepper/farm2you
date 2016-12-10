@@ -99,6 +99,7 @@
 
   .subscribe-input {
     display: block;
+    max-width: 90%;
     margin: 0 auto;
     text-align: center;
   }
