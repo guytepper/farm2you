@@ -89,7 +89,6 @@
 
     @supports (-webkit-backdrop-filter: blur(5px)) {
       background-color: rgba(255, 247, 237, 0.23);
-      -webkit-backdrop-filter: blur(5px);
       backdrop-filter: blur(5px);
     };
 
