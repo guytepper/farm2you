@@ -69,6 +69,10 @@ export default {
     }
   },
   methods: {
+    // Get the pending farm's refrence from database
+    getPendingFarm (farmKey) {
+      return this.$root.$firebaseRefs.pending_farms.child(farmKey);
+    },
     // Add the pending farm to the farms database, using it's key
     approveFarm (farmKey) {
       // Get the pending farm object value from the pending farms database
