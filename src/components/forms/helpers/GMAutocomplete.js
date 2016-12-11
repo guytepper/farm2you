@@ -1,5 +1,5 @@
 import mapsapi from 'google-maps-api';
-import apiKey from '../../../config/GoogleAPI';
+import apiKey from '../../../config/GoogleAPIKey';
 
 const myGoogleMaps = mapsapi(apiKey, ['places']);
 
