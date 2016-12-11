@@ -18,8 +18,6 @@
           <span>{{ farm.email }}</span>
         </div>
         <div v-if="farm.website">
-          <span class="pending-farm__info-label">פייסבוק: <span>
-            <a :href="farm.website">כניסה לאתר</a>
           <span class="pending-farm__info-label">אתר אינטרנט: <span>
             <a :href="farm.website" target="_blank">כניסה לאתר</a>
         </div>
@@ -28,7 +26,7 @@
             <a :href="farm.facebook" target="_blank">כניסה לעמוד</a>
         </div>
         <div v-if="farm.description">
-          <span class="pending-farm__info-label">תיאור:<span>
+          <span class="pending-farm__info-label">תיאור:</span>
           <span>{{ farm.description }}</span>
         </div>
 
