@@ -1,5 +1,5 @@
 import mapsapi from 'google-maps-api';
-const myGoogleMaps = mapsapi('AIzaSyCjLbSt5OeggLKN_Wy24ZKUxs9aMYwf6AE', ['places']);
+const myGoogleMaps = mapsapi('YOUR GOOGLE MAPS API KEY', ['places']);
 
 // Inits the Google Maps Autocomplete plugin.
 // Takes the vm instance as parameter.
