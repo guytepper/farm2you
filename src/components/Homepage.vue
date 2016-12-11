@@ -3,20 +3,20 @@
     <div class="homepage__content">
       <p>פרוייקט ישר מהשדה עוזר לחבר את החקלאים ישירות אליכם - הלקוחות.</p>
       <p>הפרוייקט נמצא בשלב איסוף הנתונים - אתם מוזמנים <router-link to="/add-farm">להוסיף משקים</router-link>, לעקוב בעמוד הפייסבוק, או להרשם לעדכונים במייל:</p>
-      <form action="//farm2you.us14.list-manage.com/subscribe/post?u=3569206df0c1612c954a1c699&amp;id=52d172b033" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate subscribe-form" target="_blank" novalidate>
+      <form action="//farm2you.us14.list-manage.com/subscribe/post?u=3569206df0c1612c954a1c699&amp;id=52d172b033" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate subscribe-form" target="_blank">
         <div style="display: none;" aria-hidden="true"><input type="text" name="b_3569206df0c1612c954a1c699_52d172b033" tabindex="-1" value=""></div>
         <div class="subscribe-form-groups">
           <div class="subscribe-form-group">
             <label for="mce-EMAIL">אימייל</label>
-            <input type="email" value="" name="EMAIL" class="subscribe-input" id="mce-EMAIL" placeholder="כתובת אימייל" required>
+            <input type="email" value="" name="EMAIL" class="subscribe-input" id="mce-EMAIL" required>
           </div>
           <div class="subscribe-form-group">
             <label for="mce-FNAME">שם פרטי</label>
-            <input type="text" value="" name="FNAME" class="subscribe-input" id="mce-FNAME" placeholder="שם פרטי">
+            <input type="text" value="" name="FNAME" class="subscribe-input" id="mce-FNAME" required>
           </div>
           <div class="subscribe-form-group">
             <label for="mce-LNAME">שם משפחה</label>
-            <input type="text" value="" name="LNAME" class="subscribe-input" id="mce-LNAME" placeholder="שם משפחה">
+            <input type="text" value="" name="LNAME" class="subscribe-input" id="mce-LNAME" required>
           </div>
         </div>
         <div class="clear"><input type="submit" value="הרשמה" name="subscribe" id="mc-embedded-subscribe" class="subscribe-button"></div>
@@ -72,7 +72,8 @@
     width: 70%;
 
     @include respond-at(768px) {
-      width: 60%;
+      width: 50%;
+      font-size: 25px;
     };
   }
 
@@ -81,6 +82,10 @@
     background-color: rgba(255,255,255,0.9);
     border: 1px solid rgba(0, 0, 0, 0.16);
     border-radius: 5px;
+
+    label {
+      font-weight: 100;
+    }
 
     @supports (-webkit-backdrop-filter: blur(5px)) {
       background-color: rgba(255, 247, 237, 0.23);
