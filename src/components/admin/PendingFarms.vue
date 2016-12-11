@@ -73,18 +73,26 @@ export default {
     getPendingFarm (farmKey) {
       return this.$root.$firebaseRefs.pending_farms.child(farmKey);
     },
-    // Add the pending farm to the farms database, using it's key
+    // Add the pending farm to the farms database
     approveFarm (farmKey) {
-      // Get the pending farm object value from the pending farms database
-      const pendingFarmRef = this.$root.$firebaseRefs.pending_farms.child(farmKey);
+      const pendingFarmRef = this.getPendingFarm(farmKey);
       let pendingFarmObj = null;
+      // Get the pending farm actual value
       pendingFarmRef.once('value', snapshot => pendingFarmObj = snapshot.val());
-
       // Add the pending farm to the approved farms database
       this.$root.$firebaseRefs.farms.push(pendingFarmObj);
       // Remove pending farm from the pending farms database
       pendingFarmRef.set(null);
+    },
+    // Remove pending farm & it's location
+    disapproveFarm (farmKey) {
+      if (window.confirm('בטוח שברצונך למחוק את החווה?')) {
+        const pendingFarm = this.getPendingFarm(farmKey);
+        const location = this.$root.$firebaseRefs.locations.child(farmKey);
 
+        pendingFarm.set(null);
+        location.set(null);
+      }
     }
   }
 }
