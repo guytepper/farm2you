@@ -35,6 +35,7 @@ export default {
       'email': '',
       'website': '',
       'facebook': '',
+      'description': '',
       'props': {
         'organic': false,
         'direct_sell': false,
@@ -63,6 +64,7 @@ export default {
         'email': this.email,
         'website': this.website,
         'facebook': this.facebook,
+        'description': this.description,
         'props': {
           'organic': this.props.organic,
           'direct_sell': this.props.direct_sell,

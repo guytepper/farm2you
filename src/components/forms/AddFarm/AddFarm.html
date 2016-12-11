@@ -44,6 +44,14 @@
     <span v-show="errors.has('facebook')" class="error-help">{{ errors.first('facebook') }}</span>
   </div>
 
+  <div class="mui-textfield">
+    <textarea v-model="description" id="description" placeholder="מידע חופשי אודות המשק - סוגי הירקות/פירות שמוכר, אופי הגידול והמכירה וכו׳"></textarea>
+    <label for="description" style="top: -3px;">
+      מידע חופשי
+      <span class="label-optional">(אופציונאלי)</span>
+    </label>
+  </div>
+
   <div class="mui-checkbox">
     <label>
     <input type="checkbox" v-model="props.organic">

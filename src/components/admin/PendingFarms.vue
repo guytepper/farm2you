@@ -13,9 +13,21 @@
           <span class="pending-farm__info-label">טלפון:</span>
           <span>{{ farm.phone }}</span>
         </div>
-        <div>
+        <div v-if="farm.email">
           <span class="pending-farm__info-label">אימייל:</span>
           <span>{{ farm.email }}</span>
+        </div>
+        <div v-if="farm.website">
+          <span class="pending-farm__info-label">אתר אינטרנט: <span>
+            <a :href="farm.website" target="_blank">כניסה לאתר</a>
+        </div>
+        <div v-if="farm.facebook">
+          <span class="pending-farm__info-label">פייסבוק: <span>
+            <a :href="farm.facebook" target="_blank">כניסה לעמוד</a>
+        </div>
+        <div v-if="farm.description">
+          <span class="pending-farm__info-label">תיאור:</span>
+          <span>{{ farm.description }}</span>
         </div>
 
         <div class="mui-checkbox">
