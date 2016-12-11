@@ -53,7 +53,8 @@
           </label>
         </div>
       </div>
-      <div class="form-submit">
+      <div class="form-submit pending-farms-buttons">
+        <button @click="disapproveFarm(farm['.key'])" class="mui-btn mui-btn--raised mui-btn--danger">מחיקת משק</button>
         <button @click="approveFarm(farm['.key'])" class="mui-btn mui-btn--raised mui-btn--primary">אישור משק</button>
       </div>
     </div>
@@ -97,6 +98,12 @@ export default {
 
 .pending-farm__info-label {
   font-weight: bold
+}
+
+.pending-farms-buttons {
+  .mui-btn {
+    margin: 5px;
+  }
 }
 
 </style>
