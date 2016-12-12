@@ -2,12 +2,12 @@ import Auth from '../../helpers/Auth';
 
 const User = {
   state: {
-    user: null,
+    info: null,
     isAdmin: false,
   },
   mutations: {
-    UPDATE_USER (state, user) {
-      state.user = user;
+    UPDATE_USER (state, userInfo) {
+      state.info = userInfo;
     },
     ADMIN_STATUS (state, status) {
       state.isAdmin = status;
@@ -15,8 +15,8 @@ const User = {
   },
   actions: {
     UPDATE_USER ({ commit, dispatch }) {
-      Auth.authStateListener(user => {
-        commit('UPDATE_USER', user);
+      Auth.authStateListener(userInfo => {
+        commit('UPDATE_USER', userInfo);
         dispatch('ADMIN_STATUS');
       })
     },
