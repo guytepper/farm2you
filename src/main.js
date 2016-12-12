@@ -2,7 +2,6 @@ import Vue from 'vue'
 import store from './store'
 import router from './routes'
 import firebase from './config/firebase'
-import Auth from './helpers/Auth'
 
 import App from './App'
 import FarmList from './components/farm/FarmList'
