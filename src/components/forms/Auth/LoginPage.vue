@@ -48,7 +48,6 @@ export default {
     }
   },
   beforeRouteEnter (to, from, next) {
-    console.log(to);
     if (to.hash === '#add-farm') {
       // Display auth error message related to the location the user tried to access
       next(vm => vm.$data.message = messages['add-farm'])
