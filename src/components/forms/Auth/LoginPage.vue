@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import auth from '../../../helpers/Auth';
+import Auth from '../../../helpers/Auth';
 import messages from '../strings/loginMessages';
 
 export default {
@@ -44,7 +44,8 @@ export default {
   },
   methods: {
     signIn () {
-      auth.signIn(this.email, this.password);
+      Auth.signIn(this.email, this.password);
+    },
     }
   },
   beforeRouteEnter (to, from, next) {
