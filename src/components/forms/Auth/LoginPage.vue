@@ -6,6 +6,7 @@
           {{ message }}
         </p>
       </div>
+      <button @click="facebookLogin()">facebook login</button>
       <div class="mui-textfield">
         <input
           v-model="email" id="email" name="email" type="email"
@@ -46,6 +47,8 @@ export default {
     signIn () {
       Auth.signIn(this.email, this.password);
     },
+    facebookLogin () {
+      Auth.facebookLogin()
     }
   },
   beforeRouteEnter (to, from, next) {
