@@ -35,10 +35,10 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   // Check if the route requires the user to be an admin
   if (to.matched.some(record => record.meta.onlyAdmin)) {
-    Auth.isAdmin().then(admin => {
-      if (admin) next();
-      else next('/login');
-    });
+    if (store.state.User.isAdmin) {
+      next();
+    }
+    else next('/login');
   }
   else next();
 
