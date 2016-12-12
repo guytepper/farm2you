@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+import store from './store'
 import Auth from './helpers/Auth'
 
 // Import app components
@@ -19,10 +20,10 @@ const baseTitle = ' - ישר מהשדה'
 // App routes
 const routes = [
   { path: '/', component: Homepage },
-  { path: '/add-farm/', component: AddFarm, meta: { title: 'הוספת משק' + baseTitle } },
+  { path: '/add-farm/', component: AddFarm, meta: { title: 'הוספת משק' + baseTitle , requiresAuth: true} },
   { path: '/farm/:id', name: 'farm', component: FarmPage },
   { path: '/login/', component: LoginPage, meta: { title: 'התחברות' + baseTitle } },
-  { path: '/admin/pending-farms', component: PendingFarms, 
+  { path: '/admin/pending-farms', component: PendingFarms,
     meta: { onlyAdmin: true, title: 'אישור משקים' + baseTitle } },
 ]
 
@@ -40,10 +41,10 @@ router.beforeEach((to, from, next) => {
     });
   }
   else next();
-  
+
   // Set the page title
-  if (to.meta.title) document.title = to.meta.title; 
-  else document.title = 'ישר מהשדה' 
+  if (to.meta.title) document.title = to.meta.title;
+  else document.title = 'ישר מהשדה'
 })
 
 // Export the VueRouter instance

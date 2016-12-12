@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import store from '../../../store';
 import GeoFire from 'geofire';
 
 import initGMAutoComplete from '../helpers/GMAutocomplete.js';
@@ -101,5 +102,10 @@ export default {
       this.props.shipping = false;
       this.props.kosher = false;
     }
+  },
+  // Make sure only authorized users can submit access the component
+  beforeRouteEnter (to, from, next) {
+    if (!store.state.user) next('/login#add-farm');
+    else next();
   }
 }

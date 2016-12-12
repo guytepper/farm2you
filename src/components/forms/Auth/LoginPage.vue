@@ -1,6 +1,11 @@
 <template>
   <div class="panel login-page">
     <form class="login-form" @submit.prevent="signIn">
+      <div class="login-form__message" v-if="message">
+        <p>
+          {{ message }}
+        </p>
+      </div>
       <div class="mui-textfield">
         <input
           v-model="email" id="email" name="email" type="email"
@@ -27,10 +32,12 @@
 
 <script>
 import auth from '../../../helpers/Auth';
+import messages from '../strings/loginMessages';
 
 export default {
   data () {
     return {
+      message: "",
       email: "",
       password: ""
     }
@@ -39,7 +46,15 @@ export default {
     signIn () {
       auth.signIn(this.email, this.password);
     }
-  }
+  },
+  beforeRouteEnter (to, from, next) {
+    console.log(to);
+    if (to.hash === '#add-farm') {
+      // Display auth error message related to the location the user tried to access
+      next(vm => vm.$data.message = messages['add-farm'])
+    }
+    else next();
+  },
 }
 </script>
 
@@ -51,5 +66,10 @@ export default {
 .login-form {
   width: 50%;
   margin: 0 auto;
+}
+
+.login-form__message {
+  font-weight: bold;
+  text-align: center;
 }
 </style>
