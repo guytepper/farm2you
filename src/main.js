@@ -23,8 +23,6 @@ new Vue({
     locations: db.ref('locations')
   },
   created () {
-    Auth.authStateListener(user => {
-      this.$store.commit('updateUser', user)
-    })
+    this.$store.dispatch('UPDATE_USER');
   }
 })
