@@ -40,10 +40,6 @@ router.beforeEach((to, from, next) => {
       else next('/login');
     });
   }
-  // Check if the route requires user to be logged in
-  if (to.meta.requiresAuth && !store.state.user) {
-    next('/login')
-  }
   else next();
 
   // Set the page title
