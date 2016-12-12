@@ -22,7 +22,9 @@ const User = {
     },
     ADMIN_STATUS ({ commit }) {
       Auth.isAdmin().then(result => {
-        commit('ADMIN_STATUS', result);
+        if (result === true)
+          commit('ADMIN_STATUS', true);
+        commit('ADMIN_STATUS', false);
       })
     }
   }
