@@ -105,7 +105,7 @@ export default {
   },
   // Make sure only authorized users can submit access the component
   beforeRouteEnter (to, from, next) {
-    if (!store.state.user) next('/login#add-farm');
+    if (!store.state.User.info) next('/login#add-farm');
     else next();
   }
 }
