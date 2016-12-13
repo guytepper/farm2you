@@ -32,7 +32,17 @@ export default {
   methods: {
     facebookLogin () {
       Auth.facebookLogin().then(user => {
+        this.signInSuccessful();
       });
+    },
+    signInSuccessful () {
+      // If the user intended to add farm, redirect there
+      if (this.$router.currentRoute.hash === '#add-farm') {
+        this.$router.push('/add-farm/')
+      }
+      else {
+        this.$router.push('/')
+      }
     }
   },
   beforeRouteEnter (to, from, next) {
