@@ -44,6 +44,7 @@
 
 <script>
 import Auth from '../../../helpers/Auth';
+import store from '../../../store';
 import messages from '../strings/loginMessages';
 
 export default {
@@ -63,6 +64,9 @@ export default {
     }
   },
   beforeRouteEnter (to, from, next) {
+    if (store.state.User.info != null) {
+      next('/');
+    }
     if (to.hash === '#add-farm') {
       // Display auth error message related to the location the user tried to access
       next(vm => vm.$data.message = messages['add-farm'])
