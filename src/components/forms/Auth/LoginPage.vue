@@ -1,6 +1,5 @@
 <template>
   <div class="panel login-page">
-    <form class="login-form" @submit.prevent="signIn">
       <div class="login-form__message" v-if="message">
         <p>
           {{ message }}
@@ -8,12 +7,11 @@
       </div>
 
       <div class="login-form__providers">
-        <button @click="facebookLogin()" class="frm-btn frm-btn--blue">
+        <button @click.prevent="facebookLogin()" class="frm-btn frm-btn--blue">
           <img src="../../../assets/icons/facebook.svg" alt="">
           התחברות דרך פייסבוק
         </button>
       </div>
-    </form>
   </div>
 
 </template>
@@ -33,7 +31,7 @@ export default {
     facebookLogin () {
       Auth.facebookLogin().then(user => {
         this.signInSuccessful();
-      });
+      }).catch(err => console.log(err));
     },
     signInSuccessful () {
       // If the user intended to add farm, redirect there
