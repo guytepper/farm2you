@@ -80,8 +80,9 @@
   .subscribe-form-groups {
     padding: 5px 0;
     background-color: rgba(255,255,255,0.9);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 2px 0 rgba(0, 0, 0, 0.12);
     border: 1px solid rgba(0, 0, 0, 0.16);
-    border-radius: 5px;
+    border-radius: 3px;
 
     label {
       font-weight: 100;
@@ -112,10 +113,10 @@
     appearance: none;
     font-size: 18px;
     border: none;
-    border-radius: 5px;
     color: #fff;
     background-color: #e67e22;
-    box-sizing: border-box;
+    border-radius: 3px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 2px 0 rgba(0, 0, 0, 0.12);
     height: 40px;
     line-height: 32px;
     padding: 0 18px;
