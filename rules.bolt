@@ -1,0 +1,22 @@
+path / {
+  read() { true }
+  write() { true }
+}
+
+type Farm {
+  name: String,
+  address: String,
+  email: String,
+  website: String,
+  facebook: String,
+  phone: String,
+  description: String,
+  props: Object,
+  props.
+}
+
+path /users is User {}
+
+type User {
+  isAdmin: Boolean,
+}

@@ -7,5 +7,6 @@ src/config/GoogleAPIKey.js
 .
 
 # Firebase
+rules.json
 .firebaserc
 .firebase-debug.log
