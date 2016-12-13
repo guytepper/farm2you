@@ -13,30 +13,6 @@
           התחברות דרך פייסבוק
         </button>
       </div>
-
-      <p>
-        התחברות באמצעות אימיילֹ:
-      </p>
-
-      <div class="mui-textfield">
-        <input
-          v-model="email" id="email" name="email" type="email"
-          placeholder="אימייל"
-          class="ltr">
-        <label for="email">אימייל</label>
-      </div>
-
-      <div class="mui-textfield">
-        <input
-          v-model="password" id="password" name="password" type="password"
-          placeholder="סיסמא"
-          class="ltr">
-        <label for="password">סיסמא</label>
-      </div>
-
-      <div class="form-submit">
-        <button type="submit" class="mui-btn mui-btn--primary mui-btn--raised">התחברות</button>
-      </div>
     </form>
   </div>
 
@@ -51,23 +27,11 @@ export default {
   data () {
     return {
       message: "",
-      email: "",
-      password: ""
     }
   },
   methods: {
-    signIn () {
-      Auth.signIn(this.email, this.password);
-    },
     facebookLogin () {
       Auth.facebookLogin().then(user => {
-        // If the user intended to add farm, redirect there
-        if (this.$router.currentRoute.hash === '#add-farm') {
-          this.$router.push('/add-farm/')
-        }
-        else {
-          this.$router.push('/')
-        }
       });
     }
   },
