@@ -1,8 +1,31 @@
-.icon-btn {
+.frm-btn {
   appearance: none;
+  display: flex;
+  width: 100%;
   padding: 5px 10px;
-  background-color: #334F8D;
+  justify-content: center;
+  align-items: center;
   border-style: none;
   border-radius: 2px;
+  box-shadow: 0 0px 1px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.2);
   color: #fff;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+
+  img {
+    width: 8px;
+    margin-left: 10px;
+  }
+
+  &:hover {
+    box-shadow: 0 0px 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.frm-btn--blue {
+  background-color: #334F8D;
+
+  &:hover {
+    background-color: #435f9d;
+  }
 }

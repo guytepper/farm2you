@@ -6,10 +6,18 @@
           {{ message }}
         </p>
       </div>
-      <button @click="facebookLogin()" class="icon-btn icon-btn--facebook">
-        <img src="../../../assets/icons/facebook.svg" alt="">
-        התחברות דרך פייסבוק
-      </button>
+
+      <div class="login-form__providers">
+        <button @click="facebookLogin()" class="frm-btn frm-btn--blue">
+          <img src="../../../assets/icons/facebook.svg" alt="">
+          התחברות דרך פייסבוק
+        </button>
+      </div>
+
+      <p>
+        התחברות באמצעות אימיילֹ:
+      </p>
+
       <div class="mui-textfield">
         <input
           v-model="email" id="email" name="email" type="email"
@@ -78,5 +86,9 @@ export default {
 .login-form__message {
   font-weight: bold;
   text-align: center;
+}
+
+.login-form__providers {
+  margin-bottom: 10px;
 }
 </style>
