@@ -73,6 +73,8 @@ export default {
 }
 
 .login-form__providers {
+  display: flex;
+  justify-content: center;
   margin-bottom: 10px;
 }
 </style>
