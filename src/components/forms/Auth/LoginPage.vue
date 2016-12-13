@@ -6,7 +6,10 @@
           {{ message }}
         </p>
       </div>
-      <button @click="facebookLogin()">facebook login</button>
+      <button @click="facebookLogin()" class="icon-btn icon-btn--facebook">
+        <img src="../../../assets/icons/facebook.svg" alt="">
+        התחברות דרך פייסבוק
+      </button>
       <div class="mui-textfield">
         <input
           v-model="email" id="email" name="email" type="email"
@@ -65,6 +68,7 @@ export default {
 @import "../../../assets/vendor/mui/textfield";
 @import "../../../assets/vendor/mui/button";
 @import "../../../assets/scss/helpers";
+@import "../../../assets/scss/buttons";
 
 .login-form {
   width: 50%;
