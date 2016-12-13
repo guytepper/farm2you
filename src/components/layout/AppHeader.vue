@@ -44,6 +44,12 @@ export default {
     @include respond-at(1024px) {
       height: 65px;
     };
+
+    a {
+      &:hover {
+        border-bottom: none;
+      }
+    }
   }
 
   .site-title {
