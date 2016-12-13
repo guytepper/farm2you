@@ -3,10 +3,9 @@
   height: 1px;
   background-color: #E1E1E1;
 }
+
 .ltr {
-  &:focus {
-    direction: ltr;
-  }
+  direction: ltr;
 
   &::-webkit-input-placeholder {
     direction: rtl;
