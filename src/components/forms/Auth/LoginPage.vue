@@ -60,7 +60,15 @@ export default {
       Auth.signIn(this.email, this.password);
     },
     facebookLogin () {
-      Auth.facebookLogin()
+      Auth.facebookLogin().then(user => {
+        // If the user intended to add farm, redirect there
+        if (this.$router.currentRoute.hash === '#add-farm') {
+          this.$router.push('/add-farm/')
+        }
+        else {
+          this.$router.push('/')
+        }
+      });
     }
   },
   beforeRouteEnter (to, from, next) {
