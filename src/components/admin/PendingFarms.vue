@@ -81,26 +81,28 @@ export default {
     }
   },
   methods: {
-    // Get the pending farm's refrence from database
-    getPendingFarm (farmKey) {
-      return this.$root.$firebaseRefs.pending_farms.child(farmKey);
-    },
     // Add the pending farm to the farms database
     approveFarm (farmKey) {
-      const pendingFarmRef = this.getPendingFarm(farmKey);
+      // Get the pending farm & location object refrence from database
+      const pendingFarmRef = this.$root.$firebaseRefs.pending_farms.child(farmKey);
+      const pendingLocationRef = this.$root.$firebaseRefs.pending_locations.child(farmKey);
       let pendingFarmObj = null;
+      let pendingLocationObj = null;
       // Get the pending farm actual value
       pendingFarmRef.once('value', snapshot => pendingFarmObj = snapshot.val());
+      pendingLocationRef.once('value', snapshot => pendingLocationObj = snapshot.val());
       // Add the pending farm to the approved farms database
-      this.$root.$firebaseRefs.farms.push(pendingFarmObj);
+      this.$root.$firebaseRefs.farms.child(farmKey).set(pendingFarmObj);
+      this.$root.$firebaseRefs.locations.child(farmKey).set(pendingLocationObj);
       // Remove pending farm from the pending farms database
       pendingFarmRef.set(null);
+      pendingLocationRef.set(null);
     },
     // Remove pending farm & it's location
     disapproveFarm (farmKey) {
       if (window.confirm('בטוח שברצונך למחוק את החווה?')) {
-        const pendingFarm = this.getPendingFarm(farmKey);
-        const location = this.$root.$firebaseRefs.locations.child(farmKey);
+        const pendingFarm = this.$root.$firebaseRefs.pending_farms.child(farmKey);
+        const location = this.$root.$firebaseRefs.pending_locations.child(farmKey);
 
         pendingFarm.set(null);
         location.set(null);
