@@ -36,4 +36,7 @@ export default {
       });
     })
   }
+  isNewUser() {
+    // if user not exists in users database -> new user
+  }
 }
