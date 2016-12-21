@@ -2,9 +2,7 @@
 node_modules/
 dist/
 npm-debug.log
-src/config/firebase.js
-src/config/GoogleAPIKey.js
-.
+src/config/env.js
 
 # Firebase
 .firebaserc
