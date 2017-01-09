@@ -18,8 +18,9 @@ new Vue({
   store,
   firebase: {
     farms: db.ref('farms'),
+    locations: db.ref('locations'),
     pending_farms: db.ref('pending_farms'),
-    locations: db.ref('locations')
+    pending_locations: db.ref('pending_locations')
   },
   created () {
     this.$store.dispatch('UPDATE_USER');

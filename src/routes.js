@@ -24,7 +24,7 @@ const routes = [
   { path: '/farm/:id', name: 'farm', component: FarmPage },
   { path: '/login/', component: LoginPage, meta: { title: 'התחברות' + baseTitle } },
   { path: '/admin/pending-farms', component: PendingFarms,
-    meta: { onlyAdmin: true, title: 'אישור משקים' + baseTitle } },
+           meta: { onlyAdmin: true, title: 'אישור משקים' + baseTitle } },
 ]
 
 const router = new VueRouter({
@@ -38,7 +38,7 @@ router.beforeEach((to, from, next) => {
     if (store.state.User.isAdmin) {
       next();
     }
-    else next('/login');
+    else next('/');
   }
   else next();
 

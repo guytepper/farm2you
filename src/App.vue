@@ -22,6 +22,8 @@ export default {
 @import './assets/scss/mixins.scss';
 @import './assets/scss/resets.scss';
 @import './assets/scss/helpers.scss';
+@import './assets/scss/general.scss';
+
 
 body {
   background-color: #ECEBEB;

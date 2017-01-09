@@ -1,20 +1,26 @@
 import firebase from '../config/firebase';
+import firebaseLib from 'firebase';
 
 const auth = firebase.auth();
 
 export default {
-  signIn(email, password) {
-    auth.signInWithEmailAndPassword(email, password).catch(function(error) {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log(`${errorCode}: ${errorMessage}`);
-    })
-  },
   signOut() {
     auth.signOut();
   },
   authStateListener(cb) {
     auth.onAuthStateChanged(cb)
+  },
+  facebookLogin() {
+    const provider = new firebaseLib.auth.FacebookAuthProvider();
+    return new Promise((resolve, reject) => {
+      auth.signInWithPopup(provider).then(function(result) {
+        resolve(result.user);
+      }).catch(function(error) {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        reject(`${errorCode}: ${errorMessage}`);
+      });
+    })
   },
   // Returns a promise with the value of the current user admin rule (true/false)
   isAdmin() {
@@ -29,5 +35,9 @@ export default {
         else return resolve(false);
       });
     })
+  },
+  // if user not exists in users database -> new user
+  isNewUser() {
+    // firebase.database().ref('users')
   }
 }
