@@ -35,8 +35,9 @@ export default {
         else return resolve(false);
       });
     })
-  }
+  },
+  // if user not exists in users database -> new user
   isNewUser() {
-    // if user not exists in users database -> new user
+    // firebase.database().ref('users')
   }
 }
