@@ -12,11 +12,10 @@ type Farm {
   phone: String,
   description: String,
   props: Object,
-  props.
 }
-
-path /users is User {}
 
 type User {
   isAdmin: Boolean,
 }
+
+path /users is User {}
