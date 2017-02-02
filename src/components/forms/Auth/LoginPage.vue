@@ -28,11 +28,15 @@ export default {
     }
   },
   methods: {
+    // Logs the user using facebook
     facebookLogin () {
       Auth.facebookLogin().then(user => {
+        // Check if the user doesn't exist yet
+        Auth.isNewUser(user.uid);
         this.signInSuccessful();
       }).catch(err => console.log(err));
     },
+    // Continues the login process
     signInSuccessful () {
       // If the user intended to add farm, redirect there
       if (this.$router.currentRoute.hash === '#add-farm') {
@@ -44,13 +48,16 @@ export default {
     }
   },
   beforeRouteEnter (to, from, next) {
+    // Redirect user to homepage
     if (store.state.User.info != null) {
       next('/');
     }
+
+    // Display auth error message related to the location the user tried to access
     if (to.hash === '#add-farm') {
-      // Display auth error message related to the location the user tried to access
       next(vm => vm.$data.message = messages['add-farm'])
     }
+
     else next();
   },
 }
