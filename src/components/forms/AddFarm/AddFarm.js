@@ -72,7 +72,8 @@ export default {
           'online_sell': this.props.online_sell,
           'shipping': this.props.shipping,
           'kosher': this.props.kosher
-        }
+        },
+        'submittedBy': this.$store.state.User.info.uid // TODO: Verify it's working
       }, err => {
         if (err) {
           console.log(err); // TODO: Display message to user
