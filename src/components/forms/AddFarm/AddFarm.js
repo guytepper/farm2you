@@ -81,13 +81,14 @@ export default {
         // Farm was submitted sucessfuly
         const coords = this.location.geometry.location;
         this.addLocation(farm.key, coords);
-        this.showModal = true // Display sucess message to user
       });
     },
     // Add the farm's location coordinates to the GeoFire database
     addLocation (key, coords) {
-      const geofire = new GeoFire(this.$root.$firebaseRefs.locations);
-      geofire.set(key, [coords.lat(), coords.lng()]);
+      const geofire = new GeoFire(this.$root.$firebaseRefs.pending_locations);
+      geofire.set(key, [coords.lat(), coords.lng()])
+        .then(() => this.showModal = true)
+        .catch(err => console.log(err))
     },
     resetForm () {
       this.name = '';
