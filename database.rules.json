@@ -2,12 +2,13 @@
   "rules": {
     // FARMS
     "farms": {
-      ".read": "true",
+      // TEMPORARY UNTIL RELEASE
+    	".read": "root.child('users').child(auth.uid).child('isAdmin').val() === true",
     	".write": "root.child('users').child(auth.uid).child('isAdmin').val() === true"
     },
     // PENDING FARMS
   	"pending_farms": {
-    	".read": "true",
+    	".read": "root.child('users').child(auth.uid).child('isAdmin').val() === true",
     	".write": "true",
       "$id": {
         ".validate": "newData.hasChildren(['name', 'address', 'phone'])",
@@ -15,16 +16,16 @@
        		".validate": "newData.isString() && newData.val().length > 1 && newData.val().length < 30"
       	}
       }
-    },  
+    },
     // LOCATIONS
     "locations": {
-      ".read": "true",
-      ".write": "true"
+      ".read": "auth.uid === ",
+    	".write": "root.child('users').child(auth.uid).child('isAdmin').val() === true"
     },
     // USERS
     "users": {
       ".read": "true",
-      ".write": "true"
+      ".write": "false"
     }
   }
 }

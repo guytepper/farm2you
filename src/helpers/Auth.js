@@ -35,5 +35,5 @@ export default {
         else return resolve(false);
       });
     })
-  }
+  },
 }
