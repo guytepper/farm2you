@@ -8,7 +8,7 @@ Cutting the bridge between farmers & customers 👯
 3. Create a Firebase project using the [Firebase Console](https://firebase.google.com/console).
 4. In your project dashboard, click "Add Firebase to your web app".
 5. Copy the config object to `src/config/env.js`.
-6. Go to [Google APIs Console](https://console.developers.google.com/apis/credentials), search for `Google Places API Web Service` and enable it.
+6. Go to [Google APIs Console](https://console.developers.google.com/apis/credentials), search for `Google Maps JavaScript API` & `Google Places API Web Service` and enable them.
 
 ### Users Authentication
 In order to make Facebook authentication work, follow the instructions on the [firebase docs](https://firebase.google.com/docs/auth/web/facebook-login).
