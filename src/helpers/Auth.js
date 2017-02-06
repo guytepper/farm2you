@@ -36,17 +36,4 @@ export default {
       });
     })
   },
-  // if user not exists in users database -> new user
-  isNewUser(userId) {
-    const usersRef = firebase.database().ref('users/');
-    usersRef.child(userId).once('value', snapshot => {
-      if (snapshot.val() === null) {
-        // Create new user entry
-        console.log('User does not exists!');
-      }
-      else {
-        console.log('User exists!');
-      }
-    })
-  }
 }
