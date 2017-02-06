@@ -12,6 +12,7 @@ type Farm {
   phone: String,
   description: String,
   props: Object,
+  submittedBy: String,
 }
 
 type User {
