@@ -1,10 +1,14 @@
+/* Inits the Google Maps Autocomplete plugin.
+*/
+
 import mapsapi from 'google-maps-api';
-import apiKey from '../../../config/env';
+import { googleAPIKey } from '../../../config/env';
 
-const myGoogleMaps = mapsapi(apiKey, ['places']);
+const myGoogleMaps = mapsapi(googleAPIKey, ['places']);
 
-// Inits the Google Maps Autocomplete plugin.
-// Takes the vm instance as parameter.
+/* The function inits the autocomplete plugin,
+ * Takes the vm instance as parameter.
+ */
 export default function googleMapsInit(vm) {
   myGoogleMaps().then(maps => {
     const input = document.getElementById('location');
