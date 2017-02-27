@@ -1,5 +1,5 @@
 <template>
-  <div class="farm-list">
+  <div class="farm-list panel">
     <farm-card v-for="farm in farms" :farm="farm"></farm-card>
   </div>
 </template>
