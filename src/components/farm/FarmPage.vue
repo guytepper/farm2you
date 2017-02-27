@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="farm" class="panel">
     <h2>{{ farm.name }}</h2>
     <iframe
       width="600"
