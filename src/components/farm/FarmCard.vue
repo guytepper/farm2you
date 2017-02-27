@@ -1,5 +1,5 @@
 <template >
-  <div class="farm-card" :farm-id="farm['.key']">
+  <div class="farm-card panel" :farm-id="farm['.key']">
     <img src="/static/images/farm-img-placeholder.jpg" alt="" class="farm-card__img"
         srcset="/static/images/farm-img-placeholder@2x.jpg 2x" />
     <div class="farm-card__info">
