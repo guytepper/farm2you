@@ -22,6 +22,7 @@ const routes = [
   { path: '/', component: Homepage },
   { path: '/add-farm/', component: AddFarm, meta: { title: 'הוספת משק' + baseTitle , requiresAuth: true} },
   { path: '/farm/:id', name: 'farm', component: FarmPage },
+  { path: '/farms', name: 'farm-list', component: FarmList },
   { path: '/login/', component: LoginPage, meta: { title: 'התחברות' + baseTitle } },
   { path: '/admin/pending-farms', component: PendingFarms,
            meta: { onlyAdmin: true, title: 'אישור משקים' + baseTitle } },
