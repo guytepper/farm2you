@@ -32,7 +32,6 @@ export default {
     facebookLogin () {
       Auth.facebookLogin().then(user => {
         // Check if the user doesn't exist yet
-        Auth.isNewUser(user.uid);
         this.signInSuccessful();
       }).catch(err => console.log(err));
     },
