@@ -1,6 +1,6 @@
 <template>
   <div class="farm-list">
-    <farm-card v-for="farm in farms" :farm="farm"></farm-card>
+    <farm-card v-for="farm in farms" :farm="farm" :key="farm.key"></farm-card>
   </div>
 </template>
 
