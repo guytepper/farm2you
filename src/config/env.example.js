@@ -7,3 +7,5 @@ export const firebaseConfig = {
 };
 
 export const googleAPI = firebaseConfig.apiKey;
+
+export const googleMapsAPIKey = "";
