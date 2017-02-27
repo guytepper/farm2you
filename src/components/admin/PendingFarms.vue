@@ -18,11 +18,11 @@
           <span>{{ farm.email }}</span>
         </div>
         <div v-if="farm.website">
-          <span class="pending-farm__info-label">אתר אינטרנט: <span>
+          <span class="pending-farm__info-label">אתר אינטרנט: </span>
             <a :href="farm.website" target="_blank">כניסה לאתר</a>
         </div>
         <div v-if="farm.facebook">
-          <span class="pending-farm__info-label">פייסבוק: <span>
+          <span class="pending-farm__info-label">פייסבוק: </span>
             <a :href="farm.facebook" target="_blank">כניסה לעמוד</a>
         </div>
         <div v-if="farm.description">
