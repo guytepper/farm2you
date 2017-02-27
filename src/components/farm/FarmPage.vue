@@ -6,20 +6,21 @@
       height="450"
       frameborder="0" style="border:0"
       allowfullscreen
-      :src="'https://www.google.com/maps/embed/v1/place?key=AIzaSyDwGSU6pEh70Jx3xtp1JZBqehR0_nZ_FZQ&q=' + farm.name">
+      :src="'https://www.google.com/maps/embed/v1/place?key='+ apiKey + '&q=' + farm.name">
     </iframe>
   </div>
 </template>
 
 <script>
 // TODO: Use the enviorment API key instead of the static one
-// import { googleAPIKey } from '../../config/env.js';
+import { googleMapsAPIKey } from '../../config/env.js';
 
 export default {
   name: 'farm-page',
   data () {
     return {
       farm: {},
+      apiKey: googleMapsAPIKey
     }
   },
   created () {
