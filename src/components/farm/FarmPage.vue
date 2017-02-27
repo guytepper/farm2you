@@ -1,8 +1,13 @@
 <template>
-  <div>
-    <h2>{{ farm.name }}</h2>
+  <div v-if="farm" class="panel">
+    <h2 class="farm-name">{{ farm.name }}</h2>
+    <h3 class="farm-description" v-if="farm.description">{{ farm.description }}</h3>
+    <ul>
+      <li></li>
+    </ul>
+
     <iframe
-      width="600"
+      width="100%"
       height="450"
       frameborder="0" style="border:0"
       allowfullscreen
@@ -33,4 +38,10 @@ export default {
 </script>
 
 <style lang="css">
+.farm-name {
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+
 </style>
