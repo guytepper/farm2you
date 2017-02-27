@@ -2,7 +2,7 @@
   <div v-if="farm" class="panel">
     <h2>{{ farm.name }}</h2>
     <iframe
-      width="600"
+      width="100%"
       height="450"
       frameborder="0" style="border:0"
       allowfullscreen
