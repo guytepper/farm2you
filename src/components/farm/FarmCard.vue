@@ -18,23 +18,29 @@
 
 <script>
 import GeoFire from 'geofire';
+import { distance } from '../../helpers/Location';
 
 export default {
   name: 'farm-card',
   props: ['farm'],
   data () {
     return {
+      location: null,
       distance: null
     }
   },
   methods: {
-    getDistance(pos1, pos2) {
-
+    // Calculates & sets the distance between the farm and the user's location
+    setDistance(location1, location2) {
+      console.log(location1, location2);
+      this.distance = distance(location1, location2)
     },
     getLocation() {
       const geoFire = new GeoFire(this.$root.$firebaseRefs.locations);
       geoFire.get(this.farm['.key']).then(location => {
-        console.log(location);
+        console.log(this.$store.state.current_location);
+        this.location = location;
+        this.setDistance(location, this.$store.state.current_location);
       });
     }
   },
