@@ -3,6 +3,8 @@ import Vuex from 'Vuex'
 import VuexFire from 'vuexfire'
 import firebase from '../config/firebase'
 
+import { getPosition } from '../helpers/Location';
+
 import User from './modules/user.js'
 
 Vue.use(Vuex)
@@ -24,16 +26,9 @@ export default new Vuex.Store({
   actions: {
     // Updates the user's location position
     UPDATE_LOCATION ({ commit }) {
-      const options = {
-        enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 0
-      };
-
-      // Prompts the user to give it's current location & commits the value
-      navigator.geolocation.getCurrentPosition(pos => {
+      getPosition.then(pos => {
         commit('UPDATE_LOCATION', pos);
-      }, null, options);
+      })
     }
   },
   getters: {
