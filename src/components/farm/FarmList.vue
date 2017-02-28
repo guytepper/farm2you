@@ -27,16 +27,14 @@ export default {
       // Add the farms that meeting the query's criterias to the farms list
       geoQuery.on("key_entered", (key, location, distance) => {
         // Retrieve the farm from the farms list using it's key
-        const farm = this.$store.state.farms.find(key);
-        console.log(farm);
-        // this.farms.push(this.$store.state)
+        const farm = this.$store.state.farms.find(farm => farm['.key'] === key);
+        this.farms.push(farm)
       });
 
     }
   },
   created () {
     this.getClosestFarms();
-    this.farms = this.$store.state.farms
   }
 }
 </script>
