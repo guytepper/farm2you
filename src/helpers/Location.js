@@ -9,7 +9,8 @@ export const getPosition = new Promise((resolve, reject) => {
   };
 
   navigator.geolocation.getCurrentPosition(pos => {
-    resolve(pos);
+    const latlng = geoToLatLng(pos);
+    resolve(latlng);
   }, null, options);
 });
 
