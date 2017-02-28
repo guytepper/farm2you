@@ -17,9 +17,30 @@
 </template>
 
 <script>
+import GeoFire from 'geofire';
+
 export default {
   name: 'farm-card',
-  props: ['farm']
+  props: ['farm'],
+  data () {
+    return {
+      distance: null
+    }
+  },
+  methods: {
+    getDistance(pos1, pos2) {
+
+    },
+    getLocation() {
+      const geoFire = new GeoFire(this.$root.$firebaseRefs.locations);
+      geoFire.get(this.farm['.key']).then(location => {
+        console.log(location);
+      });
+    }
+  },
+  created () {
+    this.getLocation();
+  }
 }
 </script>
 
