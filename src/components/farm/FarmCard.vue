@@ -10,7 +10,7 @@
         אורגני, משלוחים
       </div>
       <div class="farm-card__location">
-        16 ק״מ ממיקומך
+        {{ this.distance }}
       </div>
     </div>
   </div>
