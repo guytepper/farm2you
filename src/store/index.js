@@ -14,12 +14,12 @@ export default new Vuex.Store({
   state: {
     farms: null,
     locations: null,
-    current_location: null
+    currentLocation: null
   },
   mutations: {
     ...VuexFire.mutations,
     UPDATE_LOCATION (state, location) {
-      state.current_location = location;
+      state.currentLocation = location;
     }
   },
   actions: {
