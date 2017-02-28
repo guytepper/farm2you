@@ -21,6 +21,7 @@ export const geoToLatLng = function geoToLatLng(pos) {
   return [lat, lng];
 }
 
+// Returns the distance in km between two [latitude, longitude] locations
 export const distance = function distance(location1, location2) {
   return GeoFire.distance(location1, location2);
 }
