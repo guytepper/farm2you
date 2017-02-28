@@ -15,8 +15,8 @@ export const getPosition = new Promise((resolve, reject) => {
 
 // Converts a geoposition object to [latitude, longitude]
 export const geoToLatLng = function geoToLatLng(pos) {
-  const lat = pos.latitude;
-  const lng = pos.longitude;
+  const lat = pos.coords.latitude;
+  const lng = pos.coords.longitude;
 
   return [lat, lng];
 }
