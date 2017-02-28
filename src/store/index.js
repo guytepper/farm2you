@@ -20,7 +20,7 @@ export default new Vuex.Store({
   mutations: {
     ...VuexFire.mutations,
     UPDATE_LOCATION (state, location) {
-      state.location = location;
+      state.current_location = location;
     }
   },
   actions: {
