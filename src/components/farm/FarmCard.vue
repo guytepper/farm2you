@@ -10,7 +10,7 @@
         אורגני, משלוחים
       </div>
       <div class="farm-card__location">
-        {{ this.distance }}
+        {{ this.distance }} ק״מ ממיקומך
       </div>
     </div>
   </div>
@@ -32,19 +32,34 @@ export default {
   methods: {
     // Calculates & sets the distance between the farm and the user's location
     setDistance(location1, location2) {
-      console.log(location1, location2);
-      this.distance = distance(location1, location2)
+      this.distance = distance(location1, location2);
+      const distanceFromFarm = distance(location1, location2);
+      this.distance = Math.round(distanceFromFarm);
+
     },
     getLocation() {
       const geoFire = new GeoFire(this.$root.$firebaseRefs.locations);
       geoFire.get(this.farm['.key']).then(location => {
-        console.log(this.$store.state.current_location);
         this.location = location;
-        this.setDistance(location, this.$store.state.current_location);
+        /* The user might not allow using it's location, or the information might
+           arrive after the component has been created.
+           Therefor, if the user's location exists, we can set the distance. If not,
+           we set a watcher on the current location prop on the state.
+        */
+        if (this.$store.state.current_location) {
+          this.setDistance(location, this.$store.state.current_location);
+        }
+        else {
+          this.$store.watch(state => state.current_location, () => {
+            if (this.$store.state.current_location != null) {
+              this.setDistance(location, this.$store.state.current_location);
+            }
+          });
+        }
       });
     }
   },
-  created () {
+  mounted () {
     this.getLocation();
   }
 }
