@@ -9,7 +9,7 @@
       <div class="farm-card__props">
         אורגני, משלוחים
       </div>
-      <div class="farm-card__location">
+      <div class="farm-card__location" v-if="distance">
         {{ this.distance }} ק״מ ממיקומך
       </div>
     </div>
