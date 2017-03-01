@@ -242,3 +242,17 @@
   height: 75px;
   line-height: 75px;
 }
+
+.mui-btn--blue {
+  color: #FFF;
+  background-color: #3498db;
+}
+
+.mui-btn--blue:hover, .mui-btn--blue:focus, .mui-btn--blue:active {
+  color: #FFF;
+  background-color: #4aa6e4;
+}
+.mui-btn--blue[disabled]:hover, .mui-btn--blue[disabled]:focus, .mui-btn--blue[disabled]:active {
+  color: #FFF;
+  background-color: #3498db;
+}
