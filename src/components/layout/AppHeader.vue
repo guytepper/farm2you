@@ -9,7 +9,6 @@
     <div class="header__left-section">
       <router-link to="/add-farm/" class="header__link">הוספת משק</router-link>
       <div v-if="this.$store.state.User.info">
-        <router-link v-if="this.$store.state.User.isAdmin" to="/admin/pending-farms" class="header__link">אישור משקים</router-link>
         <a href="#"  @click="signOut" class="header__link">התנתקות</a>
       </div>
     </div>
