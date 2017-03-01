@@ -1,5 +1,14 @@
 <template>
   <div class="farm-list">
+    <div class="farm-search panel">
+      <div class="mui-textfield">
+        <input class="farm-search__field" type="text" placeholder="כתובת מגורים">
+      </div>
+      <div class="farm-search__buttons">
+        <button class="mui-btn mui-btn--raised mui-btn--primary">חיפוש</button>
+        <button class="mui-btn mui-btn--raised mui-btn--blue">שימוש במיקום נוכחי</button>
+      </div>
+    </div>
     <farm-card v-for="farm in farms" :farm="farm" :key="farm.key" :current-location="currentLocation"></farm-card>
   </div>
 </template>
@@ -58,5 +67,25 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+  .farm-search {
+    display: flex;
+    flex-direction: column;
+
+
+    .mui-textfield {
+      margin-left: 15px;
+    }
+  }
+
+  .farm-search__buttons {
+    display: flex;
+
+    .mui-btn {
+      flex: 1;
+      margin: 0 5px;
+    }
+  }
+
+
 </style>
