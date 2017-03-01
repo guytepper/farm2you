@@ -9,8 +9,6 @@ import Homepage from './components/Homepage'
 import FarmList from './components/farm/FarmList'
 import FarmPage from './components/farm/FarmPage'
 import AddFarm from './components/forms/AddFarm'
-import LoginPage from './components/forms/Auth/LoginPage'
-import PendingFarms from './components/admin/PendingFarms'
 
 // Register VueRouter with Vue
 Vue.use(VueRouter)
@@ -22,8 +20,6 @@ const routes = [
   { path: '/', component: FarmList },
   { path: '/farm/:id', name: 'farm', component: FarmPage },
   { path: '/add-farm/', component: AddFarm, meta: { title: 'הוספת משק' + baseTitle , onlyAdmin: true} },
-  { path: '/admin/pending-farms', component: PendingFarms,
-           meta: { onlyAdmin: true, title: 'אישור משקים' + baseTitle } },
 ]
 
 const router = new VueRouter({
