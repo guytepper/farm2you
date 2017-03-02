@@ -6,6 +6,6 @@ export const firebaseConfig = {
   messagingSenderId: ""
 };
 
-export const googleAPI = firebaseConfig.apiKey;
+export const googleAPIKey = firebaseConfig.apiKey;
 
 export const googleMapsAPIKey = "";
