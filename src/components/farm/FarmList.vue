@@ -61,10 +61,11 @@ export default {
       this.geoQuery.on("ready", () => {
         this.farms = farmsAround;
 
-        // Adds 5km to the current radius until it reaches 30. This is so the farms would be displayed
-        // sorted by thier distance from the current location.
-        // For more info: https://github.com/firebase/geofire-js/issues/59#issuecomment-70350560
-        if (this.geoQuery.radius() < this.radius) {
+        /* Adds 5km to the current radius until it reaches the radius.
+           This is so the farms would be displayed sorted by thier distance from the current location.
+           For more info: https://github.com/firebase/geofire-js/issues/59#issuecomment-70350560
+         */
+        if (this.geoQuery.radius() < parseInt(this.radius)) {
           this.geoQuery.updateCriteria({ radius: this.geoQuery.radius() + 5 });
         }
       });
