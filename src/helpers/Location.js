@@ -25,7 +25,17 @@ export const getPosition = new Promise((resolve, reject) => {
    * The user's location will be detected using his IP instead.
    */
   function error(err) {
-    
+    // Call freegeoip API endpoint to get the user's location
+    axios.get('http://freegeoip.net/json/')
+      .then(response => {
+        const data = response.data;
+        const latlng = [data.latitude, data.longitude];
+        resolve(latlng);
+      })
+      .catch(error => {
+        console.log(error);
+        reject(error);
+      });
   }
   
   navigator.geolocation.getCurrentPosition(success, error, options);
