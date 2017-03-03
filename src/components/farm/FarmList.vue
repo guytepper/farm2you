@@ -1,6 +1,7 @@
 <template>
   <div class="farm-list">
-    <div class="farm-search panel">
+    <!-- Temporary disable search panel -->
+    <div class="farm-search panel" v-if="false">
       <div class="mui-textfield">
         <input class="farm-search__field" type="text" placeholder="כתובת מגורים">
       </div>
