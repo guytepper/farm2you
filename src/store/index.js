@@ -1,14 +1,15 @@
-import Vue from 'vue'
-import Vuex from 'Vuex'
-import VuexFire from 'vuexfire'
-import firebase from '../config/firebase'
+import Vue from 'vue';
+import Vuex from 'Vuex';
+import VuexFire from 'vuexfire';
+
+import firebase from '../config/firebase';
 
 import { getPosition } from '../helpers/Location';
 
-import User from './modules/user.js'
+import User from './modules/user.js';
 
-Vue.use(Vuex)
-Vue.use(VuexFire)
+Vue.use(Vuex);
+Vue.use(VuexFire);
 
 export default new Vuex.Store({
   state: {
