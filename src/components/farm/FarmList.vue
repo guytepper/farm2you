@@ -44,7 +44,7 @@ export default {
       const geoFire = new GeoFire(this.$root.$firebaseRefs.locations); // TODO: Use a global geofire object
       this.geoQuery = geoFire.query({
         center: [32.290315299999996, 34.9400146],
-        radius: parseInt(this.radius)
+        radius: 5
       });
 
       const farmsAround = [];
@@ -53,6 +53,7 @@ export default {
       this.geoQuery.on("key_entered", (key, location, distance) => {
         // Retrieve the farm from the farms list using it's key
         const farm = this.$store.state.farms.find(farm => farm['.key'] === key);
+        console.log(farm);
         farmsAround.push(farm)
       });
 
@@ -87,11 +88,6 @@ export default {
       }
     }
   },
-//   watch: {
-//     // Update the geoFire query when the user changes the search radius
-//     radius () {
-// getClosestFarms    }
-//   },
   created () {
     this.getLocation();
     this.getClosestFarms();
