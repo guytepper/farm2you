@@ -18,8 +18,13 @@ export const getPosition = new Promise((resolve, reject) => {
     resolve(latlng);
   }
 
+  /* Geolocation error callback function
+   * Being used when the user denies the Geolocation API prompt or
+   * there's some error with it.
+   * The user's location will be detected using his IP instead.
+   */
   function error(err) {
-    console.warn(err.message)
+    
   }
   
   navigator.geolocation.getCurrentPosition(success, error, options);
