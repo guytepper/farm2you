@@ -69,20 +69,23 @@ export default {
 <style lang="scss">
   .farm-search {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
 
 
     .mui-textfield {
       margin-left: 15px;
+      flex: 1 1 300px;
     }
   }
 
   .farm-search__buttons {
     display: flex;
+    flex: 1 1;
 
     .mui-btn {
       flex: 1;
       margin: 0 5px;
+      min-width: 150px;
     }
   }
 
