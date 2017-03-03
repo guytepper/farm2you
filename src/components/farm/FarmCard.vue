@@ -33,15 +33,17 @@ export default {
     // Returns the distance between the farm and the user's location
     calculateDistance(location1, location2) {
       const distanceFromFarm = distance(location1, location2);
+      // Rounds the distance, so only the first digist is returned
       return Math.round(distanceFromFarm);
     },
   },
   mounted () {
-    const geoFire = new GeoFire(this.$root.$firebaseRefs.locations); // TODO: Use a global geoFire object and remove this method
+    const geoFire = new GeoFire(this.$root.$firebaseRefs.locations); // TODO: Use a global geoFire object
 
+    // Gets the current farm location from the locations database
     geoFire.get(this.farm['.key']).then(location => {
       this.location = location;
-
+      // If the current user location exists, calculate the distance from him to the farm
       if (this.currentLocation) {
         this.distance = this.calculateDistance(this.currentLocation, this.location);
       }
