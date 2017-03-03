@@ -31,18 +31,30 @@ export default {
   },
   methods: {
     // Returns the distance between the farm and the user's location
-    getDistance(location1, location2) {
+    calculateDistance(location1, location2) {
       const distanceFromFarm = distance(location1, location2);
+      // Rounds the distance, so only the first digist is returned
       return Math.round(distanceFromFarm);
-    }
+    },
   },
   mounted () {
-    const geoFire = new GeoFire(this.$root.$firebaseRefs.locations);
-    // Gets the farm location and sets the distance (in km) between the user & the farm
+    const geoFire = new GeoFire(this.$root.$firebaseRefs.locations); // TODO: Use a global geoFire object
+
+    // Gets the current farm location from the locations database
     geoFire.get(this.farm['.key']).then(location => {
       this.location = location;
-      this.distance = this.getDistance(this.currentLocation, this.location);
+      // If the current user location exists, calculate the distance from him to the farm
+      if (this.currentLocation) {
+        this.distance = this.calculateDistance(this.currentLocation, this.location);
+      }
     });
+  },
+  watch: {
+    currentLocation (newCurrentLocation) {
+      if (newCurrentLocation != null) {
+        this.distance = this.calculateDistance(newCurrentLocation, this.location);
+      }
+    }
   }
 }
 </script>
