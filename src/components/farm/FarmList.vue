@@ -30,7 +30,7 @@ export default {
       const geoFire = new GeoFire(this.$root.$firebaseRefs.locations); // TODO: Use a global geofire object
       const geoQuery = geoFire.query({
         center: [32.290315299999996, 34.9400146],
-        radius: 100
+        radius: 5
       });
 
       const farmsAround = [];
@@ -44,8 +44,14 @@ export default {
 
       // Updates the farms whenever the query changes
       geoQuery.on("ready", () => {
-        console.log('Query finished')
         this.farms = farmsAround;
+
+        // Adds 5km to the current radius until it reaches 30. This is so the farms would be displayed
+        // sorted by thier distance from the current location.
+        // For more info: https://github.com/firebase/geofire-js/issues/59#issuecomment-70350560
+        if (geoQuery.radius() < 30) {
+          geoQuery.updateCriteria({ radius: geoQuery.radius() + 5 });
+        }
       });
     },
     getLocation() {
