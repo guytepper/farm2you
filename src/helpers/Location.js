@@ -1,4 +1,5 @@
 import GeoFire from 'geofire';
+import axios from 'axios';
 
 // Prompts the user to give it's current location & commits the value
 export const getPosition = new Promise((resolve, reject) => {
