@@ -25,19 +25,27 @@ export default {
     }
   },
   methods: {
-    // Finds the closest farms to the user location
+    // Finds the closest farms to the  user location
     getClosestFarms () {
-      const geoFire = new GeoFire(this.$root.$firebaseRefs.locations);
+      const geoFire = new GeoFire(this.$root.$firebaseRefs.locations); // TODO: Use a global geofire object
       const geoQuery = geoFire.query({
         center: [32.290315299999996, 34.9400146],
-        radius: 10.5
+        radius: 100
       });
+
+      const farmsAround = [];
 
       // Add the farms that meeting the query's criterias to the farms list
       geoQuery.on("key_entered", (key, location, distance) => {
         // Retrieve the farm from the farms list using it's key
         const farm = this.$store.state.farms.find(farm => farm['.key'] === key);
-        this.farms.push(farm)
+        farmsAround.push(farm)
+      });
+
+      // Updates the farms whenever the query changes
+      geoQuery.on("ready", () => {
+        console.log('Query finished')
+        this.farms = farmsAround;
       });
     },
     getLocation() {
