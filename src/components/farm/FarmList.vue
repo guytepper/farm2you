@@ -6,7 +6,6 @@
       </div>
       <div class="farm-search__buttons">
         <button class="mui-btn mui-btn--raised mui-btn--primary">חיפוש</button>
-        <button class="mui-btn mui-btn--raised mui-btn--blue">שימוש במיקום נוכחי</button>
       </div>
     </div>
     <farm-card v-for="farm in farms" :farm="farm" :key="farm.key" :current-location="currentLocation"></farm-card>
