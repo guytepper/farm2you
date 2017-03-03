@@ -2,12 +2,17 @@ import GeoFire from 'geofire';
 
 // Prompts the user to give it's current location & commits the value
 export const getPosition = new Promise((resolve, reject) => {
+  // Geolocation API options
   const options = {
     enableHighAccuracy: true,
     timeout: 5000,
     maximumAge: 0
   };
 
+  /* Geolocation success callback function
+   * Receives a Geoposition object and resolves the promise 
+   * with an [latitude, longitude] array.
+   */
   function success(pos) {
     const latlng = geoToLatLng(pos);
     resolve(latlng);
