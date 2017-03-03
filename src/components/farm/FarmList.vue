@@ -1,13 +1,24 @@
 <template>
   <div class="farm-list">
-    <!-- Temporary disable search panel -->
-    <div class="farm-search panel" v-if="false">
-      <div class="mui-textfield">
+
+    <div class="farm-search panel">
+      <label for="select-radius" class="select-radius-label">רדיוס חיפוש (בק״מ):
+        <select v-model="radius" id="select-radius" @change="getClosestFarms">
+          <option>5</option>
+          <option>10</option>
+          <option>20</option>
+          <option>40</option>
+          <option>60</option>
+          <option>80</option>
+        </select>
+      </label>
+      <!-- Temporary disable search panel -->
+      <!-- <div class="mui-textfield">
         <input class="farm-search__field" type="text" placeholder="כתובת מגורים">
       </div>
       <div class="farm-search__buttons">
         <button class="mui-btn mui-btn--raised mui-btn--primary">חיפוש</button>
-      </div>
+      </div> -->
     </div>
     <farm-card v-for="farm in farms" :farm="farm" :key="farm.key" :current-location="currentLocation"></farm-card>
   </div>
@@ -22,14 +33,16 @@ export default {
   data: function() {
     return {
       farms: [],
-      currentLocation: null
+      radius: 5,
+      currentLocation: null,
+      geoQuery: {}
     }
   },
   methods: {
     // Finds the closest farms to the  user location
     getClosestFarms () {
       const geoFire = new GeoFire(this.$root.$firebaseRefs.locations); // TODO: Use a global geofire object
-      const geoQuery = geoFire.query({
+      this.geoQuery = geoFire.query({
         center: [32.290315299999996, 34.9400146],
         radius: 5
       });
@@ -37,21 +50,23 @@ export default {
       const farmsAround = [];
 
       // Add the farms that meeting the query's criterias to the farms list
-      geoQuery.on("key_entered", (key, location, distance) => {
+      this.geoQuery.on("key_entered", (key, location, distance) => {
         // Retrieve the farm from the farms list using it's key
         const farm = this.$store.state.farms.find(farm => farm['.key'] === key);
+        console.log(farm);
         farmsAround.push(farm)
       });
 
       // Updates the farms whenever the query changes
-      geoQuery.on("ready", () => {
+      this.geoQuery.on("ready", () => {
         this.farms = farmsAround;
 
-        // Adds 5km to the current radius until it reaches 30. This is so the farms would be displayed
-        // sorted by thier distance from the current location.
-        // For more info: https://github.com/firebase/geofire-js/issues/59#issuecomment-70350560
-        if (geoQuery.radius() < 30) {
-          geoQuery.updateCriteria({ radius: geoQuery.radius() + 5 });
+        /* Adds 5km to the current radius until it reaches the radius.
+           This is so the farms would be displayed sorted by thier distance from the current location.
+           For more info: https://github.com/firebase/geofire-js/issues/59#issuecomment-70350560
+         */
+        if (this.geoQuery.radius() < parseInt(this.radius)) {
+          this.geoQuery.updateCriteria({ radius: this.geoQuery.radius() + 5 });
         }
       });
     },
@@ -104,5 +119,15 @@ export default {
     }
   }
 
+  .select-radius-label {
+    display: flex;
+    align-items: center;
+  }
+
+  #select-radius {
+    width: 50px;
+    margin-right: 10px;
+    text-align-last: center;
+  }
 
 </style>
