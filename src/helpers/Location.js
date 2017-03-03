@@ -8,10 +8,11 @@ export const getPosition = new Promise((resolve, reject) => {
     maximumAge: 0
   };
 
-  navigator.geolocation.getCurrentPosition(pos => {
+  function success(pos) {
     const latlng = geoToLatLng(pos);
     resolve(latlng);
-  }, null, options);
+  }
+  navigator.geolocation.getCurrentPosition(success, null, options);
 });
 
 // Converts a geoposition object to [latitude, longitude]
