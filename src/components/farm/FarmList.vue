@@ -1,13 +1,21 @@
 <template>
   <div class="farm-list">
-    <!-- Temporary disable search panel -->
-    <div class="farm-search panel" v-if="false">
-      <div class="mui-textfield">
+
+    <div class="farm-search panel">
+      <label for="radius">רדיוס</label>
+      <div class="mui-select">
+        <select v-model="radius" id="radius">
+          <option>5</option>
+          <option>10</option>
+        </select>
+      </div>
+      <!-- Temporary disable search panel -->
+      <!-- <div class="mui-textfield">
         <input class="farm-search__field" type="text" placeholder="כתובת מגורים">
       </div>
       <div class="farm-search__buttons">
         <button class="mui-btn mui-btn--raised mui-btn--primary">חיפוש</button>
-      </div>
+      </div> -->
     </div>
     <farm-card v-for="farm in farms" :farm="farm" :key="farm.key" :current-location="currentLocation"></farm-card>
   </div>
@@ -22,6 +30,7 @@ export default {
   data: function() {
     return {
       farms: [],
+      radius: 5,
       currentLocation: null
     }
   },
