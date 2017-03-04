@@ -1,7 +1,13 @@
 <template>
-  <div class="panel">
-    <h2 class="farm-name">משק בן יהודה</h2>
-    <h3 class="farm-description">אחלה חווה שבעולם</h3>
+  <div class="panel" itemscope itemtype="http://schema.org/LocalBusiness">
+    <h2 class="farm-name" itemprop="name">משק בן יהודה</h2>
+    <h3 class="farm-description" itemprop="description">אחלה חווה שבעולם</h3>
+
+    <div class="farm-address" itemscope itemtype="http://schema.org/PostalAddress">
+      <span itemprop="streetAddress">הרימונים 33</span>
+    </div>
+
+    <div class="farm-info"></div>
   </div>
     <!--
   <div v-if="farm" class="panel">
