@@ -1,4 +1,9 @@
 <template>
+  <div class="panel">
+    <h2 class="farm-name">משק בן יהודה</h2>
+    <h3 class="farm-description">אחלה חווה שבעולם</h3>
+  </div>
+    <!--
   <div v-if="farm" class="panel">
     <h2 class="farm-name">{{ farm.name }}</h2>
     <h3 class="farm-description" v-if="farm.description">{{ farm.description }}</h3>
@@ -14,6 +19,7 @@
       :src="'https://www.google.com/maps/embed/v1/place?key='+ apiKey + '&q=' + farm.name">
     </iframe>
   </div>
+  -->
 </template>
 
 <script>
