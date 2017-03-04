@@ -3,11 +3,30 @@
     <h2 class="farm-name" itemprop="name">משק בן יהודה</h2>
     <h3 class="farm-description" itemprop="description">אחלה חווה שבעולם</h3>
 
-    <div class="farm-address" itemscope itemtype="http://schema.org/PostalAddress">
-      <span itemprop="streetAddress">הרימונים 33</span>
-    </div>
+    <div class="farm-info">
+      <div class="farm-info__item" itemscope itemtype="http://schema.org/PostalAddress">
+        <img src="/static/images/icons/place.svg" alt="">
+        <span itemprop="address">הרימונים 33</span>
+      </div>
+      <div class="farm-info__item">
+        <img src="/static/images/icons/phone.svg" alt="">
+        <span itemprop="telephone">09-8949380</span>
+      </div>
+      <div class="farm-info__item">
+        <img src="/static/images/icons/organic.svg" alt="">
+        <span>אורגני</span>
+      </div>
+            <div class="farm-info__item">
+        <img src="/static/images/icons/store.svg" alt="">
+        <span>מכירה במקום</span>
+      </div>
 
-    <div class="farm-info"></div>
+      <div class="farm-info__item">
+        <img src="/static/images/icons/shipping.svg" alt="">
+        <span>משלוחים</span>
+      </div>
+
+    </div>
   </div>
     <!--
   <div v-if="farm" class="panel">
