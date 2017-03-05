@@ -1,56 +1,52 @@
 <template>
-  <div class="panel" itemscope itemtype="http://schema.org/LocalBusiness">
-    <h2 class="farm-name" itemprop="name">משק בן יהודה</h2>
-    <h3 class="farm-description" itemprop="description">אחלה חווה שבעולם</h3>
+  <div v-if="!farm" class="panel">
+    טוען...
+  </div>
+  <div v-else class="panel" itemscope itemtype="http://schema.org/LocalBusiness">
+    <h2 class="farm-name" itemprop="name">{{ farm.name }}</h2>
+    <h3 class="farm-description" itemprop="description" v-if="farm.description">{{ farm.description }}</h3>
 
     <div class="farm-info">
       <div class="farm-info__right-section">
         <div class="farm-info__item" itemscope itemtype="http://schema.org/PostalAddress">
         <img src="/static/images/icons/place.svg" class="farm-info__icon" alt="">
-        <span itemprop="address">הרימונים 33</span>
+        <span itemprop="address">{{ farm.address }}</span>
       </div>
-      <div class="farm-info__item">
+      <div class="farm-info__item" v-if="farm.phone">
         <img src="/static/images/icons/phone.svg" class="farm-info__icon" alt="">
-        <span itemprop="telephone">09-8949380</span>
+        <span itemprop="telephone">{{ farm.phone }}</span>
       </div>
-      <div class="farm-info__item">
+      <div class="farm-info__item" v-if="farm.website">
         <img src="/static/images/icons/website.svg" class="farm-info__icon" alt="">
-        <a href="#">haorganit.co.il</a>
+        <a :href="farm.website">{{ farm.website }}</a>
       </div>
-      <div class="farm-info__item">
+      <div class="farm-info__item" v-if="farm.email">
         <img src="/static/images/icons/email.svg" class="farm-info__icon" alt="">
-        <a href="mailto:#">haorganit@gmail.com</a>
-      </div>            
-      <div class="farm-info__item">
+        <a :href="'mailto:' + farm.email ">{{ farm.email }}</a>
+      </div>
+      <div class="farm-info__item" v-if="farm.facebook">
         <img src="/static/images/icons/facebook.svg" class="farm-info__icon" alt="">
-        <a href="#">עמוד פייסבוק</a>
+        <a :href="farm.facebook">עמוד פייסבוק</a>
       </div>
     </div>
     <div class="farm-info__left-section">
-      <div class="farm-info__item">
+      <div class="farm-info__item" v-if="farm.props.shipping">
         <img src="/static/images/icons/shipping.svg" class="farm-info__icon" alt="">
         <span>משלוחים</span>
       </div>
-      <div class="farm-info__item">
+      <div class="farm-info__item" v-if="farm.props.direct_sell">
         <img src="/static/images/icons/store.svg" class="farm-info__icon" alt="">
         <span>מכירה במקום</span>
       </div>
-      <div class="farm-info__item">
+      <div class="farm-info__item" v-if="farm.props.online_sell">
         <img src="/static/images/icons/computer.svg" class="farm-info__icon" alt="">
         <span>רכישה באינטרנט</span>
       </div>
     </div>
-
+      <pre dir="ltr">{{ farm }}</pre>
     </div>
   </div>
     <!--
-  <div v-if="farm" class="panel">
-    <h2 class="farm-name">{{ farm.name }}</h2>
-    <h3 class="farm-description" v-if="farm.description">{{ farm.description }}</h3>
-    <ul>
-      <li></li>
-    </ul>
-
     <iframe
       width="100%"
       height="450"
@@ -74,11 +70,23 @@ export default {
       apiKey: googleMapsAPIKey
     }
   },
+  methods: {
+    // Get the farm using ID parameter from route
+    fetchFarm() {
+      const farmId = this.$route.params.id;
+      const farms = this.$store.state.farms;
+      console.log(farms);
+
+      const farm = farms.find(farm => farm['.key'] === farmId)
+
+      // If no farm is found, redirect to homepage
+      if (farm) {
+        this.farm = farm;
+      }
+    }
+  },
   created () {
-    // Get farm using ID parameter from route
-    const farmId = this.$route.params.id;
-    const farms = this.$store.state.farms;
-    this.farm = farms.find(farm => farm['.key'] === farmId)
+    this.fetchFarm();
   }
 }
 </script>
@@ -98,8 +106,8 @@ export default {
   }
 
   .farm-info__icon {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     margin-left: 15px;
   }
 </style>
