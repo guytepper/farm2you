@@ -1,17 +1,17 @@
 <template>
   <div class="panel login-page">
-      <div class="login-form__message" v-if="message">
-        <p>
-          {{ message }}
-        </p>
+    <form>
+      <div class="mui-textfield">
+        <input id="email" type="email">
+        <label for="email">אימייל</label>
+      </div>
+      <div class="mui-textfield">
+        <input id="password" type="password">
+        <label for="password">סיסמה</label>
       </div>
 
-      <div class="login-form__providers">
-        <button @click.prevent="facebookLogin()" class="frm-btn frm-btn--blue">
-          <img src="../../../assets/icons/facebook.svg" alt="">
-          התחברות דרך פייסבוק
-        </button>
-      </div>
+      <button type="submit" class="mui-btn mui-btn--raised mui-btn--primary">התחברות</button>
+    </form>
   </div>
 
 </template>
@@ -35,29 +35,6 @@ export default {
         this.signInSuccessful();
       }).catch(err => console.log(err));
     },
-    // Continues the login process
-    signInSuccessful () {
-      // If the user intended to add farm, redirect there
-      if (this.$router.currentRoute.hash === '#add-farm') {
-        this.$router.push('/add-farm/')
-      }
-      else {
-        this.$router.push('/')
-      }
-    }
-  },
-  beforeRouteEnter (to, from, next) {
-    // Redirect user to homepage
-    if (store.state.User.info != null) {
-      next('/');
-    }
-
-    // Display auth error message related to the location the user tried to access
-    if (to.hash === '#add-farm') {
-      next(vm => vm.$data.message = messages['add-farm'])
-    }
-
-    else next();
   },
 }
 </script>
