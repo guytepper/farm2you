@@ -1,6 +1,6 @@
 <template>
   <div class="panel login-page">
-    <form>
+    <form @submit.prevent="signIn" @keydown.enter.prevent>
       <div class="mui-textfield">
         <input id="email" type="email" v-model="email">
         <label for="email">אימייל</label>
@@ -30,10 +30,9 @@ export default {
   },
   methods: {
     // Logs the user using facebook
-    facebookLogin () {
-      Auth.facebookLogin().then(user => {
-        // Check if the user doesn't exist yet
-        this.signInSuccessful();
+    signIn () {
+      Auth.signIn(this.email, this.password).then(user => {
+        console.log('signed in!');
       }).catch(err => console.log(err));
     },
   },
