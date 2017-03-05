@@ -29,7 +29,7 @@
         <a :href="farm.facebook">עמוד פייסבוק</a>
       </div>
     </div>
-    <div class="farm-info__left-section">
+    <div class="farm-info__left-section" v-if="farm.props">
       <div class="farm-info__item" v-if="farm.props.shipping">
         <img src="/static/images/icons/shipping.svg" class="farm-info__icon" alt="">
         <span>משלוחים</span>
@@ -66,7 +66,7 @@ export default {
   name: 'farm-page',
   data () {
     return {
-      farm: {},
+      farm: null,
       apiKey: googleMapsAPIKey
     }
   },
@@ -74,19 +74,15 @@ export default {
     // Get the farm using ID parameter from route
     fetchFarm() {
       const farmId = this.$route.params.id;
-      const farms = this.$store.state.farms;
-      console.log(farms);
-
-      const farm = farms.find(farm => farm['.key'] === farmId)
-
-      // If no farm is found, redirect to homepage
-      if (farm) {
-        this.farm = farm;
-      }
+      // Not using the store here, since it might be delayed.
+      const farm = this.$root.$firebaseRefs.farms.child(`farm/${farmId}`);
     }
   },
   created () {
-    this.fetchFarm();
+    // If reaching the farm directly (i.e not from the farm list), fetch the farm from the database
+    if (this.farm === null) {
+      this.fetchFarm();
+    }
   }
 }
 </script>
