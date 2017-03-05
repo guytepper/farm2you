@@ -44,15 +44,7 @@
         </div>
       </div>
     </div>
-  </div>
-    <!--
-    <iframe
-      width="100%"
-      height="450"
-      frameborder="0" style="border:0"
-      allowfullscreen
-      :src="'https://www.google.com/maps/embed/v1/place?key='+ apiKey + '&q=' + farm.name">
-    </iframe>
+    <div id="map"></div>
   </div>
   -->
 </template>
@@ -60,9 +52,12 @@
 <script>
 // TODO: Use the enviorment API key instead of the static one
 import { googleMapsAPIKey } from '../../config/env.js';
+import { displayMap } from '../forms/helpers/GMAutocomplete';
+import { getFarmLocation } from '../../helpers/Location';
 
 export default {
   name: 'farm-page',
+  props: ['id'],
   data () {
     return {
       farm: null,
@@ -72,14 +67,21 @@ export default {
   methods: {
     // Fetch the farm using ID parameter from route
     fetchFarm() {
-      const farmId = this.$route.params.id;
-      const farmRef = this.$root.$firebaseRefs.farms.child(farmId);
-      farmRef.once('value', snapshot => this.farm = snapshot.val());
+      return new Promise((resolve, reject) => {
+        const farmId = this.id;
+        const farmRef = this.$root.$firebaseRefs.farms.child(farmId);
+        farmRef.once('value', snapshot => resolve(snapshot.val()));
+      })
     }
   },
   created () {
-    this.fetchFarm();
-  }
+    this.fetchFarm().then(farm => {
+      this.farm = farm;
+      getFarmLocation(this.id).then(location => {
+        displayMap(document.getElementById('map'), location);
+      });
+    });
+  },
 }
 </script>
 
@@ -91,15 +93,17 @@ export default {
 
   .farm-info__item {
     display: flex;
-
-    span {
-      // font-weight: bold;
-    }
+    margin-bottom: 10px;
   }
 
   .farm-info__icon {
     width: 20px;
     height: 20px;
     margin-left: 15px;
+  }
+
+  #map {
+    width: 100%;
+    height: 300px;
   }
 </style>

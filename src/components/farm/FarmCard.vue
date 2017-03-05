@@ -4,7 +4,7 @@
         srcset="/static/images/farm-img-placeholder@2x.jpg 2x" />
     <div class="farm-card__info">
       <h2 class="farm-card__name">
-        <router-link :to="{ name: 'farm', params: { id: farm['.key'] }}">{{ farm.name }}</router-link>
+        <router-link :to="{ name: 'farm', params: { id: farm['.key'], location: '123' }}">{{ farm.name }}</router-link>
       </h2>
       <div class="farm-card__props">
         אורגני, משלוחים
@@ -18,7 +18,7 @@
 
 <script>
 import GeoFire from 'geofire';
-import { distance } from '../../helpers/Location';
+import { distance, getFarmLocation } from '../../helpers/Location';
 
 export default {
   name: 'farm-card',
@@ -38,16 +38,13 @@ export default {
     },
   },
   mounted () {
-    const geoFire = new GeoFire(this.$root.$firebaseRefs.locations); // TODO: Use a global geoFire object
-
-    // Gets the current farm location from the locations database
-    geoFire.get(this.farm['.key']).then(location => {
+    getFarmLocation(this.farm['.key']).then(location => {
       this.location = location;
       // If the current user location exists, calculate the distance from him to the farm
       if (this.currentLocation) {
         this.distance = this.calculateDistance(this.currentLocation, this.location);
       }
-    });
+    })
   },
   watch: {
     currentLocation (newCurrentLocation) {
