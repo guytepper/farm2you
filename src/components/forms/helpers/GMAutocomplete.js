@@ -19,16 +19,16 @@ export function initGMAutoComplete(vm) {
 /* Displays the google map element on the page.
  * Takes the element and the latitude, longtitude position on the map.
  */
-export function displayMap(element, latlng) {
+export function displayMap(element, location) {
   googleMaps().then(maps => {
-      var uluru = { lat: -25.363, lng: 131.044 };
-      var map = new google.maps.Map(element, {
-        zoom: 4,
-        center: uluru
-      });
-      var marker = new google.maps.Marker({
-        position: uluru,
-        map: map
-      });
+    const farmLocation = { lat: location[0], lng: location[1] };
+    const map = new google.maps.Map(element, {
+      zoom: 14,
+      center: farmLocation
+    });
+    const marker = new google.maps.Marker({
+      position: farmLocation,
+      map: map,
+    });
   })
 }
