@@ -18,7 +18,7 @@
 
 <script>
 import GeoFire from 'geofire';
-import { distance } from '../../helpers/Location';
+import { distance, getFarmLocation } from '../../helpers/Location';
 
 export default {
   name: 'farm-card',
@@ -38,16 +38,13 @@ export default {
     },
   },
   mounted () {
-    const geoFire = new GeoFire(this.$root.$firebaseRefs.locations); // TODO: Use a global geoFire object
-
-    // Gets the current farm location from the locations database
-    geoFire.get(this.farm['.key']).then(location => {
+    getFarmLocation(this.farm['.key']).then(location => {
       this.location = location;
       // If the current user location exists, calculate the distance from him to the farm
       if (this.currentLocation) {
         this.distance = this.calculateDistance(this.currentLocation, this.location);
       }
-    });
+    })
   },
   watch: {
     currentLocation (newCurrentLocation) {
