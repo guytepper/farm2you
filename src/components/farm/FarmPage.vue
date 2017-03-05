@@ -79,10 +79,6 @@ export default {
     }
   },
   created () {
-    // If reaching the farm directly (i.e not from the farm list), fetch the farm from the database
-    if (this.farm === null) {
-      this.fetchFarm();
-    }
   }
 }
 </script>
