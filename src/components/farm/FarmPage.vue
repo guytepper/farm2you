@@ -52,13 +52,15 @@
 // TODO: Use the enviorment API key instead of the static one
 import { googleMapsAPIKey } from '../../config/env.js';
 import { displayMap } from '../forms/helpers/GMAutocomplete';
+import { getFarmLocation } from '../../helpers/Location';
 
 export default {
   name: 'farm-page',
-  props: ['id', 'location'],
+  props: ['id'],
   data () {
     return {
       farm: null,
+      location: null,
       apiKey: googleMapsAPIKey
     }
   },
@@ -73,14 +75,17 @@ export default {
     }
   },
   created () {
-    console.log(this.location);    
+    console.log(this.location);
     this.fetchFarm().then(farm => {
       this.farm = farm;
+      getFarmLocation(this.id).then(location => {
+        displayMap(document.getElementById('map'), location);
+      });
       // setTimeout is used in order to wait for the map element to load
       // For more info: http://stackoverflow.com/questions/779379/why-is-settimeoutfn-0-sometimes-useful
-      setTimeout(_ => {
-        displayMap(document.getElementById('map'), );
-      }, 0)
+      // setTimeout(_ => {
+      //   displayMap(document.getElementById('map'), );
+      // }, 0)
     });
   },
 }
