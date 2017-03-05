@@ -75,17 +75,11 @@ export default {
     }
   },
   created () {
-    console.log(this.location);
     this.fetchFarm().then(farm => {
       this.farm = farm;
       getFarmLocation(this.id).then(location => {
         displayMap(document.getElementById('map'), location);
       });
-      // setTimeout is used in order to wait for the map element to load
-      // For more info: http://stackoverflow.com/questions/779379/why-is-settimeoutfn-0-sometimes-useful
-      // setTimeout(_ => {
-      //   displayMap(document.getElementById('map'), );
-      // }, 0)
     });
   },
 }
