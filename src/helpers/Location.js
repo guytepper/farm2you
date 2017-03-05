@@ -2,6 +2,7 @@ import GeoFire from 'geofire';
 import axios from 'axios';
 import firebase from '../config/firebase'
 
+// Geofire instance to manage the location data from the database
 const geoFire = new GeoFire(firebase.database().ref('locations'));
 
 // Prompts the user to give it's current location & commits the value
@@ -55,4 +56,15 @@ export const geoToLatLng = function geoToLatLng(pos) {
 // Returns the distance in km between two [latitude, longitude] locations
 export const distance = function distance(location1, location2) {
   return GeoFire.distance(location1, location2);
+}
+
+/* Returns a promise with the farm location from the database.
+   Returnd location format: [latitude, longtitude]
+ */
+export const getFarmLocation = function getFarmLocation(farmId) {
+  return new Promise((resolve, reject) => {
+    geoFire.get(farmId)
+      .then(location => resolve(location))
+      .catch(err => reject(err))
+    });
 }
