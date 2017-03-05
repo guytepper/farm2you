@@ -10,17 +10,13 @@ export default {
   authStateListener(cb) {
     auth.onAuthStateChanged(cb)
   },
-  facebookLogin() {
-    const provider = new firebaseLib.auth.FacebookAuthProvider();
+  // Signs in with email & password
+  signIn (email, password) {
     return new Promise((resolve, reject) => {
-      auth.signInWithPopup(provider).then(function(result) {
-        resolve(result.user);
-      }).catch(function(error) {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        reject(`${errorCode}: ${errorMessage}`);
-      });
-    })
+      auth.signInWithEmailAndPassword(email, password)
+        .then(user => resolve(user))
+        .catch(err => reject(err));
+    }
   },
   // Returns a promise with the value of the current user admin rule (true/false)
   isAdmin() {
