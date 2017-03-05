@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="19px" viewBox="0 0 22 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>organic</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M3.99243856,6.03390557 C3.99243856,4.93195488 4.87819429,4.03864734 5.98827356,4.03864734 L11.9777,4.03864734 C13.0799692,4.03864734 14.0359712,4.92287152 14.1144228,6.03390557 L14.8307568,16.1786548 C14.908567,17.2806055 14.0731701,18.173913 12.9706554,18.173913 L5.99342777,18.173913 C4.88831195,18.173913 3.99243856,17.2789653 3.99243856,16.1786548 L3.99243856,6.03390557 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="10.8493796" height="14.1352657" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <path d="M5.03465412,10.0966184 L4.98897381,10.0966184 C2.23363966,10.0966184 0,7.83191536 0,5.04610179 C0,2.26119329 2.23373852,0 4.9905482,0 C7.74675187,0 9.98109641,2.26341379 9.98109641,5.04662556" id="path-3"></path>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="9.98109641" height="10.0966184" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="iPhone-SE-Copy" transform="translate(-281.000000, -508.000000)">
+            <g id="organic" transform="translate(281.000000, 508.000000)">
+                <use id="Rectangle-25" stroke="#000000" mask="url(#mask-2)" stroke-width="4" xlink:href="#path-1"></use>
+                <use id="Rectangle-28" stroke="#000000" mask="url(#mask-4)" stroke-width="4" xlink:href="#path-3"></use>
+                <path d="M15.9697543,3.66149552 C15.9697543,2.19692822 16.7986648,1.84816626 17.8420797,2.90365774 L21.0841963,6.18329878 C22.1182531,7.22932384 21.7713119,8.07729469 20.2951934,8.07729469 L15.9697543,8.07729469 L15.9697543,3.66149552 Z" id="Rectangle-26" fill="#000000"></path>
+                <rect id="Rectangle-27" fill="#000000" transform="translate(15.372536, 8.735241) rotate(-315.000000) translate(-15.372536, -8.735241) " x="14.3744261" y="5.95867121" width="1.99621928" height="5.5531401"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

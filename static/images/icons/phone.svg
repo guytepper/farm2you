@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>phone</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="phone" transform="translate(-4.000000, -4.000000)">
+            <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
+            <path d="M7.21777778,10.9244444 C8.49777778,13.44 10.56,15.4933333 13.0755556,16.7822222 L15.0311111,14.8266667 C15.2711111,14.5866667 15.6266667,14.5066667 15.9377778,14.6133333 C16.9333333,14.9422222 18.0088889,15.12 19.1111111,15.12 C19.6,15.12 20,15.52 20,16.0088889 L20,19.1111111 C20,19.6 19.6,20 19.1111111,20 C10.7644444,20 4,13.2355556 4,4.88888889 C4,4.4 4.4,4 4.88888889,4 L8,4 C8.48888889,4 8.88888889,4.4 8.88888889,4.88888889 C8.88888889,6 9.06666667,7.06666667 9.39555556,8.06222222 C9.49333333,8.37333333 9.42222222,8.72 9.17333333,8.96888889 L7.21777778,10.9244444 Z" id="Shape" fill="#000000" transform="translate(12.000000, 12.000000) scale(-1, 1) translate(-12.000000, -12.000000) "></path>
+        </g>
+    </g>
+</svg>

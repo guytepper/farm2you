@@ -33,7 +33,7 @@ export default {
   data: function() {
     return {
       farms: [],
-      radius: 5,
+      radius: 20,
       currentLocation: null,
       geoQuery: {}
     }
@@ -53,7 +53,6 @@ export default {
       this.geoQuery.on("key_entered", (key, location, distance) => {
         // Retrieve the farm from the farms list using it's key
         const farm = this.$store.state.farms.find(farm => farm['.key'] === key);
-        console.log(farm);
         farmsAround.push(farm)
       });
 
