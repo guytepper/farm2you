@@ -23,7 +23,7 @@ export default new Vuex.Store({
     UPDATE_LOCATION (state, location) {
       state.currentLocation = location;
     },
-    SET_RADIUS (state, radius) {
+    UPDATE_RADIUS (state, radius) {
       state.radius = radius;
     }
   },
