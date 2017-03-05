@@ -44,25 +44,18 @@
         </div>
       </div>
     </div>
+    <div id="map"></div>
   </div>
-    <!--
-    <iframe
-      width="100%"
-      height="450"
-      frameborder="0" style="border:0"
-      allowfullscreen
-      :src="'https://www.google.com/maps/embed/v1/place?key='+ apiKey + '&q=' + farm.name">
-    </iframe>
-  </div>
-  -->
 </template>
 
 <script>
 // TODO: Use the enviorment API key instead of the static one
 import { googleMapsAPIKey } from '../../config/env.js';
+import { displayMap } from '../forms/helpers/GMAutocomplete';
 
 export default {
   name: 'farm-page',
+  props: ['id', 'location'],
   data () {
     return {
       farm: null,
@@ -72,14 +65,24 @@ export default {
   methods: {
     // Fetch the farm using ID parameter from route
     fetchFarm() {
-      const farmId = this.$route.params.id;
-      const farmRef = this.$root.$firebaseRefs.farms.child(farmId);
-      farmRef.once('value', snapshot => this.farm = snapshot.val());
+      return new Promise((resolve, reject) => {
+        const farmId = this.id;
+        const farmRef = this.$root.$firebaseRefs.farms.child(farmId);
+        farmRef.once('value', snapshot => resolve(snapshot.val()));
+      })
     }
   },
   created () {
-    this.fetchFarm();
-  }
+    console.log(this.location);    
+    this.fetchFarm().then(farm => {
+      this.farm = farm;
+      // setTimeout is used in order to wait for the map element to load
+      // For more info: http://stackoverflow.com/questions/779379/why-is-settimeoutfn-0-sometimes-useful
+      setTimeout(_ => {
+        displayMap(document.getElementById('map'), );
+      }, 0)
+    });
+  },
 }
 </script>
 
@@ -98,5 +101,10 @@ export default {
     width: 20px;
     height: 20px;
     margin-left: 15px;
+  }
+
+  #map {
+    width: 100%;
+    height: 300px;
   }
 </style>

@@ -18,7 +18,7 @@ const baseTitle = ' - ישר מהשדה'
 // App routes
 const routes = [
   { path: '/', component: FarmList },
-  { path: '/farm/:id', name: 'farm', component: FarmPage },
+  { path: '/farm/:id', name: 'farm', component: FarmPage, props: true },
   { path: '/add-farm/', component: AddFarm, meta: { title: 'הוספת משק' + baseTitle , onlyAdmin: true} },
 ]
 

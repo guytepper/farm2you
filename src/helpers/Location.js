@@ -1,5 +1,8 @@
 import GeoFire from 'geofire';
 import axios from 'axios';
+import firebase from '../config/firebase'
+
+const geoFire = new GeoFire(firebase.database().ref('locations'));
 
 // Prompts the user to give it's current location & commits the value
 export const getPosition = new Promise((resolve, reject) => {
@@ -11,7 +14,7 @@ export const getPosition = new Promise((resolve, reject) => {
   };
 
   /* Geolocation success callback function
-   * Receives a Geoposition object and resolves the promise 
+   * Receives a Geoposition object and resolves the promise
    * with an [latitude, longitude] array.
    */
   function success(pos) {
@@ -37,7 +40,7 @@ export const getPosition = new Promise((resolve, reject) => {
         reject(error);
       });
   }
-  
+
   navigator.geolocation.getCurrentPosition(success, error, options);
 });
 

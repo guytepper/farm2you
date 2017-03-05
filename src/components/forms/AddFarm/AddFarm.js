@@ -2,7 +2,7 @@ import Vue from 'vue';
 import store from '../../../store';
 import GeoFire from 'geofire';
 
-import initGMAutoComplete from '../helpers/GMAutocomplete.js';
+import { initGMAutoComplete } from '../helpers/GMAutocomplete.js';
 import Modal from '../../layout/Modal';
 
 import VeeValidate from 'vee-validate';
