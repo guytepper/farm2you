@@ -15,12 +15,16 @@ export default new Vuex.Store({
   state: {
     farms: null,
     locations: null,
-    currentLocation: null
+    currentLocation: null,
+    radius: 20
   },
   mutations: {
     ...VuexFire.mutations,
     UPDATE_LOCATION (state, location) {
       state.currentLocation = location;
+    },
+    SET_RADIUS (state, radius) {
+      state.radius = radius;
     }
   },
   actions: {
