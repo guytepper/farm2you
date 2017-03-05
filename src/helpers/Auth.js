@@ -16,7 +16,7 @@ export default {
       auth.signInWithEmailAndPassword(email, password)
         .then(user => resolve(user))
         .catch(err => reject(err));
-    }
+    });
   },
   // Returns a promise with the value of the current user admin rule (true/false)
   isAdmin() {
