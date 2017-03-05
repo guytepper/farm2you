@@ -91,6 +91,10 @@ export default {
     margin-bottom: 20px;
   }
 
+  .farm-info {
+    margin-bottom: 20px;
+  }
+
   .farm-info__item {
     display: flex;
     margin-bottom: 10px;
