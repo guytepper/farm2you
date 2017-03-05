@@ -1,30 +1,6 @@
 {
   "rules": {
-    // FARMS
-    "farms": {
-      ".read": "true",
-    	".write": "root.child('users').child(auth.uid).child('isAdmin').val() === true"
-    },
-    // PENDING FARMS
-  	"pending_farms": {
-    	".read": "true",
-    	".write": "true",
-      "$id": {
-        ".validate": "newData.hasChildren(['name', 'address', 'phone'])",
-       	"name": {
-       		".validate": "newData.isString() && newData.val().length > 1 && newData.val().length < 30"
-      	}
-      }
-    },  
-    // LOCATIONS
-    "locations": {
-      ".read": "true",
-      ".write": "true"
-    },
-    // USERS
-    "users": {
-      ".read": "true",
-      ".write": "true"
-    }
+    ".read": "true",
+    ".write": "auth != null"
   }
 }
