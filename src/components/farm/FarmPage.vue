@@ -71,14 +71,15 @@ export default {
     }
   },
   methods: {
-    // Get the farm using ID parameter from route
+    // Fetch the farm using ID parameter from route
     fetchFarm() {
       const farmId = this.$route.params.id;
-      // Not using the store here, since it might be delayed.
-      const farm = this.$root.$firebaseRefs.farms.child(`farm/${farmId}`);
+      const farmRef = this.$root.$firebaseRefs.farms.child(farmId);
+      farmRef.once('value', snapshot => this.farm = snapshot.val());
     }
   },
   created () {
+    this.fetchFarm();
   }
 }
 </script>
