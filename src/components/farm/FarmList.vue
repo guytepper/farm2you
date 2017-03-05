@@ -33,7 +33,7 @@ export default {
   data: function() {
     return {
       farms: [],
-      radius: 5,
+      radius: 20,
       currentLocation: null,
       geoQuery: {}
     }
