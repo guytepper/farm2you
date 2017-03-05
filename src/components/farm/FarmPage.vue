@@ -91,10 +91,7 @@ export default {
 
   .farm-info__item {
     display: flex;
-
-    span {
-      // font-weight: bold;
-    }
+    margin-bottom: 10px;
   }
 
   .farm-info__icon {
