@@ -33,9 +33,20 @@ export default {
   data: function() {
     return {
       farms: [],
-      radius: 20,
       currentLocation: null,
       geoQuery: {}
+    }
+  },
+  computed: {
+    // Keep the radius in the store, in order to keep it's value when
+    // navigating away from the component
+    radius: {
+      get () {
+        return this.$store.state.radius;
+      },
+      set (value) {
+        this.$store.commit('UPDATE_RADIUS', value);
+      }
     }
   },
   methods: {
@@ -48,7 +59,6 @@ export default {
       });
 
       const farmsAround = [];
-
       // Add the farms that meeting the query's criterias to the farms list
       this.geoQuery.on("key_entered", (key, location, distance) => {
         // Retrieve the farm from the farms list using it's key
