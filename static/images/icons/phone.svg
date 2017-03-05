@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
-    <title>ic_phone_black_24px</title>
+    <title>phone</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="iPhone-SE-Copy" transform="translate(-283.000000, -369.000000)">
-            <g id="ic_phone_black_24px" transform="translate(292.000000, 378.000000) scale(-1, 1) translate(-292.000000, -378.000000) translate(280.000000, 366.000000)">
-                <g id="Group">
-                    <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
-                    <path d="M6.62,10.79 C8.06,13.62 10.38,15.93 13.21,17.38 L15.41,15.18 C15.68,14.91 16.08,14.82 16.43,14.94 C17.55,15.31 18.76,15.51 20,15.51 C20.55,15.51 21,15.96 21,16.51 L21,20 C21,20.55 20.55,21 20,21 C10.61,21 3,13.39 3,4 C3,3.45 3.45,3 4,3 L7.5,3 C8.05,3 8.5,3.45 8.5,4 C8.5,5.25 8.7,6.45 9.07,7.57 C9.18,7.92 9.1,8.31 8.82,8.59 L6.62,10.79 L6.62,10.79 Z" id="Shape" fill="#000000"></path>
-                </g>
-            </g>
+        <g id="phone" transform="translate(-4.000000, -4.000000)">
+            <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
+            <path d="M7.21777778,10.9244444 C8.49777778,13.44 10.56,15.4933333 13.0755556,16.7822222 L15.0311111,14.8266667 C15.2711111,14.5866667 15.6266667,14.5066667 15.9377778,14.6133333 C16.9333333,14.9422222 18.0088889,15.12 19.1111111,15.12 C19.6,15.12 20,15.52 20,16.0088889 L20,19.1111111 C20,19.6 19.6,20 19.1111111,20 C10.7644444,20 4,13.2355556 4,4.88888889 C4,4.4 4.4,4 4.88888889,4 L8,4 C8.48888889,4 8.88888889,4.4 8.88888889,4.88888889 C8.88888889,6 9.06666667,7.06666667 9.39555556,8.06222222 C9.49333333,8.37333333 9.42222222,8.72 9.17333333,8.96888889 L7.21777778,10.9244444 Z" id="Shape" fill="#000000" transform="translate(12.000000, 12.000000) scale(-1, 1) translate(-12.000000, -12.000000) "></path>
         </g>
     </g>
 </svg>
