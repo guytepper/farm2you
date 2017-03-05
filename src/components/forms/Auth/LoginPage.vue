@@ -2,11 +2,11 @@
   <div class="panel login-page">
     <form>
       <div class="mui-textfield">
-        <input id="email" type="email">
+        <input id="email" type="email" v-model="email">
         <label for="email">אימייל</label>
       </div>
       <div class="mui-textfield">
-        <input id="password" type="password">
+        <input id="password" type="password" v-model="password">
         <label for="password">סיסמה</label>
       </div>
 
@@ -24,7 +24,8 @@ import messages from '../strings/loginMessages';
 export default {
   data () {
     return {
-      message: "",
+      email: "",
+      password: ""
     }
   },
   methods: {
