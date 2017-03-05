@@ -46,6 +46,7 @@
     </div>
     <div id="map"></div>
   </div>
+  -->
 </template>
 
 <script>
@@ -60,7 +61,6 @@ export default {
   data () {
     return {
       farm: null,
-      location: null,
       apiKey: googleMapsAPIKey
     }
   },
