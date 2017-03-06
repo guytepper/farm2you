@@ -1,7 +1,5 @@
 <template>
-  <div v-if="!farm" class="panel">
-    טוען...
-  </div>
+  <div v-if="!farm" class="spinner"></div>
   <div v-else class="panel" itemscope itemtype="http://schema.org/LocalBusiness">
     <h2 class="farm-name" itemprop="name">{{ farm.name }}</h2>
     <h3 class="farm-description" itemprop="description" v-if="farm.description">{{ farm.description }}</h3>
