@@ -1,5 +1,7 @@
 <template>
-  <div class="spinner" v-if="farms.length === 0"></div>
+  <div class="spinner" v-if="farms.length === 0">
+    <span>רק רגע</span>
+  </div>
   <div v-else class="farm-list">
     <div class="farm-search panel">
       <label for="select-radius" class="select-radius-label">רדיוס חיפוש (בק״מ):
