@@ -1,6 +1,6 @@
 <template>
-  <div class="farm-list">
-
+  <div class="spinner" v-if="farms.length === 0"></div>
+  <div v-else class="farm-list">
     <div class="farm-search panel">
       <label for="select-radius" class="select-radius-label">רדיוס חיפוש (בק״מ):
         <select v-model="radius" id="select-radius" @change="getClosestFarms">
@@ -106,6 +106,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../assets/scss/spinner.scss';
+
   .farm-search {
     display: flex;
     flex-wrap: wrap;
