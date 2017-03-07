@@ -1,13 +1,26 @@
 <template >
   <div class="farm-card panel" :farm-id="farm['.key']">
-    <img src="/static/images/farm-img-placeholder.jpg" alt="" class="farm-card__img"
-        srcset="/static/images/farm-img-placeholder@2x.jpg 2x" />
     <div class="farm-card__info">
       <h2 class="farm-card__name">
         <router-link :to="{ name: 'farm', params: { id: farm['.key'], location: '123' }}">{{ farm.name }}</router-link>
       </h2>
       <div class="farm-card__props">
-        אורגני, משלוחים
+        <span v-if="farm.props.organic" class="farm-card__props-item">
+          <img src="/static/images/icons/organic.svg" class="farm-card__icon" alt="אורגני">
+          <span class="farm-card__props-item-title">אורגני</span>
+        </span>
+        <span v-if="farm.props.shipping" class="farm-card__props-item">
+          <img src="/static/images/icons/shipping.svg" class="farm-card__icon" alt="משלוח">
+          <span class="farm-card__props-item-title">משלוחים</span>
+        </span>
+        <span v-if="farm.props.direct_sell" class="farm-card__props-item">
+          <img src="/static/images/icons/store.svg" class="farm-card__icon" alt="מכירה ישירה">
+          <span class="farm-card__props-item-title">מכירה ישירה</span>
+        </span>
+        <span v-if="farm.props.online_sell" class="farm-card__props-item">
+          <img src="/static/images/icons/computer.svg" class="farm-card__icon" alt="רכישה באינטרנט">
+          <span class="farm-card__props-item-title">רכישה באינטרנט</span>
+        </span>
       </div>
       <div class="farm-card__location" v-if="distance">
         {{ distance }} ק״מ ממיקומך
@@ -70,5 +83,23 @@ export default {
     width: 80px;
     height: 80px;
     margin-left: 10px;
+  }
+
+  .farm-card__props {
+    margin: 5px 0;
+  }
+
+  .farm-card__props-item {
+    display: inline-flex;
+    margin-left: 5px;
+  }
+
+  .farm-card__props-item-title {
+  }
+
+  .farm-card__icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
   }
 </style>
