@@ -80,7 +80,6 @@ export default {
       });
     },
     getLocation() {
-      const geoFire = new GeoFire(this.$root.$firebaseRefs.locations);
       /* The user might not allow using it's location, or the information might
          arrive after the component has been created.
          Therefore, if the user's location exists, we can set the distance. If not,
