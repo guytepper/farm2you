@@ -6,20 +6,20 @@
       </h2>
       <div class="farm-card__props">
         <span v-if="farm.props.organic" class="farm-card__props-item">
-          <img src="/static/images/icons/organic.svg" class="farm-card__icon" alt="אורגני">
+          <img src="/static/images/icons/organic.svg" class="farm-card__icon" alt="">
           <span class="farm-card__props-item-title">אורגני</span>
         </span>
         <span v-if="farm.props.shipping" class="farm-card__props-item">
-          <img src="/static/images/icons/shipping.svg" class="farm-card__icon" alt="משלוח">
+          <img src="/static/images/icons/shipping.svg" class="farm-card__icon" alt="">
           <span class="farm-card__props-item-title">משלוחים</span>
         </span>
         <span v-if="farm.props.direct_sell" class="farm-card__props-item">
-          <img src="/static/images/icons/store.svg" class="farm-card__icon" alt="מכירה ישירה">
+          <img src="/static/images/icons/store.svg" class="farm-card__icon" alt="">
           <span class="farm-card__props-item-title">מכירה ישירה</span>
         </span>
         <span v-if="farm.props.online_sell" class="farm-card__props-item">
-          <img src="/static/images/icons/computer.svg" class="farm-card__icon" alt="רכישה באינטרנט">
-          <span class="farm-card__props-item-title">רכישה באינטרנט</span>
+          <img src="/static/images/icons/computer.svg" class="farm-card__icon" alt="">
+          <span class="farm-card__props-item-title">הזמנה באינטרנט</span>
         </span>
       </div>
       <div class="farm-card__location" v-if="distance">

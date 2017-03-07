@@ -42,7 +42,7 @@
         </div>
         <div class="farm-info__item" v-if="farm.props.online_sell">
           <img src="/static/images/icons/computer.svg" class="farm-info__icon" alt="">
-          <span>רכישה באינטרנט</span>
+          <span>הזמנה באינטרנט</span>
         </div>
       </div>
     </div>
