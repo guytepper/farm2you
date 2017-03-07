@@ -14,13 +14,13 @@
           <img src="/static/images/icons/phone.svg" class="farm-info__icon" alt="">
           <span itemprop="telephone">{{ farm.phone }}</span>
         </div>
-        <div class="farm-info__item" v-if="farm.website">
-          <img src="/static/images/icons/website.svg" class="farm-info__icon" alt="">
-          <a :href="farm.website">{{ farm.website }}</a>
-        </div>
         <div class="farm-info__item" v-if="farm.email">
           <img src="/static/images/icons/email.svg" class="farm-info__icon" alt="">
           <a :href="'mailto:' + farm.email ">{{ farm.email }}</a>
+        </div>
+        <div class="farm-info__item" v-if="farm.website">
+          <img src="/static/images/icons/website.svg" class="farm-info__icon" alt="">
+          <a :href="farm.website" target="_blank">אתר אינטרנט</a>
         </div>
         <div class="farm-info__item" v-if="farm.facebook">
           <img src="/static/images/icons/facebook.svg" class="farm-info__icon" alt="">
