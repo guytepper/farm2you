@@ -136,7 +136,7 @@ export default {
   }
 
   #select-radius {
-    width: 50px;
+    width: 55px;
     margin-right: 10px;
     text-align-last: center;
   }
