@@ -49,7 +49,6 @@
 
 <script>
 // TODO: Use the enviorment API key instead of the static one
-import { googleMapsAPIKey } from '../../config/env.js';
 import { displayMap } from '../forms/helpers/GMAutocomplete';
 import { getFarmLocation } from '../../helpers/Location';
 
@@ -59,7 +58,7 @@ export default {
   data () {
     return {
       farm: null,
-      apiKey: googleMapsAPIKey
+      apiKey: GOOGLE_API_KEY
     }
   },
   methods: {
