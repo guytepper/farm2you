@@ -8,6 +8,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+var enviormentConfig = require('../src/config/env.prod');
 
 var env = config.build.env
 
@@ -27,7 +28,9 @@ var webpackConfig = merge(baseWebpackConfig, {
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
-      'process.env': env
+      'process.env': env,
+      'FIREBASE_CONFIG': JSON.stringify(enviormentConfig.firebaseConfig),
+      'GOOGLE_API_KEY': JSON.stringify(enviormentConfig.googleAPIKey),
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {

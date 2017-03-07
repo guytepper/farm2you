@@ -1,7 +1,6 @@
 import mapsapi from 'google-maps-api';
-import { googleAPIKey } from '../../../config/env';
 
-export const googleMaps = mapsapi(googleAPIKey, ['places']);
+export const googleMaps = mapsapi(GOOGLE_API_KEY, ['places']);
 
 // Inits the Google Maps Autocomplete plugin.
 // Takes the vm instance as parameter.
