@@ -16,7 +16,7 @@ export default new Vuex.Store({
     farms: null,
     locations: null,
     currentLocation: null,
-    radius: 20
+    radius: 40
   },
   mutations: {
     ...VuexFire.mutations,
