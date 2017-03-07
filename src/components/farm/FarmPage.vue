@@ -28,6 +28,10 @@
         </div>
       </div>
       <div class="farm-info__left-section" v-if="farm.props">
+        <div class="farm-info__item" v-if="farm.props.organic">
+          <img src="/static/images/icons/organic.svg" class="farm-info__icon" alt="">
+          <span>אורגני</span>
+        </div>
         <div class="farm-info__item" v-if="farm.props.shipping">
           <img src="/static/images/icons/shipping.svg" class="farm-info__icon" alt="">
           <span>משלוחים</span>
