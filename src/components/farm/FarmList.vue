@@ -1,5 +1,5 @@
 <template>
-  <div class="spinner" v-if="farms.length === 0"></div>
+  <div v-if="!loaded && farms.length === 0" class="spinner"></div>
   <div v-else class="farm-list">
     <div class="farm-search panel">
       <label for="select-radius" class="select-radius-label">רדיוס חיפוש (בק״מ):
@@ -20,19 +20,23 @@
         <button class="mui-btn mui-btn--raised mui-btn--primary">חיפוש</button>
       </div> -->
     </div>
+    <div v-if="loaded && farms.length === 0" class="panel">
+      לא נמצאו משקים באיזורך 😢
+    </div>
     <farm-card v-for="farm in farms" :farm="farm" :key="farm.key" :current-location="currentLocation"></farm-card>
   </div>
 </template>
 
 <script>
 import GeoFire from 'geofire';
-import FarmCard from './FarmCard'
+import FarmCard from './FarmCard';
 
 export default {
   components: { FarmCard },
   data: function() {
     return {
       farms: [],
+      loaded: false,
       currentLocation: null,
       geoQuery: {}
     }
@@ -54,11 +58,12 @@ export default {
     getClosestFarms () {
       const geoFire = new GeoFire(this.$root.$firebaseRefs.locations); // TODO: Use a global geofire object
       this.geoQuery = geoFire.query({
-        center: [32.290315299999996, 34.9400146],
+        center: [this.currentLocation[0], this.currentLocation[1]],
         radius: 5
       });
 
       const farmsAround = [];
+
       // Add the farms that meeting the query's criterias to the farms list
       this.geoQuery.on("key_entered", (key, location, distance) => {
         // Retrieve the farm from the farms list using it's key
@@ -69,7 +74,7 @@ export default {
       // Updates the farms whenever the query changes
       this.geoQuery.on("ready", () => {
         this.farms = farmsAround;
-
+        this.loaded = true;
         /* Adds 5km to the current radius until it reaches the radius.
            This is so the farms would be displayed sorted by thier distance from the current location.
            For more info: https://github.com/firebase/geofire-js/issues/59#issuecomment-70350560
@@ -80,19 +85,21 @@ export default {
       });
     },
     getLocation() {
-      const geoFire = new GeoFire(this.$root.$firebaseRefs.locations);
-      /* The user might not allow using it's location, or the information might
+      /* The user might not allow using his location, or the information might
          arrive after the component has been created.
-         Therefore, if the user's location exists, we can set the distance. If not,
-         we set a watcher on the current location prop on the state.
+         Therefore, if the user's location exists in the store's state, we can set the distance.
+         Otherwise, we set a watcher on the current location prop on the state.
       */
       if (this.$store.state.currentLocation) {
         this.currentLocation = this.$store.state.currentLocation;
+        // Fetch the closest farms
+        this.getClosestFarms();
       }
       else {
         this.$store.watch(state => state.currentLocation, () => {
           if (this.$store.state.currentLocation != null) {
             this.currentLocation = this.$store.state.currentLocation;
+            this.getClosestFarms();
           }
         });
       }
@@ -100,7 +107,6 @@ export default {
   },
   created () {
     this.getLocation();
-    this.getClosestFarms();
   }
 }
 </script>

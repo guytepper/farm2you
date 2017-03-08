@@ -6,7 +6,8 @@ import firebase from '../config/firebase'
 const geoFire = new GeoFire(firebase.database().ref('locations'));
 
 // Prompts the user to give it's current location & commits the value
-export const getPosition = new Promise((resolve, reject) => {
+export const getPosition = function getPosition() {
+  return new Promise((resolve, reject) => {
   // Geolocation API options
   const options = {
     enableHighAccuracy: true,
@@ -29,21 +30,25 @@ export const getPosition = new Promise((resolve, reject) => {
    * The user's location will be detected using his IP instead.
    */
   function error(err) {
-    // Call freegeoip API endpoint to get the user's location
-    axios.get('http://freegeoip.net/json/')
-      .then(response => {
-        const data = response.data;
-        const latlng = [data.latitude, data.longitude];
-        resolve(latlng);
-      })
-      .catch(error => {
-        console.log(error);
-        reject(error);
-      });
+    getPositionByIP.then(latlng => resolve(latlng));
   }
 
   navigator.geolocation.getCurrentPosition(success, error, options);
-});
+})};
+
+export const getPositionByIP = new Promise((resolve, reject) => {
+  // Call freegeoip API endpoint to get the user's location
+  axios.get('http://freegeoip.net/json/')
+    .then(response => {
+      const data = response.data;
+      const latlng = [data.latitude, data.longitude];
+      resolve(latlng);
+    })
+    .catch(error => {
+      console.log(error);
+      reject(error);
+    });
+})
 
 // Converts a geoposition object to [latitude, longitude]
 export const geoToLatLng = function geoToLatLng(pos) {

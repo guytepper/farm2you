@@ -22,6 +22,6 @@ new Vue({
   },
   created () {
     this.$store.dispatch('UPDATE_USER');
-    this.$store.dispatch('UPDATE_LOCATION');
+    this.$store.dispatch('UPDATE_LOCATION', 'IP');
   }
 })
