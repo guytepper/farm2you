@@ -4,7 +4,7 @@ import VuexFire from 'vuexfire';
 
 import firebase from '../config/firebase';
 
-import { getPosition } from '../helpers/Location';
+import { getPosition, getPositionByIP } from '../helpers/Location';
 
 import User from './modules/user.js';
 
@@ -29,10 +29,17 @@ export default new Vuex.Store({
   },
   actions: {
     // Updates the user's location position
-    UPDATE_LOCATION ({ commit }) {
-      getPosition.then(pos => {
-        commit('UPDATE_LOCATION', pos);
-      })
+    UPDATE_LOCATION ({ commit }, method) {
+      if (method === 'IP') {
+        getPositionByIP.then(pos => {
+          commit('UPDATE_LOCATION', pos);
+        });
+      }
+      else {
+        getPosition.then(pos => {
+          commit('UPDATE_LOCATION', pos);
+        });
+      }
     }
   },
   getters: {
