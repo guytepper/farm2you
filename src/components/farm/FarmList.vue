@@ -1,8 +1,5 @@
 <template>
   <div v-if="!loaded && farms.length === 0" class="spinner"></div>
-  <div v-else-if="loaded && farms.length === 0" class="panel">
-    לא נמצאו משקים באיזורך 😢
-  </div>
   <div v-else class="farm-list">
     <div class="farm-search panel">
       <label for="select-radius" class="select-radius-label">רדיוס חיפוש (בק״מ):
@@ -23,13 +20,16 @@
         <button class="mui-btn mui-btn--raised mui-btn--primary">חיפוש</button>
       </div> -->
     </div>
+    <div v-if="loaded && farms.length === 0" class="panel">
+      לא נמצאו משקים באיזורך 😢
+    </div>
     <farm-card v-for="farm in farms" :farm="farm" :key="farm.key" :current-location="currentLocation"></farm-card>
   </div>
 </template>
 
 <script>
 import GeoFire from 'geofire';
-import FarmCard from './FarmCard'
+import FarmCard from './FarmCard';
 
 export default {
   components: { FarmCard },
