@@ -2,23 +2,25 @@
   <div v-if="!loaded && farms.length === 0" class="spinner"></div>
   <div v-else class="farm-list">
     <div class="farm-search panel">
-      <label for="select-radius" class="select-radius-label">רדיוס חיפוש (בק״מ):
-        <select v-model="radius" id="select-radius" @change="getClosestFarms">
-          <option>5</option>
-          <option>10</option>
-          <option>20</option>
-          <option>40</option>
-          <option>60</option>
-          <option>80</option>
-        </select>
-      </label>
-      <!-- Temporary disable search panel -->
-      <!-- <div class="mui-textfield">
-        <input class="farm-search__field" type="text" placeholder="כתובת מגורים">
+      <div class="farm-search__parameters">
+        <div class="mui-textfield">
+          <input class="farm-search__field" type="text" placeholder="כתובת מגורים">
+        </div>
+        <label for="select-radius" class="select-radius-label">רדיוס חיפוש (בק״מ):
+          <select v-model="radius" id="select-radius" @change="getClosestFarms">
+            <option>5</option>
+            <option>10</option>
+            <option>20</option>
+            <option>40</option>
+            <option>60</option>
+            <option>80</option>
+          </select>
+        </label>
       </div>
       <div class="farm-search__buttons">
         <button class="mui-btn mui-btn--raised mui-btn--primary">חיפוש</button>
-      </div> -->
+        <button class="mui-btn mui-btn--raised mui-btn--blue">שימוש במיקום נוכחי</button>
+      </div>
     </div>
     <div v-if="loaded && farms.length === 0" class="panel">
       לא נמצאו משקים באיזורך 😢
@@ -140,6 +142,7 @@ export default {
   .select-radius-label {
     display: flex;
     align-items: center;
+    margin-bottom: 15px;
   }
 
   #select-radius {
