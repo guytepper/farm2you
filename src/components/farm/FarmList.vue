@@ -30,6 +30,7 @@
 <script>
 import GeoFire from 'geofire';
 import FarmCard from './FarmCard';
+import { initGMAutoComplete } from '../../helpers/GoogleWidgets';
 
 export default {
   components: { FarmCard },
