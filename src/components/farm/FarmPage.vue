@@ -53,7 +53,7 @@
 
 <script>
 // TODO: Use the enviorment API key instead of the static one
-import { displayMap } from '../forms/helpers/GMAutocomplete';
+import { displayMap } from '../../helpers/GoogleWidgets';
 import { getFarmLocation } from '../../helpers/Location';
 
 export default {
