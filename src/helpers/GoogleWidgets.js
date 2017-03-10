@@ -5,8 +5,12 @@ export const googleMaps = mapsapi(GOOGLE_API_KEY, ['places']);
 // Inits the Google Maps Autocomplete plugin.
 // Takes an element and a callback to execture when a place has changed.
 export function initGMAutoComplete(element, callback) {
+  const options = {
+    componentRestrictions: { country: 'il' },
+  };
+
   googleMaps().then(maps => {
-    const autocomplete = new google.maps.places.Autocomplete(element);
+    const autocomplete = new google.maps.places.Autocomplete(element, options);
     autocomplete.addListener('place_changed', function() {
       const location = autocomplete.getPlace();
       // Call the provided callback with the location
