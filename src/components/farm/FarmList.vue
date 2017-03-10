@@ -115,7 +115,6 @@ export default {
     // Init google autocomplete widget
     // TODO: Fix element not found
     const element = document.getElementById('farm-search__field');
-    console.log(element);
     initGMAutoComplete(element, location => this.searchTerm = location);
   }
 }
