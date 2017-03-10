@@ -4,7 +4,7 @@
     <div class="farm-search panel">
       <div class="farm-search__parameters">
         <div class="mui-textfield">
-          <input class="farm-search__field" type="text" placeholder="כתובת מגורים">
+          <input class="farm-search__field" id="farm-search__field" type="text" placeholder="כתובת מגורים">
         </div>
         <label for="select-radius" class="select-radius-label">רדיוס חיפוש (בק״מ):
           <select v-model="radius" id="select-radius" @change="getClosestFarms">
@@ -41,7 +41,8 @@ export default {
       farms: [],
       loaded: false,
       currentLocation: null,
-      geoQuery: {}
+      geoQuery: {},
+      searchTerm: ''
     }
   },
   computed: {
@@ -108,8 +109,14 @@ export default {
       }
     }
   },
-  created () {
+  mounted () {
+    // Get the user location
     this.getLocation();
+    // Init google autocomplete widget
+    // TODO: Fix element not found
+    const element = document.getElementById('farm-search__field');
+    console.log(element);
+    initGMAutoComplete(element, location => this.searchTerm = location);
   }
 }
 </script>
