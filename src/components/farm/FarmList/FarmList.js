@@ -1,38 +1,6 @@
-<template>
-  <div class="farm-list">
-    <div class="farm-search panel">
-      <div class="farm-search__parameters">
-        <div class="mui-textfield">
-          <input class="farm-search__field" id="farm-search__field" type="text" placeholder="כתובת מגורים">
-        </div>
-        <label for="select-radius" class="select-radius-label">רדיוס חיפוש (בק״מ):
-          <select v-model="radius" id="select-radius" @change="getClosestFarms">
-            <option>5</option>
-            <option>10</option>
-            <option>20</option>
-            <option>40</option>
-            <option>60</option>
-            <option>80</option>
-          </select>
-        </label>
-      </div>
-      <div class="farm-search__buttons">
-        <button class="mui-btn mui-btn--raised mui-btn--primary">חיפוש</button>
-        <button class="mui-btn mui-btn--raised mui-btn--blue">שימוש במיקום נוכחי</button>
-      </div>
-    </div>
-    <div v-if="!loaded && farms.length === 0" class="spinner"></div>
-    <div v-if="loaded && farms.length === 0" class="panel">
-      לא נמצאו משקים באיזורך 😢
-    </div>
-    <farm-card v-for="farm in farms" :farm="farm" :key="farm.key" :current-location="currentLocation"></farm-card>
-  </div>
-</template>
-
-<script>
 import GeoFire from 'geofire';
-import FarmCard from './FarmCard';
-import { initGMAutoComplete } from '../../helpers/GoogleWidgets';
+import FarmCard from '../FarmCard';
+import { initGMAutoComplete } from '../../../helpers/GoogleWidgets';
 
 export default {
   components: { FarmCard },
@@ -117,40 +85,3 @@ export default {
     initGMAutoComplete(element, location => this.searchPosition = location);
   }
 }
-</script>
-
-<style lang="scss">
-@import '../../assets/scss/spinner.scss';
-
-  .farm-search {
-
-    .mui-textfield {
-      margin-left: 15px;
-      flex: 1 1 300px;
-    }
-  }
-
-  .farm-search__buttons {
-    display: flex;
-    flex: 1 1;
-
-    .mui-btn {
-      flex: 1;
-      margin: 0 5px;
-      min-width: 150px;
-    }
-  }
-
-  .select-radius-label {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-  }
-
-  #select-radius {
-    width: 55px;
-    margin-right: 10px;
-    text-align-last: center;
-  }
-
-</style>
