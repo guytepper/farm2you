@@ -26,6 +26,14 @@ export default {
     }
   },
   methods: {
+    // Called when search button being clicked
+    searchFarms () {
+      if (this.searchPosition != null) {
+        const coords = this.searchPosition.geometry.location;
+        this.$store.commit('UPDATE_LOCATION', [coords.lat(), coords.lng()]);
+
+      }
+    },
     // Finds the closest farms to the  user location
     getClosestFarms () {
       const geoFire = new GeoFire(this.$root.$firebaseRefs.locations); // TODO: Use a global geofire object
