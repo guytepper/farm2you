@@ -3,14 +3,15 @@ import mapsapi from 'google-maps-api';
 export const googleMaps = mapsapi(GOOGLE_API_KEY, ['places']);
 
 // Inits the Google Maps Autocomplete plugin.
-// Takes the vm instance as parameter.
-export function initGMAutoComplete(vm) {
+// Takes a callback to execture when a place has changed.
+export function initGMAutoComplete(callback) {
   googleMaps().then(maps => {
     const input = document.getElementById('location');
     const autocomplete = new google.maps.places.Autocomplete(input);
     autocomplete.addListener('place_changed', function() {
       const location = autocomplete.getPlace();
-      vm.location = location;
+      // Call the provided callback with the location
+      callback(location);
     })
   });
 }

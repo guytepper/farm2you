@@ -25,7 +25,7 @@ export default {
     Modal
   },
   created () {
-    initGMAutoComplete(this)
+    initGMAutoComplete(location => this.location = location);    
   },
   data () {
     return {
