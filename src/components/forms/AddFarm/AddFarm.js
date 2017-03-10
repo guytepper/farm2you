@@ -24,8 +24,10 @@ export default {
   components: {
     Modal
   },
-  created () {
-    initGMAutoComplete(location => this.location = location);    
+  mounted () {
+    // Init the google autocomplete widget with the location input element
+    const input = document.getElementById('location');
+    initGMAutoComplete(input, location => this.location = location);
   },
   data () {
     return {
