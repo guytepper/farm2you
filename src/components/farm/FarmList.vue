@@ -118,9 +118,6 @@ export default {
 @import '../../assets/scss/spinner.scss';
 
   .farm-search {
-    display: flex;
-    flex-wrap: wrap;
-
 
     .mui-textfield {
       margin-left: 15px;
