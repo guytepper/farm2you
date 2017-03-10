@@ -42,7 +42,7 @@ export default {
       loaded: false,
       currentLocation: null,
       geoQuery: {},
-      searchTerm: ''
+      searchPosition: null
     }
   },
   computed: {
@@ -113,9 +113,8 @@ export default {
     // Get the user location
     this.getLocation();
     // Init google autocomplete widget
-    // TODO: Fix element not found
     const element = document.getElementById('farm-search__field');
-    initGMAutoComplete(element, location => this.searchTerm = location);
+    initGMAutoComplete(element, location => this.searchPosition = location);
   }
 }
 </script>
