@@ -1,6 +1,5 @@
 <template>
-  <div v-if="!loaded && farms.length === 0" class="spinner"></div>
-  <div v-else class="farm-list">
+  <div class="farm-list">
     <div class="farm-search panel">
       <div class="farm-search__parameters">
         <div class="mui-textfield">
@@ -22,6 +21,7 @@
         <button class="mui-btn mui-btn--raised mui-btn--blue">שימוש במיקום נוכחי</button>
       </div>
     </div>
+    <div v-if="!loaded && farms.length === 0" class="spinner"></div>
     <div v-if="loaded && farms.length === 0" class="panel">
       לא נמצאו משקים באיזורך 😢
     </div>
