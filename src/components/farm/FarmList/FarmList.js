@@ -81,5 +81,9 @@ export default {
     initGMAutoComplete(element, location => {
       this.searchPosition = location;
     });
+    // Display farms if has user's location
+    if (this.currentLocation) {
+      this.getClosestFarms();
+    }
   }
 }
