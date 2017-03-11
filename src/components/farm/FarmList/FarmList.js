@@ -8,12 +8,14 @@ export default {
     return {
       farms: [],
       loaded: false,
-      currentLocation: null,
       geoQuery: {},
       searchPosition: null
     }
   },
   computed: {
+    currentLocation () {
+      return this.$store.state.currentLocation;
+    },
     // Keep the radius in the store, in order to keep it's value when
     // navigating away from the component
     radius: {
@@ -26,6 +28,16 @@ export default {
     }
   },
   methods: {
+    getUserLocation () {
+      this.$store.dispatch('GET_USER_LOCATION');
+    },
+    // Called when search button being clicked
+    searchFarms () {
+      if (this.searchPosition != null) {
+        const coords = this.searchPosition.geometry.location;
+        this.$store.commit('UPDATE_LOCATION', [ coords.lat(), coords.lng() ]);
+      }
+    },
     // Finds the closest farms to the  user location
     getClosestFarms () {
       const geoFire = new GeoFire(this.$root.$firebaseRefs.locations); // TODO: Use a global geofire object
@@ -35,7 +47,6 @@ export default {
       });
 
       const farmsAround = [];
-
       // Add the farms that meeting the query's criterias to the farms list
       this.geoQuery.on("key_entered", (key, location, distance) => {
         // Retrieve the farm from the farms list using it's key
@@ -55,33 +66,20 @@ export default {
           this.geoQuery.updateCriteria({ radius: this.geoQuery.radius() + 5 });
         }
       });
-    },
-    getLocation() {
-      /* The user might not allow using his location, or the information might
-         arrive after the component has been created.
-         Therefore, if the user's location exists in the store's state, we can set the distance.
-         Otherwise, we set a watcher on the current location prop on the state.
-      */
-      if (this.$store.state.currentLocation) {
-        this.currentLocation = this.$store.state.currentLocation;
-        // Fetch the closest farms
+    }
+  },
+  watch: {
+    currentLocation: function (newLocation) {
+      if (newLocation != null) {
         this.getClosestFarms();
-      }
-      else {
-        this.$store.watch(state => state.currentLocation, () => {
-          if (this.$store.state.currentLocation != null) {
-            this.currentLocation = this.$store.state.currentLocation;
-            this.getClosestFarms();
-          }
-        });
       }
     }
   },
   mounted () {
-    // Get the user location
-    this.getLocation();
     // Init google autocomplete widget
     const element = document.getElementById('farm-search__field');
-    initGMAutoComplete(element, location => this.searchPosition = location);
+    initGMAutoComplete(element, location => {
+      this.searchPosition = location;
+    });
   }
 }

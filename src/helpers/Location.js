@@ -8,33 +8,35 @@ const geoFire = new GeoFire(firebase.database().ref('locations'));
 // Prompts the user to give it's current location & commits the value
 export const getPosition = function getPosition() {
   return new Promise((resolve, reject) => {
-  // Geolocation API options
-  const options = {
-    enableHighAccuracy: true,
-    timeout: 5000,
-    maximumAge: 0
-  };
+    // Geolocation API options
+    const options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
 
-  /* Geolocation success callback function
-   * Receives a Geoposition object and resolves the promise
-   * with an [latitude, longitude] array.
-   */
-  function success(pos) {
-    const latlng = geoToLatLng(pos);
-    resolve(latlng);
-  }
+    /* Geolocation success callback function
+     * Receives a Geoposition object and resolves the promise
+     * with an [latitude, longitude] array.
+     */
+    function success(pos) {
+      const latlng = geoToLatLng(pos);
+      resolve(latlng);
+    }
 
-  /* Geolocation error callback function
-   * Being used when the user denies the Geolocation API prompt or
-   * there's some error with it.
-   * The user's location will be detected using his IP instead.
-   */
-  function error(err) {
-    getPositionByIP.then(latlng => resolve(latlng));
-  }
+    /* Geolocation error callback function
+     * Being used when the user denies the Geolocation API prompt or
+     * there's some error with it.
+     * The user's location will be detected using his IP instead.
+     */
+    function error(err) {
+      console.log('Error: ' + err + '\nRetrieving location by IP.');
+      getPositionByIP.then(latlng => resolve(latlng));
+    }
 
-  navigator.geolocation.getCurrentPosition(success, error, options);
-})};
+    navigator.geolocation.getCurrentPosition(success, error, options);
+  })
+};
 
 export const getPositionByIP = new Promise((resolve, reject) => {
   // Call freegeoip API endpoint to get the user's location

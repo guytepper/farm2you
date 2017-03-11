@@ -1,4 +1,4 @@
-<div class="farm-list">
+<form class="farm-list" @submit.prevent="searchFarms" @keydown.enter.prevent>
   <div class="farm-search panel">
     <div class="farm-search__parameters">
       <div class="mui-textfield">
@@ -16,13 +16,13 @@
       </label>
     </div>
     <div class="farm-search__buttons">
-      <button class="mui-btn mui-btn--raised mui-btn--primary">חיפוש</button>
-      <button class="mui-btn mui-btn--raised mui-btn--blue">שימוש במיקום נוכחי</button>
+      <button class="mui-btn mui-btn--raised mui-btn--primary" type="submit">חיפוש</button>
+      <button class="mui-btn mui-btn--raised mui-btn--blue" @click.prevent="getUserLocation">שימוש במיקום נוכחי</button>
     </div>
   </div>
-  <div v-if="!loaded && farms.length === 0" class="spinner"></div>
+  <!-- <div v-if="!loaded && farms.length === 0" class="spinner"></div> -->
   <div v-if="loaded && farms.length === 0" class="panel">
     לא נמצאו משקים באיזורך 😢
   </div>
   <farm-card v-for="farm in farms" :farm="farm" :key="farm.key" :current-location="currentLocation"></farm-card>
-</div>
+</form>
