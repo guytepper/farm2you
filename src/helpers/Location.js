@@ -30,6 +30,7 @@ export const getPosition = function getPosition() {
    * The user's location will be detected using his IP instead.
    */
   function error(err) {
+    console.log('Error: ' + err '\nRetrieving location by IP.');
     getPositionByIP.then(latlng => resolve(latlng));
   }
 
