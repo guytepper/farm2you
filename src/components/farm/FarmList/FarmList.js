@@ -33,8 +33,7 @@ export default {
     searchFarms () {
       if (this.searchPosition != null) {
         const coords = this.searchPosition.geometry.location;
-        this.$store.commit('UPDATE_LOCATION', [coords.lat(), coords.lng()]);
-
+        this.$store.commit('UPDATE_LOCATION', [ coords.lat(), coords.lng() ]);
       }
     },
     // Finds the closest farms to the  user location
