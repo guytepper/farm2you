@@ -32,7 +32,13 @@
 
 <script>
 export default {
-
+  mounted () {
+    window.addEventListener('keyup', event => {
+      if (event.keyCode === 13) {
+        this.$emit('close')
+      }
+    })
+  }
 }
 </script>
 
