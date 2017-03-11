@@ -1,4 +1,4 @@
-<div class="farm-list">
+<form class="farm-list" @submit.prevent="searchFarms" @keydown.enter.prevent>
   <div class="farm-search panel">
     <div class="farm-search__parameters">
       <div class="mui-textfield">
@@ -25,4 +25,4 @@
     לא נמצאו משקים באיזורך 😢
   </div>
   <farm-card v-for="farm in farms" :farm="farm" :key="farm.key" :current-location="currentLocation"></farm-card>
-</div>
+</form>
