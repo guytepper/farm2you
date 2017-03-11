@@ -99,6 +99,7 @@ export default {
       this.email = '';
       this.website = '';
       this.facebook = '';
+      this.description = '';
       this.props.organic = false;
       this.props.direct_sell = false;
       this.props.online_sell = false;
