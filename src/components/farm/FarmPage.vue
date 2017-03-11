@@ -24,7 +24,7 @@
         </div>
         <div class="farm-info__item" v-if="farm.facebook">
           <img src="/static/images/icons/facebook.svg" class="farm-info__icon" alt="">
-          <a :href="farm.facebook">עמוד פייסבוק</a>
+          <a :href="farm.facebook" target="_blank">עמוד פייסבוק</a>
         </div>
       </div>
       <div class="farm-info__left-section" v-if="farm.props">
