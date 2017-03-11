@@ -14,6 +14,9 @@ export default {
     }
   },
   computed: {
+    currentLocation () {
+      return this.$store.state.currentLocation;
+    },
     // Keep the radius in the store, in order to keep it's value when
     // navigating away from the component
     radius: {
