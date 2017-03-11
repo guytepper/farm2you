@@ -8,7 +8,6 @@
       <div class="farm-info__right-section">
         <div class="farm-info__item" itemscope itemtype="http://schema.org/PostalAddress">
           <img src="/static/images/icons/place.svg" class="farm-info__icon" alt="">
-          <span itemprop="address">{{ farm.address }}</span>
           <span itemprop="address">{{ farm.street }}, {{ farm.city }}</span>
         </div>
         <div class="farm-info__item" v-if="farm.phone">

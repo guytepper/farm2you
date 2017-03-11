@@ -63,7 +63,8 @@ export default {
       const farm = this.$root.$firebaseRefs.farms.push({
         'name': this.name,
         'phone': this.phone,
-        'address': this.location.name + ', ' + this.location.vicinity,
+        'street': this.location.name,
+        'city': this.location.vicinity,
         'email': this.email,
         'website': this.website,
         'facebook': this.facebook,
