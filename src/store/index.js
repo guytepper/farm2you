@@ -30,7 +30,7 @@ export default new Vuex.Store({
   actions: {
     // Prompts the user to provide his location
     GET_USER_LOCATION ({ commit }) {
-      getPosition.then(pos => commit('UPDATE_LOCATION', pos));
+      getPosition().then(pos => commit('UPDATE_LOCATION', pos));
     }
   },
   getters: {

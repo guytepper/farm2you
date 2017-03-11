@@ -35,8 +35,8 @@ export const getPosition = function getPosition() {
     }
 
     navigator.geolocation.getCurrentPosition(success, error, options);
-  }
-)};
+  })
+};
 
 export const getPositionByIP = new Promise((resolve, reject) => {
   // Call freegeoip API endpoint to get the user's location
