@@ -12,7 +12,7 @@ export const getPosition = function getPosition() {
     const options = {
       enableHighAccuracy: true,
       timeout: 5000,
-      maximumAge: 0
+      maximumAge: 360
     };
 
     /* Geolocation success callback function
