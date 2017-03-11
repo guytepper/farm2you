@@ -12,7 +12,7 @@
         </div>
         <div class="farm-info__item" v-if="farm.phone">
           <img src="/static/images/icons/phone.svg" class="farm-info__icon" alt="">
-          <span itemprop="telephone">{{ farm.phone }}</span>
+          <a itemprop="telephone" :href="'tel:' + farm.phone">{{ farm.phone }}</a>
         </div>
         <div class="farm-info__item" v-if="farm.email">
           <img src="/static/images/icons/email.svg" class="farm-info__icon" alt="">
