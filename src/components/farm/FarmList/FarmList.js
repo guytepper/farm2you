@@ -45,7 +45,7 @@ export default {
       });
 
       const farmsAround = [];
-
+      console.log(this.currentLocation);
       // Add the farms that meeting the query's criterias to the farms list
       this.geoQuery.on("key_entered", (key, location, distance) => {
         // Retrieve the farm from the farms list using it's key
@@ -65,33 +65,21 @@ export default {
           this.geoQuery.updateCriteria({ radius: this.geoQuery.radius() + 5 });
         }
       });
-    },
-    getLocation() {
-      /* The user might not allow using his location, or the information might
-         arrive after the component has been created.
-         Therefore, if the user's location exists in the store's state, we can set the distance.
-         Otherwise, we set a watcher on the current location prop on the state.
-      */
-      if (this.$store.state.currentLocation) {
-        this.currentLocation = this.$store.state.currentLocation;
-        // Fetch the closest farms
+    }
+  },
+  watch: {
+    currentLocation: function (newLocation) {
+      if (newLocation != null) {
         this.getClosestFarms();
-      }
-      else {
-        this.$store.watch(state => state.currentLocation, () => {
-          if (this.$store.state.currentLocation != null) {
-            this.currentLocation = this.$store.state.currentLocation;
-            this.getClosestFarms();
-          }
-        });
       }
     }
   },
   mounted () {
-    // Get the user location
-    this.getLocation();
     // Init google autocomplete widget
     const element = document.getElementById('farm-search__field');
-    initGMAutoComplete(element, location => this.searchPosition = location);
+    initGMAutoComplete(element, location => {
+      this.searchPosition = location;
+      this.getClosestFarms();
+    });
   }
 }
