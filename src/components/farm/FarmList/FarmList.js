@@ -8,7 +8,6 @@ export default {
     return {
       farms: [],
       loaded: false,
-      currentLocation: null,
       geoQuery: {},
       searchPosition: null
     }
