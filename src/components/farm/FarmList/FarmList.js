@@ -28,6 +28,9 @@ export default {
     }
   },
   methods: {
+    getUserLocation () {
+      this.$store.dispatch('GET_USER_LOCATION');
+    },
     // Called when search button being clicked
     searchFarms () {
       if (this.searchPosition != null) {
@@ -44,7 +47,6 @@ export default {
       });
 
       const farmsAround = [];
-      console.log(this.currentLocation);
       // Add the farms that meeting the query's criterias to the farms list
       this.geoQuery.on("key_entered", (key, location, distance) => {
         // Retrieve the farm from the farms list using it's key
@@ -78,7 +80,6 @@ export default {
     const element = document.getElementById('farm-search__field');
     initGMAutoComplete(element, location => {
       this.searchPosition = location;
-      this.getClosestFarms();
     });
   }
 }
