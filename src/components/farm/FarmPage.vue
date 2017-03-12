@@ -52,7 +52,6 @@
 </template>
 
 <script>
-// TODO: Use the enviorment API key instead of the static one
 import { displayMap } from '../../helpers/GoogleWidgets';
 import { getFarmLocation } from '../../helpers/Location';
 
