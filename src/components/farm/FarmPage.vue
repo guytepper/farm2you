@@ -77,6 +77,7 @@ export default {
   created () {
     this.fetchFarm().then(farm => {
       this.farm = farm;
+      // Set page title & description
       document.title = farm.name + ' | ישר מהשדה';
       getFarmLocation(this.id).then(location => {
         displayMap(document.getElementById('map'), location);
