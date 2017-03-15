@@ -66,16 +66,18 @@ export default {
   },
   computed: {
     title () {
-      if (farm.title) {
-        return farm.title
+      if (this.farm != null) {
+        return this.farm.name;
       }
       else {
         return 'ישר מהשדה'
       }
     }
   },
-  metaInfo: {
-    title: this.title
+  metaInfo () {
+    return {
+      title: this.title
+    }
   },
   methods: {
     // Fetch the farm using ID parameter from route
