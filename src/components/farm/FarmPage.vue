@@ -70,7 +70,7 @@ export default {
         return this.farm.name;
       }
       else {
-        return 'ישר מהשדה'
+        return 'טוען..';
       }
     }
   },
