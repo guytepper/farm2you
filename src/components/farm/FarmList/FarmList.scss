@@ -29,10 +29,13 @@
     }
   }
 
+.farm-search__field-container {
+  display: flex;
+}
+
   .select-radius-label {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
   }
 
   #select-radius {
