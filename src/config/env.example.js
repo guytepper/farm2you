@@ -1,4 +1,4 @@
-export const firebaseConfig = {
+exports.firebaseConfig = {
   apiKey: "",
   authDomain: "",
   databaseURL: "",
@@ -6,6 +6,4 @@ export const firebaseConfig = {
   messagingSenderId: ""
 };
 
-export const googleAPIKey = firebaseConfig.apiKey;
-
-export const googleMapsAPIKey = "";
+exports.googleAPIKey = "";
