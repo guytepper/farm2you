@@ -48,6 +48,7 @@ Vue.use(VueAnalytics, {
   appName: 'Farm2You',
   appVersion: '1.0',
   trackingId: 'UA-18040964-7',
+  vueRouter: router
 })
 
 // Export the VueRouter instance
