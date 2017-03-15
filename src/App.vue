@@ -45,6 +45,11 @@ body {
   };
 }
 
+.content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .panel {
   margin-bottom: 15px;
   padding: 15px;
