@@ -7,7 +7,7 @@ export default {
   data: function() {
     return {
       farms: [],
-      loaded: false,
+      loading: false,
       geoQuery: {},
       searchPosition: null
     }
@@ -29,6 +29,7 @@ export default {
   },
   methods: {
     getUserLocation () {
+      this.loading = true;
       this.$store.dispatch('GET_USER_LOCATION');
     },
     // Called when search button being clicked
@@ -57,7 +58,7 @@ export default {
       // Updates the farms whenever the query changes
       this.geoQuery.on("ready", () => {
         this.farms = farmsAround;
-        this.loaded = true;
+        this.loading = false;
         /* Adds 5km to the current radius until it reaches the radius.
            This is so the farms would be displayed sorted by thier distance from the current location.
            For more info: https://github.com/firebase/geofire-js/issues/59#issuecomment-70350560

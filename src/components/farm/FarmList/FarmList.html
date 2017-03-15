@@ -26,5 +26,6 @@
   <div v-if="loaded && farms.length === 0" class="panel">
     לא נמצאו משקים באיזורך 😢
   </div>
+  <div v-if="loading" class="spinner"></div>
   <farm-card v-for="farm in farms" :farm="farm" :key="farm.key" :current-location="currentLocation"></farm-card>
 </form>
