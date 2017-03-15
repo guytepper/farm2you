@@ -72,7 +72,12 @@ export default {
 <style lang="css">
   .farm-card {
     display: flex;
-    margin-bottom: 10px;
+    flex: 1 1 150px;
+  }
+
+  /* Override panel margin prop */
+  .farm-card.panel {
+    margin: 5px;
   }
 
   .farm-card__name {
@@ -92,9 +97,6 @@ export default {
   .farm-card__props-item {
     display: inline-flex;
     margin-left: 5px;
-  }
-
-  .farm-card__props-item-title {
   }
 
   .farm-card__icon {
