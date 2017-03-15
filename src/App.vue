@@ -15,6 +15,9 @@ export default {
   components: {
     AppHeader
   },
+  metaInfo: {
+    titleTemplate: '%s | ישר מהשדה'
+  }
 }
 </script>
 

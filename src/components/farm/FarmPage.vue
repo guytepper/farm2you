@@ -64,6 +64,21 @@ export default {
       apiKey: GOOGLE_API_KEY
     }
   },
+  computed: {
+    title () {
+      if (this.farm != null) {
+        return this.farm.name;
+      }
+      else {
+        return 'ישר מהשדה'
+      }
+    }
+  },
+  metaInfo () {
+    return {
+      title: this.title
+    }
+  },
   methods: {
     // Fetch the farm using ID parameter from route
     fetchFarm() {
@@ -78,7 +93,7 @@ export default {
     this.fetchFarm().then(farm => {
       this.farm = farm;
       // Set page title & description
-      document.title = farm.name + ' | ישר מהשדה';
+      // document.title = farm.name + ' | ישר מהשדה';
       getFarmLocation(this.id).then(location => {
         displayMap(document.getElementById('map'), location);
       });
