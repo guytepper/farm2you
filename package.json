@@ -15,7 +15,8 @@
     "vue": "^2.2.2",
     "vue-meta": "^0.5.5",
     "vue-router": "^2.2.0",
-    "vue-template-compiler": "^2.2.2"
+    "vue-template-compiler": "^2.2.2",
+    "vue-ua": "^1.2.3"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",

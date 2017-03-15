@@ -92,6 +92,7 @@ export default {
   created () {
     this.fetchFarm().then(farm => {
       this.farm = farm;
+      this.$ua.trackView(farm.name);
       // Set page title & description
       // document.title = farm.name + ' | ישר מהשדה';
       getFarmLocation(this.id).then(location => {

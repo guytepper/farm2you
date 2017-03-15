@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+
 import Meta from 'vue-meta'
+import VueAnalytics from 'vue-ua'
 
 import store from './store'
 import Auth from './helpers/Auth'
 
-// Import app components
 import Homepage from './components/Homepage'
 import FarmList from './components/farm/FarmList'
 import FarmPage from './components/farm/FarmPage'
@@ -17,15 +18,13 @@ import LoginPage from './components/forms/Auth/LoginPage'
 Vue.use(VueRouter)
 Vue.use(Meta)
 
-const baseTitle = ' - ישר מהשדה'
-
 // App routes
 const routes = [
-  { path: '/', component: FarmList },
+  { path: '/', name: 'homepage', component: FarmList },
   { path: '/farm/:id', name: 'farm', component: FarmPage, props: true },
   { path: '/login/', component: LoginPage },
-  { path: '/add-farm/', component: AddFarmUser },
-  { path: '/admin/add-farm/', component: AddFarm, meta: { title: 'הוספת משק' + baseTitle , onlyAdmin: true} },
+  { path: '/add-farm/', name: 'add-farm', component: AddFarmUser },
+  { path: '/admin/add-farm/', component: AddFarm, meta: { onlyAdmin: true} },
 ]
 
 const router = new VueRouter({
@@ -42,10 +41,13 @@ router.beforeEach((to, from, next) => {
     else next('/');
   }
   else next();
+})
 
-  // Set the page title
-  if (to.meta.title) document.title = to.meta.title;
-  else document.title = 'ישר מהשדה'
+// Analytics
+Vue.use(VueAnalytics, {
+  appName: 'Farm2You',
+  appVersion: '1.0',
+  trackingId: 'UA-18040964-7',
 })
 
 // Export the VueRouter instance
