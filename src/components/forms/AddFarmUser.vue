@@ -6,5 +6,10 @@
 
 <script>
 export default {
+  metaInfo () {
+    return {
+      title: 'הוספת משק'
+    }
+  },
 }
 </script>
