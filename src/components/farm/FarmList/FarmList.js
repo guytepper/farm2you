@@ -8,7 +8,7 @@ export default {
   data: function() {
     return {
       farms: [],
-      loading: false,
+      loading: true,
       geoQuery: {},
       searchPosition: null
     }
@@ -29,13 +29,19 @@ export default {
     }
   },
   methods: {
-    getUserLocation () {
+    // Reset farm list array
+    resetFarmList () {
       this.loading = true;
+      this.farms = [];
+    },
+    getUserLocation () {
+      this.resetFarmList();
       this.$store.dispatch('GET_USER_LOCATION');
     },
     // Called when search button being clicked
     searchFarms () {
       if (this.searchPosition != null) {
+        this.resetFarmList();
         const coords = this.searchPosition.geometry.location;
         this.$store.commit('UPDATE_LOCATION', [ coords.lat(), coords.lng() ]);
       }
