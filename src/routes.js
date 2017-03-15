@@ -10,6 +10,7 @@ import Homepage from './components/Homepage'
 import FarmList from './components/farm/FarmList'
 import FarmPage from './components/farm/FarmPage'
 import AddFarm from './components/forms/AddFarm'
+import AddFarmUser from './components/forms/AddFarmUser'
 import LoginPage from './components/forms/Auth/LoginPage'
 
 // Register VueRouter with Vue
@@ -23,7 +24,8 @@ const routes = [
   { path: '/', component: FarmList },
   { path: '/farm/:id', name: 'farm', component: FarmPage, props: true },
   { path: '/login/', component: LoginPage },
-  { path: '/add-farm/', component: AddFarm, meta: { title: 'הוספת משק' + baseTitle , onlyAdmin: true} },
+  { path: '/add-farm/', component: AddFarmUser },
+  { path: '/admin/add-farm/', component: AddFarm, meta: { title: 'הוספת משק' + baseTitle , onlyAdmin: true} },
 ]
 
 const router = new VueRouter({

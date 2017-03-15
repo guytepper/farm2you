@@ -8,8 +8,11 @@
 
     <div class="header__left-section">
       <div v-if="this.$store.state.User.info">
-        <router-link to="/add-farm/" class="header__link">הוספת משק</router-link>
+        <router-link to="/admin/add-farm/" class="header__link">הוספת משק</router-link>
         <a href="#"  @click="signOut" class="header__link">התנתקות</a>
+      </div>
+      <div v-else>
+        <router-link to="/add-farm/" class="header__link">הוספת משק</router-link>
       </div>
     </div>
   </header>
