@@ -75,6 +75,10 @@ export default {
       }
     }
   },
+  metaInfo: {
+    title: 'ישר מהשדה',
+    titleTemplate: null
+  },
   mounted () {
     // Init google autocomplete widget
     const element = document.getElementById('farm-search__field');

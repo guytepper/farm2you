@@ -16,8 +16,7 @@ export default {
     AppHeader
   },
   metaInfo: {
-      title: 'ישר מהשדה',
-      titleTemplate: '%s | ישר מהשדה'
+    titleTemplate: '%s | ישר מהשדה'
   }
 }
 </script>
