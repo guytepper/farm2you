@@ -41,6 +41,7 @@ export default {
       'description': '',
       'props': {
         'organic': false,
+        'pest_control': false,
         'direct_sell': false,
         'online_sell': false,
         'shipping': false,
@@ -71,6 +72,7 @@ export default {
         'description': this.description,
         'props': {
           'organic': this.props.organic,
+          'pest_control': this.props.pest_control,
           'direct_sell': this.props.direct_sell,
           'online_sell': this.props.online_sell,
           'shipping': this.props.shipping,
