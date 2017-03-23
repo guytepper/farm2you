@@ -14,9 +14,11 @@
     flex: 1 1;
 
     .mui-btn {
-      flex: 1;
-      margin: 5px 0;
+      display: flex;
+      justify-content: center;
       width: 100%;
+      margin: 5px 0;
+      flex: 1;
     }
 
     @media (min-width: 400px) {
@@ -28,6 +30,11 @@
       }
     }
   }
+
+.farm-search__parameters {
+  display: flex;
+  align-items: center;
+}
 
 .farm-search__field-container {
   display: flex;
