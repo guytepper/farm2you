@@ -8,6 +8,7 @@ export default {
     return {
       farms: [],
       loading: false,
+      isEmpty: false,
       geoQuery: {},
       searchPosition: null
     }
@@ -36,11 +37,14 @@ export default {
     searchFarms () {
       if (this.searchPosition != null) {
         const coords = this.searchPosition.geometry.location;
+        // Update the location on the store
         this.$store.commit('UPDATE_LOCATION', [ coords.lat(), coords.lng() ]);
       }
     },
     // Finds the closest farms to the  user location
     getClosestFarms () {
+      // Reset empty message, if it's being displayed currently
+      this.isEmpty = false;
       const geoFire = new GeoFire(this.$root.$firebaseRefs.locations); // TODO: Use a global geofire object
       this.geoQuery = geoFire.query({
         center: [this.currentLocation[0], this.currentLocation[1]],
@@ -66,10 +70,16 @@ export default {
         if (this.geoQuery.radius() < parseInt(this.radius)) {
           this.geoQuery.updateCriteria({ radius: this.geoQuery.radius() + 5 });
         }
+
+        // Display a message if no farms were found
+        if (this.farms.length === 0) {
+          this.isEmpty = true;
+        }
       });
     }
   },
   watch: {
+    // Watch for location changes on store
     currentLocation: function (newLocation) {
       if (newLocation != null) {
         this.getClosestFarms();
