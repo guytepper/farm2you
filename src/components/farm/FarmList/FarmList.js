@@ -30,6 +30,7 @@ export default {
   },
   methods: {
     getUserLocation () {
+      this.farms = []; // Reset farm list
       this.loading = true;
       this.$store.dispatch('GET_USER_LOCATION');
     },
