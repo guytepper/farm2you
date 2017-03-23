@@ -30,7 +30,7 @@
       </select>
     </label>
   </div>
-  <div v-if="!loading && farms.length === 0" class="panel">
+  <div v-if="isEmpty" class="panel">
     לא נמצאו משקים באיזורך 😢
   </div>
   <div v-if="loading" class="spinner"></div>
