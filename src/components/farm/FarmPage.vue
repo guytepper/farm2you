@@ -32,6 +32,10 @@
           <img src="/static/images/icons/organic.svg" class="farm-info__icon" alt="">
           <span>אורגני</span>
         </div>
+        <div class="farm-info__item" v-if="farm.props.pest_control">
+          <img src="/static/images/icons/pest_control.svg" class="farm-info__icon" alt="">
+          <span>ללא ריסוס</span>
+        </div>
         <div class="farm-info__item" v-if="farm.props.shipping">
           <img src="/static/images/icons/shipping.svg" class="farm-info__icon" alt="">
           <span>משלוחים</span>
