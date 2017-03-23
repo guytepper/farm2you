@@ -9,6 +9,10 @@
           <img src="/static/images/icons/organic.svg" class="farm-card__icon" alt="">
           <span class="farm-card__props-item-title">אורגני</span>
         </span>
+        <span v-if="farm.props.pest_control" class="farm-card__props-item">
+          <img src="/static/images/icons/pest_control.svg" class="farm-card__icon" alt="">
+          <span class="farm-card__props-item-title">ללא ריסוס</span>
+        </span>
         <span v-if="farm.props.shipping" class="farm-card__props-item">
           <img src="/static/images/icons/shipping.svg" class="farm-card__icon" alt="">
           <span class="farm-card__props-item-title">משלוחים</span>
