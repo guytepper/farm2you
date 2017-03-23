@@ -83,8 +83,13 @@ export default {
   mounted () {
     // Init google autocomplete widget
     const element = document.getElementById('farm-search__field');
+    // Provide the init widget function the element to be used on, and a callback to be
+    // called when a location is being changed.
     initGMAutoComplete(element, location => {
+      // Set the current search position
       this.searchPosition = location;
+      // Search for farms using that location
+      this.searchFarms();
     });
     // Display farms if has user's location
     if (this.currentLocation) {
