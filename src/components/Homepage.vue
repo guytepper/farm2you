@@ -1,132 +1,52 @@
 <template>
-  <div class="homepage">
-    <div class="homepage__content">
-      <p>פרוייקט ישר מהשדה עוזר לחבר את החקלאים ישירות אליכם - הלקוחות.</p>
-      <p>הפרוייקט נמצא בשלב איסוף הנתונים - אתם מוזמנים <router-link to="/add-farm">להוסיף משקים</router-link>, לעקוב בעמוד הפייסבוק, או להרשם לעדכונים במייל:</p>
-      <form action="//farm2you.us14.list-manage.com/subscribe/post?u=3569206df0c1612c954a1c699&amp;id=52d172b033" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate subscribe-form" target="_blank">
-        <div style="display: none;" aria-hidden="true"><input type="text" name="b_3569206df0c1612c954a1c699_52d172b033" tabindex="-1" value=""></div>
-        <div class="subscribe-form-groups">
-          <div class="subscribe-form-group">
-            <label for="mce-EMAIL">אימייל</label>
-            <input type="email" value="" name="EMAIL" class="subscribe-input" id="mce-EMAIL" required>
-          </div>
-          <div class="subscribe-form-group">
-            <label for="mce-FNAME">שם פרטי</label>
-            <input type="text" value="" name="FNAME" class="subscribe-input" id="mce-FNAME" required>
-          </div>
-          <div class="subscribe-form-group">
-            <label for="mce-LNAME">שם משפחה</label>
-            <input type="text" value="" name="LNAME" class="subscribe-input" id="mce-LNAME" required>
-          </div>
-        </div>
-        <div class="clear"><input type="submit" value="הרשמה" name="subscribe" id="mc-embedded-subscribe" class="subscribe-button"></div>
-      </form>
+  <div class="homepage panel">
+    <div class="farm-icon">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="48px" height="48px" viewBox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve">
+        <polygon fill="#F44336" points="37.781,13.656 24,8 10.219,13.656 6,23 7,23 7,42 41,42 41,23 42,23 "></polygon>
+        <rect x="15" y="29" fill="#FF8A80" width="18" height="12"></rect>
+        <g>
+          <rect x="20" y="14" fill="#FFFFFF" width="8" height="8"></rect>
+          <path fill="#FFFFFF" d="M32,30v10H16V30H32 M34,28H14v14h20V28L34,28z"></path>
+          <rect x="23" y="29" fill="#FFFFFF" width="2" height="13"></rect>
+          <polyline fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="bevel" points="16,41 24,29 32,41 	"></polyline>
+        </g>
+        <g>
+          <polygon fill="#B71C1C" points="39,12.001 24,6 24,8 37.781,13.656 	"></polygon>
+          <polygon fill="#B71C1C" points="42,24 44,24 39,12.001 37.781,13.656 	"></polygon>
+          <polygon fill="#B71C1C" points="9,12.001 24,6 24,8 10.219,13.656 	"></polygon>
+          <polygon fill="#B71C1C" points="6,24 4,24 9,12.001 10.219,13.656 	"></polygon>
+        </g>
+        <rect x="22.001" y="16" fill="#4E342E" width="3.999" height="4"></rect>
+      </svg>
+    </div>
+    <div class="homepage-text">
+      <h2 class="homepage-text-title">ישר מהשדה הוא מנוע חיפוש למשקים חקלאיים.</h2>
+      <p>בעזרת רכישת תוצרת מקומית אתם מצמצמים את פערי התיווך, תומכים בחקלאים ומרוויחים סחורה איכותית.</p>
     </div>
   </div>
 </template>
 
+<script>
+
+export default {
+  name: 'homepage'
+}
+
+</script>
+
 <style lang="scss">
 @import "../assets/scss/mixins";
 
-  .homepage {
-    margin: -15px -20px 0; // Reset container margins
-    height: calc(100vh - 55px);
-    background: url('/static/images/homepage/hero-image-768px@2x.jpg') no-repeat center center;
-    background-size: cover;
+.homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 
-    @include respond-at(1000px) {
-      margin: -15px -40px 0;
-    };
+.homepage-text-title {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
 
-    @supports (background-image: -webkit-image-set(url('') 1x)) {
-      @include respond-at(1280px) {
-        background-image: -webkit-image-set(url('/static/images/homepage/hero-image-1440px@1x.jpg') 1x,
-            url('/static/images/homepage/hero-image-1440px@2x.jpg') 2x);
-      };
-
-      @include respond-at(1920px) {
-        background-image: -webkit-image-set(url('/static/images/homepage/hero-image-1920px@1x.jpg') 1x,
-            url('/static/images/homepage/hero-image-1920px@2x.jpg') 2x);
-      };
-    }
-  }
-
-  .homepage__content {
-    display: flex;
-    height: 100%;
-    max-width: 550px;
-    margin: 0 auto;
-    padding: 25px 20px;
-    flex-direction: column;
-    align-items: center;
-    font-size: 5vw;
-    font-weight: bold;
-    text-align: center;
-
-    @include respond-at(600px) {
-      font-size: 28px;
-    };
-  }
-
-  .subscribe-form {
-    width: 70%;
-
-    @include respond-at(768px) {
-      width: 50%;
-      font-size: 25px;
-    };
-  }
-
-  .subscribe-form-groups {
-    padding: 5px 0;
-    background-color: rgba(255,255,255,0.9);
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 2px 0 rgba(0, 0, 0, 0.12);
-    border: 1px solid rgba(0, 0, 0, 0.16);
-    border-radius: 3px;
-
-    label {
-      font-weight: 100;
-    }
-
-    @supports (-webkit-backdrop-filter: blur(5px)) {
-      background-color: rgba(255, 247, 237, 0.23);
-      backdrop-filter: blur(5px);
-    };
-
-    @include respond-at(768px) {
-      padding-bottom: 10px;
-    };
-  }
-
-  .subscribe-form-group {
-    margin-bottom: 5px;
-  }
-
-  .subscribe-input {
-    display: block;
-    max-width: 90%;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .subscribe-button {
-    appearance: none;
-    font-size: 18px;
-    border: none;
-    color: #fff;
-    background-color: #e67e22;
-    border-radius: 3px;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 2px 0 rgba(0, 0, 0, 0.12);
-    height: 40px;
-    line-height: 32px;
-    padding: 0 18px;
-    margin-top: 5px;
-    transition: all 0.23s ease-in-out 0s;
-    width: 100%;
-
-    &:hover {
-      background-color: #d35400;
-      cursor: pointer;
-    }
-  }
 </style>

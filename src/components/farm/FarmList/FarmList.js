@@ -1,9 +1,10 @@
 import GeoFire from 'geofire';
 import FarmCard from '../FarmCard';
+import Homepage from '../../Homepage';
 import { initGMAutoComplete } from '../../../helpers/GoogleWidgets';
 
 export default {
-  components: { FarmCard },
+  components: { FarmCard, Homepage },
   data: function() {
     return {
       farms: [],
