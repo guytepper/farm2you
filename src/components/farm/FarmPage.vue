@@ -115,6 +115,16 @@ export default {
 
   .farm-info {
     margin-bottom: 20px;
+
+    @media (min-width: 480px) {
+      display: flex;
+    }
+  }
+
+  .farm-info__right-section {
+    @media (min-width: 480px) {
+      margin-left: 50px;
+    }
   }
 
   .farm-info__item {
