@@ -12,7 +12,7 @@
         <a href="#"  @click="signOut" class="header__link">התנתקות</a>
       </div>
       <div v-else>
-        <router-link to="/add-farm/" class="header__link">הוספת משק</router-link>
+        <router-link to="/add-farm/" class="header__link">+ הוספת משק</router-link>
       </div>
     </div>
   </header>
