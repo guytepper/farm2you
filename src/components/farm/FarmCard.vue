@@ -26,9 +26,13 @@
           <span class="farm-card__props-item-title">הזמנה באינטרנט</span>
         </span>
       </div>
-      <div class="farm-card__location" v-if="distance">
+      <span>
+        <img src="/static/images/icons/place.svg" class="farm-card__icon" alt="" style="margin-left: 0">
+        <span class="farm-card__props-item-title">{{ farm.city }},</span>
+      </span>
+      <span class="farm-card__location" v-if="distance">
         {{ distance }} ק״מ ממיקומך
-      </div>
+      </span>
     </div>
   </div>
 </template>
