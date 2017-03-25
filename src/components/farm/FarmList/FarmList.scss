@@ -1,11 +1,10 @@
 @import '../../../assets/scss/spinner.scss';
 
-  .farm-search {
-
-    .mui-textfield {
-      margin-left: 15px;
-      flex: 1 1 300px;
-    }
+.farm-search {
+  // To win specificty over muicss
+  .mui-textfield {
+    margin-left: 15px;
+    flex: 1 1 300px;
   }
 
   .farm-search__buttons {
