@@ -19,7 +19,7 @@
       </div>
     </div>
   </div>
-  <div class="farm-search__filters panel" v-if="farms.length > 0">
+  <div class="farm-search__filters panel" v-if="farms.length > 0 || isEmpty">
     <label for="select-radius" class="select-radius-label">רדיוס חיפוש (בק״מ):
       <select v-model="radius" id="select-radius" @change="getClosestFarms">
         <option>5</option>
